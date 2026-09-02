@@ -38,7 +38,7 @@ export default function Home() {
     <header className="site-header"><a href="#top" className="wordmark">MK / MY PAYDAY INDEX</a><div className="header-meta"><span className="status-dot" /> caught up to {current.label}</div></header>
 
     <section className="hero" id="top">
-      <div><p className="eyebrow">A 20-year-old&apos;s paper-money experiment</p><h1>What if I<br />went for it?</h1></div>
+      <div><p className="eyebrow">My paper-money experiment</p><h1>What if I<br />went for it?</h1></div>
       <div className="hero-copy"><p>I&apos;m careful with real money, so I built somewhere safe to test the opposite. Every payday, I pretend to put 15% of my take-home into three fast-moving ETFs and see if my rules can beat the sensible S&amp;P 500 option. The pretend horizon is 20 to 30 years.</p><div className="paper-note">Fake money. Real market data. No suits involved.</div></div>
     </section>
 
@@ -81,9 +81,9 @@ export default function Home() {
         <li><span>02</span><p><b>Look for movement.</b> I keep ETFs with beta between {backtest.betaRange[0]} and {backtest.betaRange[1]}. This is my risky sandbox, so slow and steady is not the assignment.</p></li>
         <li><span>03</span><p><b>Back recent winners.</b> I take the 15 highest-beta ETFs, then keep the ten with the best previous three months. That stops me choosing whichever ticker looks coolest that day.</p></li>
         <li><span>04</span><p><b>Only buy three.</b> I split the whole month&apos;s money across three leaders and prefer picks below 10%. Focused enough to make a difference, still spread across more than one idea.</p></li>
-        <li><span>05</span><p><b>Keep showing up.</b> I repeat it after every completed month and race the same deposits in SPY. I&apos;m 20. Time is the one advantage I definitely have.</p></li>
+        <li><span>05</span><p><b>Keep showing up.</b> I repeat it after every completed month and race the same deposits in SPY. I can leave this alone for years. Time is the one advantage I definitely have.</p></li>
       </ol>
-      <div className="method-note"><b>Before I get carried away</b><p>{backtest.methodology.caveat} Beta does not promise a return. The leveraged funds reset every day and can behave very differently over a long stretch. This can go badly, which is exactly why it stays a paper experiment.</p></div>
+      <div className="method-note"><b>Before I get carried away</b><p>{backtest.methodology.caveat} Beta does not promise a return. The leveraged funds reset every day and can behave very differently over a long stretch. This can go badly. That&apos;s why it stays a paper experiment on this public page.</p></div>
     </section>
 
     <footer><span>Made by MK, mostly out of curiosity</span><span>I refresh the market data monthly &middot; {new Date(backtest.generatedAt).toLocaleDateString("en-GB")}</span></footer>

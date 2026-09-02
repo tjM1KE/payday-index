@@ -15,7 +15,7 @@ test("server-renders the data-backed Payday Index app", async () => {
   const html = await response.text();
   assert.match(html, /<title>Payday Index \| My risky paper experiment<\/title>/i);
   assert.match(html, /What if I/);
-  assert.match(html, /20-year-old/);
+  assert.match(html, /My paper-money experiment/);
   assert.match(html, /sensible S&amp;P 500 option/);
   assert.match(html, /20 to 30 years/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
@@ -29,5 +29,6 @@ test("states the strategy without source attribution", async () => {
   assert.match(html, /prefer picks below 10%/);
   assert.match(html, /daily-leveraged fund/);
   assert.match(html, /Time is the one advantage I definitely have/);
+  assert.match(html, /paper experiment on this public page/);
   assert.doesNotMatch(html, /YouTube|Robinhood|Coding Jesus/i);
 });

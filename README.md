@@ -2,7 +2,7 @@
 
 Payday Index is where I let my riskier ideas out without letting them near a real brokerage account.
 
-I am 20 and fairly careful with actual money. This project lets me ask a much less careful question: what happens if I put 15% of my take-home into fast-moving ETFs every month and leave the rules alone for 20 to 30 years?
+I am fairly careful with actual money. This project lets me ask a much less careful question: what happens if I put 15% of my take-home into fast-moving ETFs every month and leave the rules alone for 20 to 30 years?
 
 The paper contribution is GBP 491.25 a month, based on 15% of GBP 3,275. The experiment starts in January 2024 and races the same monthly deposits in SPY.
 
