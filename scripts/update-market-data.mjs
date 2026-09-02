@@ -3,12 +3,17 @@ import { dirname, resolve } from "node:path";
 import closedEtfsJson from "./data/closed-etfs.json" with { type: "json" };
 
 const MONTHLY_CONTRIBUTION_GBP = 491.25;
-const START_MONTH = "2024-01";
+const START_MONTH = "2022-04";
 const MARKET = "SPY";
 const FX = "GBPUSD=X";
+const COMPARISON_BENCHMARKS = [
+  { ticker: "SPY", label: "S&P 500", description: "Large US companies" },
+  { ticker: "QQQ", label: "Nasdaq-100", description: "Large, tech-heavy US companies" },
+  { ticker: "VT", label: "World stocks", description: "Developed and emerging markets" },
+];
 const BETA_MIN = 1.5;
 const BETA_MAX = 3;
-const HISTORY_START = "2022-12-01";
+const HISTORY_START = "2021-01-01";
 const UNIVERSE_STATE_PATH = resolve("scripts/data/universe.json");
 const OUTPUT_PATH = resolve("app/data/backtest.json");
 const NASDAQ_ETF_URL = "https://api.nasdaq.com/api/screener/etf?download=true";
@@ -57,7 +62,8 @@ async function fetchNasdaqFunds() {
     ticker: cleanTicker(row.symbol),
     name: row.companyName.trim(),
     leveraged: isLeveraged(row.companyName),
-  })).filter((fund) => fund.ticker && fund.name && !isEtn(fund.name));
+  })).filter((fund) => fund.ticker && fund.name && !isEtn(fund.name))
+    .sort((a, b) => a.ticker.localeCompare(b.ticker));
 }
 
 async function buildUniverse() {
@@ -156,7 +162,7 @@ async function fetchSeries(ticker, attempt = 1) {
 }
 
 async function fetchAll(funds) {
-  const tickers = [...new Set([MARKET, FX, ...funds.map((fund) => fund.ticker)])];
+  const tickers = [...new Set([MARKET, FX, ...COMPARISON_BENCHMARKS.map((benchmark) => benchmark.ticker), ...funds.map((fund) => fund.ticker)])];
   const result = {};
   const failures = [];
   const batchSize = 24;
@@ -173,7 +179,8 @@ async function fetchAll(funds) {
       await sleep(150);
     }
   }
-  if (!result[MARKET] || !result[FX]) throw new Error("Benchmark or GBP/USD data unavailable");
+  const missingBenchmark = COMPARISON_BENCHMARKS.find((benchmark) => !result[benchmark.ticker]);
+  if (missingBenchmark || !result[FX]) throw new Error(`${missingBenchmark?.ticker ?? "GBP/USD"} data unavailable`);
   return { result, failures };
 }
 
@@ -266,15 +273,17 @@ function buildBacktest(universe, series, failures) {
   const fundsById = new Map(pricedFunds.map((fund) => [fund.id, fund]));
   const holdings = new Map();
   let cashGbp = 0;
-  let benchmarkUnits = 0;
+  const benchmarkUnits = new Map(COMPARISON_BENCHMARKS.map((benchmark) => [benchmark.ticker, 0]));
+  const previousBenchmarkValues = new Map();
+  let previousStrategyValueGbp = null;
   let contributedGbp = 0;
   const records = [];
 
   for (const month of completedMonths()) {
     const cutoff = monthEnd(month);
     const fx = priceAt(series[FX], cutoff);
-    const spyPrice = priceAt(series[MARKET], cutoff);
-    if (!fx || !spyPrice) continue;
+    const comparisonPrices = new Map(COMPARISON_BENCHMARKS.map((benchmark) => [benchmark.ticker, priceAt(series[benchmark.ticker], cutoff)]));
+    if (!fx || [...comparisonPrices.values()].some((price) => !price)) continue;
 
     const liquidations = [];
     for (const [id, position] of holdings) {
@@ -326,7 +335,23 @@ function buildBacktest(universe, series, failures) {
     });
 
     contributedGbp += MONTHLY_CONTRIBUTION_GBP;
-    benchmarkUnits += MONTHLY_CONTRIBUTION_GBP * fx / spyPrice;
+    const benchmarks = {};
+    for (const benchmark of COMPARISON_BENCHMARKS) {
+      const price = comparisonPrices.get(benchmark.ticker);
+      const unitsBefore = benchmarkUnits.get(benchmark.ticker);
+      const valueBeforeGbp = unitsBefore * price / fx;
+      const previousValue = previousBenchmarkValues.get(benchmark.ticker);
+      const monthlyReturnPct = previousValue ? (valueBeforeGbp / previousValue - 1) * 100 : 0;
+      const unitsAfter = unitsBefore + MONTHLY_CONTRIBUTION_GBP * fx / price;
+      const valueGbp = unitsAfter * price / fx;
+      benchmarkUnits.set(benchmark.ticker, unitsAfter);
+      previousBenchmarkValues.set(benchmark.ticker, valueGbp);
+      benchmarks[benchmark.ticker] = {
+        valueGbp: round(valueGbp),
+        returnPct: round((valueGbp / contributedGbp - 1) * 100),
+        monthlyReturnPct: round(monthlyReturnPct, 4),
+      };
+    }
     const portfolioHoldings = [...holdings.entries()].map(([id, position]) => {
       const fund = fundsById.get(id);
       const price = priceAt(series[fund.ticker], cutoff);
@@ -338,7 +363,9 @@ function buildBacktest(universe, series, failures) {
       portfolioHoldings.push({ ticker: "CASH", name: "Cash from closed ETFs", valueGbp: cashGbp, contributedGbp: 0, beta: 0, leveraged: false });
     }
     const strategyValueGbp = portfolioHoldings.reduce((sum, holding) => sum + holding.valueGbp, 0);
-    const benchmarkValueGbp = benchmarkUnits * spyPrice / fx;
+    const strategyMonthlyReturnPct = previousStrategyValueGbp ? (valueBeforeGbp / previousStrategyValueGbp - 1) * 100 : 0;
+    previousStrategyValueGbp = strategyValueGbp;
+    const benchmarkValueGbp = benchmarks.SPY.valueGbp;
     const weightedBeta = portfolioHoldings.reduce((sum, holding) => sum + (holding.beta ?? 0) * holding.valueGbp, 0) / strategyValueGbp;
     const aliveUniverseCount = pricedFunds.filter((fund) => isAliveAt(fund, series[fund.ticker], cutoff)).length;
 
@@ -348,10 +375,12 @@ function buildBacktest(universe, series, failures) {
       contributionGbp: MONTHLY_CONTRIBUTION_GBP,
       contributedGbp: round(contributedGbp),
       strategyValueGbp: round(strategyValueGbp),
+      strategyMonthlyReturnPct: round(strategyMonthlyReturnPct, 4),
       benchmarkValueGbp: round(benchmarkValueGbp),
       alphaGbp: round(strategyValueGbp - benchmarkValueGbp),
       strategyReturnPct: round((strategyValueGbp / contributedGbp - 1) * 100),
-      benchmarkReturnPct: round((benchmarkValueGbp / contributedGbp - 1) * 100),
+      benchmarkReturnPct: benchmarks.SPY.returnPct,
+      benchmarks,
       weightedBeta: round(weightedBeta),
       universeCount: aliveUniverseCount,
       eligibleCount: candidates.length,
@@ -377,6 +406,7 @@ function buildBacktest(universe, series, failures) {
     monthlyContributionGbp: MONTHLY_CONTRIBUTION_GBP,
     startMonth: START_MONTH,
     benchmark: "SPY, an investable S&P 500 proxy",
+    benchmarks: COMPARISON_BENCHMARKS,
     betaRange: [BETA_MIN, BETA_MAX],
     universeSize: pricedFunds.length,
     universeCoverage: {
@@ -393,7 +423,8 @@ function buildBacktest(universe, series, failures) {
       selection: "Take the 15 highest-beta eligible ETFs, rank those by three-month momentum, then buy the best three from the top ten. Prefer candidates below 10% of the portfolio; never force a sale.",
       timing: "Contribute and buy at each completed month-end. Fractional total-return units are used.",
       currency: "Convert each GBP contribution into USD at that month-end GBP/USD rate, then translate portfolio values back into GBP.",
-      universe: "For each month, use funds that were alive on that date from a reconstruction of the full Nasdaq ETF list and recorded US ETF closures since 2024. Funds need 126 matched trading sessions before they can qualify.",
+      universe: "For each month, use funds that were alive on that date from a reconstruction of the full Nasdaq ETF list and recorded US ETF closures since 2024. Funds need 126 matched trading sessions before they can qualify. The April 2022 to December 2023 window has more survivorship risk because the free closure register is not complete for those dates.",
+      comparisons: "Compare time-weighted monthly performance with SPY, QQQ and VT. Each chart starts at 100 for the selected first month so later monthly deposits are not mistaken for investment growth.",
       liquidation: "When a held ETF closes, convert its units to GBP at the last available adjusted price and closing-date FX rate, then keep the proceeds as cash.",
       caveat: "This public-data reconstruction reduces survivorship and hand-selection bias, but it is not CRSP-grade. Some delisted price histories, final liquidation distributions and ticker changes may be missing.",
     },

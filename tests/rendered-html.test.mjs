@@ -17,8 +17,9 @@ test("server-renders the data-backed Payday Index app", async () => {
   assert.match(html, /<title>Payday Index \| My risky paper experiment<\/title>/i);
   assert.match(html, /What if I/);
   assert.match(html, /My paper-money experiment/);
-  assert.match(html, /sensible S&amp;P 500 option/);
+  assert.match(html, /usual index options/);
   assert.match(html, /20 to 30 years/);
+  assert.match(html, /from <b>Apr 2022<\/b>/);
   assert.match(html, /Why £491\.25\?/);
   assert.match(html, /£49,692 gross median/);
   assert.match(html, /£39,298 a year/);
@@ -26,6 +27,11 @@ test("server-renders the data-backed Payday Index app", async () => {
   assert.match(html, /£70,275 mean/);
   assert.match(html, /2026\/27 rates/);
   assert.match(html, /Income Tax and National Insurance/);
+  assert.match(html, /Performance start month/);
+  assert.match(html, /Performance end month/);
+  assert.match(html, /Nasdaq-100/);
+  assert.match(html, /World stocks/);
+  assert.match(html, /Both lines equal 100/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
 });
 
@@ -45,11 +51,18 @@ test("states the strategy without source attribution", async () => {
 
 test("uses a broad point-in-time universe with closed funds", async () => {
   const backtest = JSON.parse(await readFile(new URL("../app/data/backtest.json", import.meta.url), "utf8"));
+  assert.equal(backtest.startMonth, "2022-04");
+  assert.equal(backtest.months[0].month, "2022-04");
+  assert.deepEqual(backtest.benchmarks.map((benchmark) => benchmark.ticker), ["SPY", "QQQ", "VT"]);
   assert.ok(backtest.universeCoverage.activeListed > 5000);
   assert.ok(backtest.universeCoverage.pricedClosures > 500);
-  assert.ok(backtest.months.every((month) => month.universeCount > 3000));
+  assert.ok(backtest.months.every((month) => month.universeCount > 2000));
+  assert.ok(backtest.months.every((month) => Number.isFinite(month.strategyMonthlyReturnPct)));
+  assert.ok(backtest.months.every((month) => ["SPY", "QQQ", "VT"].every((ticker) => Number.isFinite(month.benchmarks[ticker].monthlyReturnPct))));
   assert.ok(backtest.months.some((month) => month.liquidations.length > 0));
   assert.ok(backtest.current.holdings.some((holding) => holding.ticker === "CASH"));
   assert.match(backtest.methodology.universe, /alive on that date/);
+  assert.match(backtest.methodology.universe, /April 2022 to December 2023/);
+  assert.match(backtest.methodology.comparisons, /time-weighted monthly performance/);
   assert.match(backtest.methodology.caveat, /not CRSP-grade/);
 });
