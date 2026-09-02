@@ -1,43 +1,49 @@
 # Payday Index
 
-Payday Index is my high-risk paper portfolio. It invests 15% of a typical London monthly take-home pay and tracks every completed month against the same contributions into the S&P 500.
+Payday Index is where I let my riskier ideas out without letting them near a real brokerage account.
 
-The current paper contribution is £491.25 per month, based on 15% of £3,275. The backtest begins in January 2024 and includes GBP/USD conversion because the contribution is in pounds while the ETFs trade in dollars.
+I am 20 and fairly careful with actual money. This project lets me ask a much less careful question: what happens if I put 15% of my take-home into fast-moving ETFs every month and leave the rules alone for 20 to 30 years?
 
-## Monthly strategy
+The paper contribution is GBP 491.25 a month, based on 15% of GBP 3,275. The experiment starts in January 2024 and races the same monthly deposits in SPY.
 
-1. Calculate each candidate ETF's trailing beta against SPY.
-2. Keep ETFs with beta between 1.5 and 3.
-3. Take the 15 highest-beta eligible ETFs.
-4. Rank those ETFs by adjusted-price performance over the previous three completed month ends.
-5. Keep the leading ten and invest the full monthly contribution in three of them.
-6. Prefer candidates below 10% of the existing portfolio. This is a soft limit, so the model does not force sales when a winner moves above it.
-7. Repeat at every completed month-end and compare the result with the same monthly contribution into SPY.
+## Why I made these rules
 
-The intended holding period is 20 to 30 years. This is deliberately aggressive. The candidate universe includes daily-reset leveraged ETFs, which the interface labels clearly.
+I wanted something risky, but I did not want to choose funds on vibes alone.
 
-## Backtest details
+1. I calculate each ETF's trailing beta against SPY.
+2. I keep funds with beta between 1.5 and 3 because this is the bumpy portfolio.
+3. I take the 15 highest-beta funds, then keep the ten with the best previous three months.
+4. I buy only three. That gives the winners enough weight without betting the whole month on one idea.
+5. I prefer funds below 10% of the pot so one holding does not swallow everything.
+6. I do not force a sale just because a winner drifts over 10%. The limit is a nudge, not a wall.
+7. I repeat the same process every completed month and compare it with SPY.
 
-- Adjusted daily prices and GBP/USD history come from Yahoo Finance's chart data.
-- Beta uses up to 252 trailing sessions and requires at least 126 matched observations against SPY.
+The simple motivation is that I have time. I would rather test a wild long-term idea on paper now than discover what it does with real money later.
+
+## How the backtest works
+
+- Adjusted daily prices and GBP/USD history come from Yahoo Finance chart data.
+- Beta uses up to 252 trailing sessions and needs at least 126 matched observations against SPY.
 - Three-month momentum uses completed month-end prices only.
 - Purchases use fractional total-return units at the completed month-end price.
-- SPY is the investable S&P 500 proxy.
-- The fixed candidate list creates survivorship and universe-selection bias. The result is an experiment, not a claim about future performance.
+- SPY is the S&P 500 stand-in.
+- The fixed ETF list creates survivorship and universe-selection bias. This is an experiment, not a forecast.
+
+Some candidates are daily-reset leveraged ETFs. They are marked in the app because they can behave very differently from their headline multiple over a long period.
 
 ## Monthly update
 
-Run the data refresh manually with:
+Run a refresh with:
 
 ```bash
 npm run data:update
 ```
 
-The GitHub Actions workflow runs on the second day of each month. It adds the latest completed month, runs the build and tests, then commits the refreshed backtest when the data changed.
+The GitHub Actions workflow runs on the second day of each month. It adds the latest completed month, runs the checks and commits the new backtest if anything changed.
 
-## Run locally
+## Run it locally
 
-Requires Node.js 22.13 or later.
+Use Node.js 22.13 or later.
 
 ```bash
 npm install
@@ -45,16 +51,14 @@ npm run data:update
 npm run dev
 ```
 
-Open `http://localhost:3000` for the full app. Add `?embed=1` for the compact card used by the main website.
+Open `http://localhost:3000` for the full app. Add `?embed=1` for the little card on my main website.
 
 ## Floating card
 
-The main site can embed the compact view with:
-
 ```html
-<iframe class="payday-index-popover" src="https://invest.michailkhasaev.com/?embed=1" title="Payday Index paper portfolio" loading="lazy"></iframe>
+<iframe class="payday-index-popover" src="https://invest.michailkhasaev.com/?embed=1" title="My Payday Index paper portfolio" loading="lazy"></iframe>
 ```
 
-## Scope
+## One sensible line
 
-The app places no orders and connects to no brokerage account. Daily-reset leveraged ETFs can produce long-term results that differ sharply from their stated daily multiple. The project is for paper testing only.
+The app places no orders and connects to no brokerage account. It is fake money following real market data.

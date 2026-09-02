@@ -18,7 +18,7 @@ h2 { margin:0; font-size:clamp(42px,6vw,72px); letter-spacing:-.06em; line-heigh
 h3 { margin:0; }
 .hero-copy { padding-bottom:6px; }
 .hero-copy>p { margin:0 0 32px; font-size:17px; line-height:1.55; letter-spacing:-.015em; }
-.paper-note { display:inline-block; border:1px solid var(--line); border-radius:99px; padding:9px 13px; color:var(--muted); font:10px var(--font-geist-mono),monospace; }
+.paper-note { display:inline-block; transform:rotate(-1.25deg); border:1px solid #ddc66e; border-radius:4px; padding:10px 14px; background:#fff6c9; box-shadow:3px 3px 0 #ddc66e55; color:#65551a; font:10px var(--font-geist-mono),monospace; }
 .ledger { border:1px solid var(--line); display:grid; grid-template-columns:repeat(4,1fr); background:var(--wash); }
 .ledger>div { min-height:155px; padding:24px; display:flex; flex-direction:column; border-right:1px solid var(--line); }
 .ledger>div:last-child { border:0; }

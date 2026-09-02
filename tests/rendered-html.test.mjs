@@ -13,10 +13,10 @@ test("server-renders the data-backed Payday Index app", async () => {
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
   const html = await response.text();
-  assert.match(html, /<title>Payday Index \| Paper portfolio<\/title>/i);
-  assert.match(html, /Screen\. Rank\./);
-  assert.match(html, /January 2024/);
-  assert.match(html, /S&amp;P 500 proxy/);
+  assert.match(html, /<title>Payday Index \| My risky paper experiment<\/title>/i);
+  assert.match(html, /What if I/);
+  assert.match(html, /20-year-old/);
+  assert.match(html, /sensible S&amp;P 500 option/);
   assert.match(html, /20 to 30 years/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
 });
@@ -24,9 +24,10 @@ test("server-renders the data-backed Payday Index app", async () => {
 test("states the strategy without source attribution", async () => {
   const response = await render();
   const html = await response.text();
-  assert.match(html, /15 highest-beta candidates/);
-  assert.match(html, /trailing three-month return/);
-  assert.match(html, /soft 10% position limit/);
-  assert.match(html, /Daily-leveraged products/);
+  assert.match(html, /15 highest-beta ETFs/);
+  assert.match(html, /best previous three months/);
+  assert.match(html, /prefer picks below 10%/);
+  assert.match(html, /daily-leveraged fund/);
+  assert.match(html, /Time is the one advantage I definitely have/);
   assert.doesNotMatch(html, /YouTube|Robinhood|Coding Jesus/i);
 });
