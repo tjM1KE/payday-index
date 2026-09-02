@@ -51,6 +51,15 @@ export default function Home() {
       <div><span>portfolio beta</span><strong>{current.weightedBeta.toFixed(2)}</strong><small>high on purpose</small></div>
     </section>
 
+    <section className="income-source">
+      <div><p className="eyebrow">where the monthly number came from</p><h2>Why £491.25?</h2></div>
+      <div className="income-copy">
+        <p>I started with a typical full-time London salary. The £49,692 gross median works out to about £39,298 a year, or £3,275 a month, after Income Tax and National Insurance under the 2026/27 rates.</p>
+        <div className="income-sum"><span>£3,275 post-tax each month</span><i>&times; 15%</i><strong>£491.25 into the paper pot</strong></div>
+        <p className="income-footnote">I used the median instead of the £70,275 mean because London&apos;s very high earners pull the average upwards. Pension and student loan deductions are not included in this base number.</p>
+      </div>
+    </section>
+
     <section className="performance">
       <div className="section-heading"><div><p className="eyebrow">01 / me vs the sensible option</p><h2>Same payday.<br />More chaos.</h2></div><p>I give both paper accounts exactly {money.format(backtest.monthlyContributionGbp)} at each month-end. Terracotta is my experiment. Black is SPY, patiently minding its own business.</p></div>
       <div className="performance-chart" aria-label="My monthly portfolio value compared with SPY">{backtest.months.map((month) => <div className="chart-month" key={month.month} title={`${month.label}: my picks ${money.format(month.strategyValueGbp)}, SPY ${money.format(month.benchmarkValueGbp)}`}><i className="strategy-bar" style={{height:`${month.strategyValueGbp / maxChartValue * 100}%`}} /><i className="benchmark-bar" style={{height:`${month.benchmarkValueGbp / maxChartValue * 100}%`}} /></div>)}</div>
@@ -80,7 +89,7 @@ export default function Home() {
     <section className="rules">
       <div><p className="eyebrow">04 / why I do it this way</p><h2>My payday ritual</h2></div>
       <ol>
-        <li><span>01</span><p><b>Use the same amount.</b> I add {money.format(backtest.monthlyContributionGbp)}, which is 15% of my monthly take-home. It keeps the experiment tied to money I could actually save.</p></li>
+        <li><span>01</span><p><b>Use the same amount.</b> I add {money.format(backtest.monthlyContributionGbp)}, which is 15% of the rounded London median take-home figure. It keeps the experiment tied to a normal monthly salary.</p></li>
         <li><span>02</span><p><b>Look for movement.</b> I keep ETFs with beta between {backtest.betaRange[0]} and {backtest.betaRange[1]}. This is my risky sandbox, so slow and steady is not the assignment.</p></li>
         <li><span>03</span><p><b>Back recent winners.</b> I take the 15 highest-beta ETFs, then keep the ten with the best previous three months. That stops me choosing whichever ticker looks coolest that day.</p></li>
         <li><span>04</span><p><b>Only buy three.</b> I split the whole month&apos;s money across three leaders and prefer picks below 10%. Focused enough to make a difference, still spread across more than one idea.</p></li>

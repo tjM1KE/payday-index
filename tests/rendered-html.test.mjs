@@ -19,6 +19,13 @@ test("server-renders the data-backed Payday Index app", async () => {
   assert.match(html, /My paper-money experiment/);
   assert.match(html, /sensible S&amp;P 500 option/);
   assert.match(html, /20 to 30 years/);
+  assert.match(html, /Why £491\.25\?/);
+  assert.match(html, /£49,692 gross median/);
+  assert.match(html, /£39,298 a year/);
+  assert.match(html, /£3,275 a month/);
+  assert.match(html, /£70,275 mean/);
+  assert.match(html, /2026\/27 rates/);
+  assert.match(html, /Income Tax and National Insurance/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
 });
 

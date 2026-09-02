@@ -4,7 +4,11 @@ Payday Index is where I let my riskier ideas out without letting them near a rea
 
 I am fairly careful with actual money. This project lets me ask a much less careful question: what happens if I put 15% of my take-home into fast-moving ETFs every month and leave the rules alone for 20 to 30 years?
 
-The paper contribution is GBP 491.25 a month, based on 15% of GBP 3,275. The experiment starts in January 2024 and races the same monthly deposits in SPY.
+The paper contribution is GBP 491.25 a month. I started with the GBP 49,692 gross median for a full-time London salary. Under the 2026/27 Income Tax and National Insurance rates, that is about GBP 39,298 a year or GBP 3,275 a month after tax. Taking 15% of that rounded monthly figure gives GBP 491.25.
+
+I use the median rather than the GBP 70,275 mean because London's very high earners pull the mean upwards. Pension contributions are outside the calculation. With a Plan 2 student loan, the estimated take-home would be about GBP 3,123 a month and 15% would be GBP 468.45 instead.
+
+The experiment starts in January 2024 and races the same monthly deposits in SPY.
 
 ## Why I made these rules
 
