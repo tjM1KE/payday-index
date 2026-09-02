@@ -31,7 +31,7 @@ The simple motivation is that I have time. I would rather test a wild long-term 
 - Three-month momentum uses completed month-end prices only.
 - Purchases use fractional total-return units at the completed month-end price.
 - SPY, QQQ and VT are the S&P 500, Nasdaq-100 and world-stock comparisons.
-- The comparison graph turns monthly returns into an index starting at 100. New deposits are removed from the return calculation, so I can select any start and end month without making extra paydays look like growth.
+- The comparison graph starts a fresh paper pot in the first selected month, adds GBP 491.25 at every selected month-end and applies the observed monthly returns. Both sides receive identical deposits, so the full-range chart reconciles with the headline pots.
 - Each month uses only funds that were alive on that date. The universe combines the full Nasdaq ETF list with a register of 659 US closures from 2024 onward. ETNs and known ticker collisions are excluded.
 - If a holding closes, the backtest converts it to cash using its last available adjusted price and the closing-date exchange rate.
 

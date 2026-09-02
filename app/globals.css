@@ -176,7 +176,9 @@ footer { min-height:140px; display:flex; justify-content:space-between; align-it
   .comparison-tabs button span { margin:0; font-size:9px; }
   .comparison-arrows span { display:none; }
   .comparison-arrows button { width:38px; }
+  .comparison-summary { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .comparison-summary>div { min-width:0; min-height:92px; padding:14px 10px; }
+  .comparison-summary>div:last-child { grid-column:1/-1; border-top:1px solid var(--line); }
   .comparison-summary strong { font-size:clamp(18px,6vw,24px); }
   .comparison-summary small { display:none; }
   .comparison-chart { padding-inline:0; }

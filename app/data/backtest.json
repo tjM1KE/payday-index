@@ -177,7 +177,7 @@
     "timing": "Contribute and buy at each completed month-end. Fractional total-return units are used.",
     "currency": "Convert each GBP contribution into USD at that month-end GBP/USD rate, then translate portfolio values back into GBP.",
     "universe": "For each month, use funds that were alive on that date from a reconstruction of the full Nasdaq ETF list and recorded US ETF closures since 2024. Funds need 126 matched trading sessions before they can qualify. The April 2022 to December 2023 window has more survivorship risk because the free closure register is not complete for those dates.",
-    "comparisons": "Compare time-weighted monthly performance with SPY, QQQ and VT. Each chart starts at 100 for the selected first month so later monthly deposits are not mistaken for investment growth.",
+    "comparisons": "Compare the strategy with SPY, QQQ and VT using identical GBP 491.25 month-end contributions. A selected window starts two fresh paper pots, then applies the observed monthly returns and the same new deposit to both.",
     "liquidation": "When a held ETF closes, convert its units to GBP at the last available adjusted price and closing-date FX rate, then keep the proceeds as cash.",
     "caveat": "This public-data reconstruction reduces survivorship and hand-selection bias, but it is not CRSP-grade. Some delisted price histories, final liquidation distributions and ticker changes may be missing."
   },

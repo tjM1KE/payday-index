@@ -31,7 +31,9 @@ test("server-renders the data-backed Payday Index app", async () => {
   assert.match(html, /Performance end month/);
   assert.match(html, /Nasdaq-100/);
   assert.match(html, /World stocks/);
-  assert.match(html, /Both lines equal 100/);
+  assert.match(html, /This window contains/);
+  assert.match(html, /53<!-- --> paydays/);
+  assert.match(html, /£26,036\.25/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
 });
 
@@ -63,6 +65,25 @@ test("uses a broad point-in-time universe with closed funds", async () => {
   assert.ok(backtest.current.holdings.some((holding) => holding.ticker === "CASH"));
   assert.match(backtest.methodology.universe, /alive on that date/);
   assert.match(backtest.methodology.universe, /April 2022 to December 2023/);
-  assert.match(backtest.methodology.comparisons, /time-weighted monthly performance/);
+  assert.match(backtest.methodology.comparisons, /identical GBP 491\.25 month-end contributions/);
   assert.match(backtest.methodology.caveat, /not CRSP-grade/);
+});
+
+test("full-range comparison reconciles with the headline pots", async () => {
+  const backtest = JSON.parse(await readFile(new URL("../app/data/backtest.json", import.meta.url), "utf8"));
+  let strategy = 0;
+  let spy = 0;
+  for (let index = 0; index < backtest.months.length; index += 1) {
+    const month = backtest.months[index];
+    if (index > 0) {
+      const previous = backtest.months[index - 1];
+      strategy *= (month.strategyValueGbp - month.contributionGbp) / previous.strategyValueGbp;
+      spy *= (month.benchmarks.SPY.valueGbp - month.contributionGbp) / previous.benchmarks.SPY.valueGbp;
+    }
+    strategy += backtest.monthlyContributionGbp;
+    spy += backtest.monthlyContributionGbp;
+  }
+  assert.ok(Math.abs(strategy - backtest.current.strategyValueGbp) < 0.005);
+  assert.ok(Math.abs(spy - backtest.current.benchmarks.SPY.valueGbp) < 0.005);
+  assert.ok(Math.abs(strategy - spy - backtest.current.alphaGbp) < 0.005);
 });

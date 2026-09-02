@@ -14,55 +14,65 @@ type Liquidation = { ticker:string; closedOn:string; valueGbp:number };
 type MonthRecord = { month:string; label:string; contributionGbp:number; contributedGbp:number; strategyValueGbp:number; strategyMonthlyReturnPct:number; benchmarkValueGbp:number; alphaGbp:number; strategyReturnPct:number; benchmarkReturnPct:number; benchmarks:Record<BenchmarkKey,BenchmarkResult>; weightedBeta:number; universeCount:number; eligibleCount:number; liquidations:Liquidation[]; trades:Trade[]; ranking:RankedFund[]; holdings:Holding[] };
 type UniverseCoverage = { activeListed:number; seededClosures:number; observedClosures:number; tickerCollisionsExcluded:number; reconstructedFunds:number; pricedFunds:number; pricedClosures:number; missingHistories:number };
 type Backtest = { generatedAt:string; throughMonth:string; monthlyContributionGbp:number; startMonth:string; benchmark:string; benchmarks:BenchmarkDefinition[]; betaRange:number[]; universeSize:number; universeCoverage:UniverseCoverage; methodology:Record<string,string>; months:MonthRecord[]; current:MonthRecord };
-type IndexedPoint = { label:string; strategy:number; benchmark:number };
+type CashFlowPoint = { label:string; strategy:number; benchmark:number; contributed:number };
 
 const backtest = backtestJson as Backtest;
 const money = new Intl.NumberFormat("en-GB", { style:"currency", currency:"GBP" });
 const subscribeToLocation = () => () => {};
 const signedMoney = (value:number) => `${value >= 0 ? "+" : ""}${money.format(value)}`;
 const signedPercent = (value:number) => `${value >= 0 ? "+" : ""}${value.toFixed(1)}%`;
+const compactMoney = new Intl.NumberFormat("en-GB", { style:"currency", currency:"GBP", notation:"compact", maximumFractionDigits:1 });
 
-function indexedPerformance(months:MonthRecord[], start:number, end:number, ticker:BenchmarkKey) {
-  let strategy = 100;
-  let benchmark = 100;
+function cashFlowPerformance(months:MonthRecord[], start:number, end:number, ticker:BenchmarkKey, contribution:number) {
+  let strategy = 0;
+  let benchmark = 0;
+  let contributed = 0;
   return months.slice(start, end + 1).map((month, index) => {
     if (index > 0) {
-      strategy *= 1 + month.strategyMonthlyReturnPct / 100;
-      benchmark *= 1 + month.benchmarks[ticker].monthlyReturnPct / 100;
+      const previous = months[start + index - 1];
+      const strategyGrowth = (month.strategyValueGbp - month.contributionGbp) / previous.strategyValueGbp;
+      const benchmarkGrowth = (month.benchmarks[ticker].valueGbp - month.contributionGbp) / previous.benchmarks[ticker].valueGbp;
+      strategy *= strategyGrowth;
+      benchmark *= benchmarkGrowth;
     }
-    return { label:month.label, strategy, benchmark };
+    strategy += contribution;
+    benchmark += contribution;
+    contributed += contribution;
+    return { label:month.label, strategy, benchmark, contributed };
   });
 }
 
-function ComparisonChart({ points, benchmark, period }: { points:IndexedPoint[]; benchmark:BenchmarkDefinition; period:string }) {
+function ComparisonChart({ points, benchmark, period }: { points:CashFlowPoint[]; benchmark:BenchmarkDefinition; period:string }) {
   const width = 1000;
   const height = 340;
   const plot = { left:55, right:865, top:26, bottom:298 };
   const values = points.flatMap((point) => [point.strategy, point.benchmark]);
-  const minimum = Math.floor((Math.min(...values) - 4) / 10) * 10;
-  const maximumCandidate = Math.ceil((Math.max(...values) + 4) / 10) * 10;
-  const maximum = maximumCandidate === minimum ? minimum + 10 : maximumCandidate;
+  const roughStep = Math.max(...values) / 4;
+  const stepPower = 10 ** Math.floor(Math.log10(roughStep));
+  const stepFraction = roughStep / stepPower;
+  const step = (stepFraction <= 1 ? 1 : stepFraction <= 2 ? 2 : stepFraction <= 5 ? 5 : 10) * stepPower;
+  const maximum = step * 4;
   const x = (index:number) => plot.left + index / Math.max(1, points.length - 1) * (plot.right - plot.left);
-  const y = (value:number) => plot.bottom - (value - minimum) / (maximum - minimum) * (plot.bottom - plot.top);
+  const y = (value:number) => plot.bottom - value / maximum * (plot.bottom - plot.top);
   const path = (key:"strategy"|"benchmark") => points.map((point, index) => `${index ? "L" : "M"}${x(index).toFixed(2)},${y(point[key]).toFixed(2)}`).join(" ");
-  const yTicks = Array.from({ length:5 }, (_, index) => minimum + (maximum - minimum) * index / 4);
+  const yTicks = Array.from({ length:5 }, (_, index) => step * index);
   const xTicks = [...new Set([0, Math.floor((points.length - 1) / 2), points.length - 1])];
-  const last = points.at(-1) ?? { strategy:100, benchmark:100, label:"" };
+  const last = points.at(-1) ?? { strategy:0, benchmark:0, contributed:0, label:"" };
   const labelsAreClose = Math.abs(y(last.strategy) - y(last.benchmark)) < 24;
   const strategyLabelY = y(last.strategy) + (labelsAreClose && last.strategy <= last.benchmark ? 18 : -8);
   const benchmarkLabelY = y(last.benchmark) + (labelsAreClose && last.benchmark < last.strategy ? 18 : -8);
 
-  return <svg className="comparison-chart" viewBox={`0 0 ${width} ${height}`} role="img" aria-label={`My paper strategy compared with ${benchmark.label} from ${period}, both starting at 100`}>
+  return <svg className="comparison-chart" viewBox={`0 0 ${width} ${height}`} role="img" aria-label={`Monthly paper pots for my strategy and ${benchmark.label} from ${period}`}>
     <title>{`My paper strategy compared with ${benchmark.label} from ${period}`}</title>
-    <desc>{`The strategy finishes at ${last.strategy.toFixed(1)} and ${benchmark.label} finishes at ${last.benchmark.toFixed(1)}, after both start at 100.`}</desc>
-    {yTicks.map((tick) => <g key={tick}><line className="chart-gridline" x1={plot.left} x2={plot.right} y1={y(tick)} y2={y(tick)} /><text className="chart-axis-label" x={plot.left - 10} y={y(tick) + 4} textAnchor="end">{tick.toFixed(0)}</text></g>)}
+    <desc>{`After identical monthly contributions, the strategy finishes at ${money.format(last.strategy)} and ${benchmark.label} finishes at ${money.format(last.benchmark)}.`}</desc>
+    {yTicks.map((tick) => <g key={tick}><line className="chart-gridline" x1={plot.left} x2={plot.right} y1={y(tick)} y2={y(tick)} /><text className="chart-axis-label" x={plot.left - 10} y={y(tick) + 4} textAnchor="end">{compactMoney.format(tick)}</text></g>)}
     {xTicks.map((index) => <text className="chart-axis-label" key={index} x={x(index)} y={plot.bottom + 27} textAnchor={index === 0 ? "start" : index === points.length - 1 ? "end" : "middle"}>{points[index].label}</text>)}
     <path className="comparison-line benchmark-line" d={path("benchmark")} />
     <path className="comparison-line strategy-line" d={path("strategy")} />
     <circle className="benchmark-end" cx={x(points.length - 1)} cy={y(last.benchmark)} r="4" />
     <circle className="strategy-end" cx={x(points.length - 1)} cy={y(last.strategy)} r="5" />
-    <text className="chart-end-label benchmark-label" x={plot.right + 13} y={benchmarkLabelY}>{benchmark.ticker} {last.benchmark.toFixed(1)}</text>
-    <text className="chart-end-label strategy-label" x={plot.right + 13} y={strategyLabelY}>MINE {last.strategy.toFixed(1)}</text>
+    <text className="chart-end-label benchmark-label" x={plot.right + 13} y={benchmarkLabelY}>{benchmark.ticker} {compactMoney.format(last.benchmark)}</text>
+    <text className="chart-end-label strategy-label" x={plot.right + 13} y={strategyLabelY}>MINE {compactMoney.format(last.strategy)}</text>
   </svg>;
 }
 
@@ -115,7 +125,7 @@ export default function Home() {
     </section>
 
     <section className="performance">
-      <div className="section-heading"><div><p className="eyebrow">01 / pick the dates, then pick the rival</p><h2>Same stretch.<br />Fair fight.</h2></div><p>I strip out the effect of each new {money.format(backtest.monthlyContributionGbp)} deposit and start both lines at 100. That way the graph shows growth during the dates I choose, not how many paydays happened.</p></div>
+      <div className="section-heading"><div><p className="eyebrow">01 / pick the dates, then pick the rival</p><h2>Same payday.<br />Fair fight.</h2></div><p>I start two fresh paper pots in the first month I choose, then put {money.format(backtest.monthlyContributionGbp)} into each one every month. Same cash, same dates. The only difference is what it buys.</p></div>
 
       <div className="period-control">
         <div className="period-readout"><span>from <b>{backtest.months[rangeStart].label}</b></span><i>&rarr;</i><span>to <b>{backtest.months[rangeEnd].label}</b></span></div>
@@ -134,14 +144,15 @@ export default function Home() {
 
       <div className="comparison-window">
         <div className="comparison-track" style={{ transform:`translateX(-${comparisonIndex * 100}%)` }}>{backtest.benchmarks.map((benchmark, index) => {
-          const points = indexedPerformance(backtest.months, rangeStart, rangeEnd, benchmark.ticker);
-          const last = points.at(-1) ?? { strategy:100, benchmark:100 };
-          const strategyReturn = last.strategy - 100;
-          const benchmarkReturn = last.benchmark - 100;
+          const points = cashFlowPerformance(backtest.months, rangeStart, rangeEnd, benchmark.ticker, backtest.monthlyContributionGbp);
+          const last = points.at(-1) ?? { strategy:backtest.monthlyContributionGbp, benchmark:backtest.monthlyContributionGbp, contributed:backtest.monthlyContributionGbp };
+          const strategyReturn = (last.strategy / last.contributed - 1) * 100;
+          const benchmarkReturn = (last.benchmark / last.contributed - 1) * 100;
+          const gap = last.strategy - last.benchmark;
           return <article className="comparison-slide" id={`comparison-panel-${benchmark.ticker}`} role="tabpanel" aria-labelledby={`comparison-tab-${benchmark.ticker}`} aria-hidden={comparisonIndex !== index} key={benchmark.ticker}>
-            <div className="comparison-summary"><div><span>my index</span><strong>{signedPercent(strategyReturn)}</strong></div><div><span>{benchmark.label}</span><strong>{signedPercent(benchmarkReturn)}</strong><small>{benchmark.description}</small></div><div><span>gap</span><strong>{signedPercent(strategyReturn - benchmarkReturn)}</strong></div></div>
+            <div className="comparison-summary"><div><span>my pot</span><strong>{money.format(last.strategy)}</strong><small>{signedPercent(strategyReturn)} on what I put in</small></div><div><span>{benchmark.label}</span><strong>{money.format(last.benchmark)}</strong><small>{signedPercent(benchmarkReturn)} on the same cash</small></div><div><span>{gap >= 0 ? "ahead by" : "behind by"}</span><strong>{gap >= 0 ? signedMoney(gap) : money.format(Math.abs(gap))}</strong><small>{money.format(last.contributed)} went into each pot</small></div></div>
             <ComparisonChart points={points} benchmark={benchmark} period={period} />
-            <p className="chart-note">Both lines equal 100 at the end of {backtest.months[rangeStart].label}. Monthly returns then compound through {backtest.months[rangeEnd].label} in GBP. The pots at the top keep the timing of every deposit, so they can tell a different story.</p>
+            <p className="chart-note">This window contains {points.length} paydays. Each line starts with {money.format(backtest.monthlyContributionGbp)} in {backtest.months[rangeStart].label} and receives the same amount through {backtest.months[rangeEnd].label}.</p>
           </article>;
         })}</div>
       </div>
