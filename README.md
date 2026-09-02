@@ -27,9 +27,16 @@ The simple motivation is that I have time. I would rather test a wild long-term 
 - Three-month momentum uses completed month-end prices only.
 - Purchases use fractional total-return units at the completed month-end price.
 - SPY is the S&P 500 stand-in.
-- The fixed ETF list creates survivorship and universe-selection bias. This is an experiment, not a forecast.
+- Each month uses only funds that were alive on that date. The universe combines the full Nasdaq ETF list with a register of 659 US closures from 2024 onward. ETNs and known ticker collisions are excluded.
+- If a holding closes, the backtest converts it to cash using its last available adjusted price and the closing-date exchange rate.
 
 Some candidates are daily-reset leveraged ETFs. They are marked in the app because they can behave very differently from their headline multiple over a long period.
+
+## How much bias remains
+
+This is a much broader test than the original handpicked list. The current run priced more than 5,700 active and closed funds and excluded known ticker collisions.
+
+It is still a public-data reconstruction, not a CRSP-quality dataset. Yahoo may lack a delisted fund's final distribution or full price history, and free listings do not always preserve ticker changes. The app reports that limitation instead of calling the result bias-free.
 
 ## Monthly update
 
@@ -39,7 +46,7 @@ Run a refresh with:
 npm run data:update
 ```
 
-The GitHub Actions workflow runs on the second day of each month. It adds the latest completed month, runs the checks and commits the new backtest if anything changed.
+The GitHub Actions workflow runs on the second day of each month. It refreshes the Nasdaq universe, remembers funds that disappear, adds the latest completed month, runs the checks and commits the new backtest if anything changed.
 
 ## Run it locally
 

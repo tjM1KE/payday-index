@@ -49,6 +49,8 @@ h3 { margin:0; }
 .month-summary>div { min-height:108px; padding:18px; display:flex; flex-direction:column; border-right:1px solid var(--line); }
 .month-summary>div:last-child { border:0; }
 .month-summary b { margin-top:auto; font-size:22px; letter-spacing:-.035em; }
+.liquidation-note { padding:14px 18px; border:1px solid #ddc66e; border-top:0; background:#fff6c9; color:#65551a; font-size:12px; line-height:1.5; }
+.liquidation-note b { margin-right:5px; }
 .purchase-heading { display:grid; grid-template-columns:1.1fr .9fr; gap:8vw; align-items:end; margin:78px 0 30px; }
 .purchase-heading h3 { font-size:28px; letter-spacing:-.04em; }
 .trade-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
@@ -87,6 +89,7 @@ sup { margin-left:3px; color:#a34c3d; font-size:7px; }
 .method-note { grid-column:2; margin-top:24px; padding:20px; border:1px solid var(--line); color:var(--muted); font-size:12px; line-height:1.6; }
 .method-note b { display:block; margin-bottom:7px; color:var(--ink); font:10px var(--font-geist-mono),monospace; text-transform:uppercase; }
 .method-note p { margin:0; }
+.method-note p+p { margin-top:8px; }
 footer { min-height:140px; display:flex; justify-content:space-between; align-items:center; color:var(--muted); font:10px var(--font-geist-mono),monospace; text-transform:uppercase; }
 
 .embed-shell { width:100%; min-height:100vh; padding:24px; background:var(--clay); color:white; display:flex; flex-direction:column; }

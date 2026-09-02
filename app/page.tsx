@@ -7,8 +7,10 @@ import backtestJson from "./data/backtest.json";
 type Trade = { ticker:string; name:string; beta:number; momentum:number; allocationGbp:number; units:number; leveraged:boolean };
 type RankedFund = { rank:number; ticker:string; name:string; beta:number; momentum:number; leveraged:boolean };
 type Holding = { ticker:string; name:string; valueGbp:number; contributedGbp:number; weight:number; beta:number|null; leveraged:boolean };
-type MonthRecord = { month:string; label:string; contributionGbp:number; contributedGbp:number; strategyValueGbp:number; benchmarkValueGbp:number; alphaGbp:number; strategyReturnPct:number; benchmarkReturnPct:number; weightedBeta:number; eligibleCount:number; trades:Trade[]; ranking:RankedFund[]; holdings:Holding[] };
-type Backtest = { generatedAt:string; throughMonth:string; monthlyContributionGbp:number; startMonth:string; benchmark:string; betaRange:number[]; universeSize:number; methodology:Record<string,string>; months:MonthRecord[]; current:MonthRecord };
+type Liquidation = { ticker:string; closedOn:string; valueGbp:number };
+type MonthRecord = { month:string; label:string; contributionGbp:number; contributedGbp:number; strategyValueGbp:number; benchmarkValueGbp:number; alphaGbp:number; strategyReturnPct:number; benchmarkReturnPct:number; weightedBeta:number; universeCount:number; eligibleCount:number; liquidations:Liquidation[]; trades:Trade[]; ranking:RankedFund[]; holdings:Holding[] };
+type UniverseCoverage = { activeListed:number; seededClosures:number; observedClosures:number; tickerCollisionsExcluded:number; reconstructedFunds:number; pricedFunds:number; pricedClosures:number; missingHistories:number };
+type Backtest = { generatedAt:string; throughMonth:string; monthlyContributionGbp:number; startMonth:string; benchmark:string; betaRange:number[]; universeSize:number; universeCoverage:UniverseCoverage; methodology:Record<string,string>; months:MonthRecord[]; current:MonthRecord };
 
 const backtest = backtestJson as Backtest;
 const money = new Intl.NumberFormat("en-GB", { style:"currency", currency:"GBP" });
@@ -56,9 +58,10 @@ export default function Home() {
     </section>
 
     <section className="month-lab">
-      <div className="section-heading"><div><p className="eyebrow">02 / pick a month</p><h2>{selected.label}</h2></div><p>Drag the slider backwards to see what made my shortlist, what I bought and how the bag looked afterwards.</p></div>
+      <div className="section-heading"><div><p className="eyebrow">02 / pick a month</p><h2>{selected.label}</h2></div><p>Drag the slider backwards to see what made my shortlist, what I bought and how the bag looked afterwards. This month checked {selected.universeCount.toLocaleString("en-GB")} funds that were alive and priced at the time.</p></div>
       <div className="month-picker"><button onClick={() => setMonthIndex(Math.max(0, monthIndex - 1))} disabled={monthIndex === 0} aria-label="Previous month">&larr;</button><input aria-label="Backtest month" type="range" min="0" max={backtest.months.length - 1} value={monthIndex} onChange={(event) => setMonthIndex(Number(event.target.value))} /><button onClick={() => setMonthIndex(Math.min(backtest.months.length - 1, monthIndex + 1))} disabled={monthIndex === backtest.months.length - 1} aria-label="Next month">&rarr;</button><span>{monthIndex + 1} / {backtest.months.length}</span></div>
-      <div className="month-summary"><div><span>my pot</span><b>{money.format(selected.strategyValueGbp)}</b></div><div><span>SPY&apos;s pot</span><b>{money.format(selected.benchmarkValueGbp)}</b></div><div><span>ahead by</span><b>{signedMoney(selected.alphaGbp)}</b></div><div><span>made the cut</span><b>{selected.eligibleCount} ETFs</b></div></div>
+      <div className="month-summary"><div><span>my pot</span><b>{money.format(selected.strategyValueGbp)}</b></div><div><span>SPY&apos;s pot</span><b>{money.format(selected.benchmarkValueGbp)}</b></div><div><span>ahead by</span><b>{signedMoney(selected.alphaGbp)}</b></div><div><span>eligible / alive</span><b>{selected.eligibleCount} / {selected.universeCount.toLocaleString("en-GB")}</b></div></div>
+      {selected.liquidations.length > 0 && <div className="liquidation-note"><b>A fund disappeared.</b> {selected.liquidations.map((item) => `${item.ticker} closed, so ${money.format(item.valueGbp)} moved to cash`).join(". ")}.</div>}
 
       <div className="purchase-heading"><div><p className="eyebrow">This month&apos;s three</p><h3>{money.format(selected.contributionGbp)} causing trouble</h3></div><p>I split the money evenly. If one ETF already owns more than 10% of the pot, I try to give another top-ten pick a turn.</p></div>
       <div className="trade-grid">{selected.trades.map((trade, index) => <article className="trade-card" key={trade.ticker}><div><span>0{index + 1}</span>{trade.leveraged && <em>daily leveraged</em>}</div><h3>{trade.ticker}</h3><p>{trade.name}</p><dl><div><dt>Beta</dt><dd>{trade.beta.toFixed(2)}</dd></div><div><dt>Last 3 months</dt><dd>{signedPercent(trade.momentum)}</dd></div><div><dt>I bought</dt><dd>{money.format(trade.allocationGbp)}</dd></div></dl></article>)}</div>
@@ -83,7 +86,7 @@ export default function Home() {
         <li><span>04</span><p><b>Only buy three.</b> I split the whole month&apos;s money across three leaders and prefer picks below 10%. Focused enough to make a difference, still spread across more than one idea.</p></li>
         <li><span>05</span><p><b>Keep showing up.</b> I repeat it after every completed month and race the same deposits in SPY. I can leave this alone for years. Time is the one advantage I definitely have.</p></li>
       </ol>
-      <div className="method-note"><b>Before I get carried away</b><p>{backtest.methodology.caveat} Beta does not promise a return. The leveraged funds reset every day and can behave very differently over a long stretch. This can go badly. That&apos;s why it stays a paper experiment on this public page.</p></div>
+      <div className="method-note"><b>Before I get carried away</b><p>{backtest.methodology.caveat}</p><p>This run priced {backtest.universeCoverage.pricedFunds.toLocaleString("en-GB")} funds, including {backtest.universeCoverage.pricedClosures.toLocaleString("en-GB")} closed histories. Beta does not promise a return. The leveraged funds reset every day and can behave very differently over a long stretch. This can go badly. That&apos;s why it stays a paper experiment on this public page.</p></div>
     </section>
 
     <footer><span>Made by MK, mostly out of curiosity</span><span>I refresh the market data monthly &middot; {new Date(backtest.generatedAt).toLocaleDateString("en-GB")}</span></footer>

@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function render(path = "/") {
@@ -30,5 +31,18 @@ test("states the strategy without source attribution", async () => {
   assert.match(html, /daily-leveraged fund/);
   assert.match(html, /Time is the one advantage I definitely have/);
   assert.match(html, /paper experiment on this public page/);
+  assert.match(html, /public-data reconstruction/);
+  assert.doesNotMatch(html, /candidate universe is fixed today/i);
   assert.doesNotMatch(html, /YouTube|Robinhood|Coding Jesus/i);
+});
+
+test("uses a broad point-in-time universe with closed funds", async () => {
+  const backtest = JSON.parse(await readFile(new URL("../app/data/backtest.json", import.meta.url), "utf8"));
+  assert.ok(backtest.universeCoverage.activeListed > 5000);
+  assert.ok(backtest.universeCoverage.pricedClosures > 500);
+  assert.ok(backtest.months.every((month) => month.universeCount > 3000));
+  assert.ok(backtest.months.some((month) => month.liquidations.length > 0));
+  assert.ok(backtest.current.holdings.some((holding) => holding.ticker === "CASH"));
+  assert.match(backtest.methodology.universe, /alive on that date/);
+  assert.match(backtest.methodology.caveat, /not CRSP-grade/);
 });
