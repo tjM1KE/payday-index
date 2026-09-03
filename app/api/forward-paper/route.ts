@@ -29,14 +29,18 @@ function validLedger(value: unknown): value is ForwardLedgerPayload {
 }
 
 export async function GET() {
-  const { DB } = runtimeEnv();
-  if (!DB) return Response.json(forwardSeed);
+  const { DB, FORWARD_SYNC_TOKEN } = runtimeEnv();
+  const headers = {
+    "X-Payday-Storage": DB ? "ready" : "missing",
+    "X-Payday-Sync": FORWARD_SYNC_TOKEN ? "ready" : "missing",
+  };
+  if (!DB) return Response.json(forwardSeed, { headers });
 
   try {
     const row = await DB.prepare("SELECT payload FROM forward_paper WHERE id = 1").first<{ payload:string }>();
-    return Response.json(row ? JSON.parse(row.payload) : forwardSeed);
+    return Response.json(row ? JSON.parse(row.payload) : forwardSeed, { headers });
   } catch {
-    return Response.json(forwardSeed);
+    return Response.json(forwardSeed, { headers });
   }
 }
 
