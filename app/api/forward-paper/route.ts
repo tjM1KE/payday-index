@@ -14,13 +14,8 @@ type ForwardLedgerPayload = {
   [key:string]: unknown;
 };
 
-async function runtimeEnv(): Promise<RuntimeEnv> {
-  try {
-    const workers = await import("cloudflare:workers");
-    return workers.env as unknown as RuntimeEnv;
-  } catch {
-    return {};
-  }
+function runtimeEnv(): RuntimeEnv {
+  return (globalThis as typeof globalThis & { __PAYDAY_RUNTIME_ENV__?:RuntimeEnv }).__PAYDAY_RUNTIME_ENV__ ?? {};
 }
 
 function validLedger(value: unknown): value is ForwardLedgerPayload {
@@ -34,7 +29,7 @@ function validLedger(value: unknown): value is ForwardLedgerPayload {
 }
 
 export async function GET() {
-  const { DB } = await runtimeEnv();
+  const { DB } = runtimeEnv();
   if (!DB) return Response.json(forwardSeed);
 
   try {
@@ -46,7 +41,7 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const { DB, FORWARD_SYNC_TOKEN } = await runtimeEnv();
+  const { DB, FORWARD_SYNC_TOKEN } = runtimeEnv();
   const authorization = request.headers.get("authorization");
   if (!FORWARD_SYNC_TOKEN || authorization !== `Bearer ${FORWARD_SYNC_TOKEN}`) {
     return Response.json({ error:"Not allowed" }, { status:401 });
