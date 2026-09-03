@@ -46,18 +46,18 @@ export async function GET() {
 
 export async function POST(request: Request) {
   const { DB, FORWARD_SYNC_TOKEN } = runtimeEnv();
-  const syncToken = request.headers.get("x-forward-sync-token");
-  if (!FORWARD_SYNC_TOKEN || syncToken !== FORWARD_SYNC_TOKEN) {
+  let envelope: { token?:unknown; ledger?:unknown };
+  try {
+    envelope = await request.json() as { token?:unknown; ledger?:unknown };
+  } catch {
+    return Response.json({ error:"The paper ledger must be JSON" }, { status:400 });
+  }
+  if (!FORWARD_SYNC_TOKEN || envelope.token !== FORWARD_SYNC_TOKEN) {
     return Response.json({ error:"Not allowed" }, { status:401 });
   }
   if (!DB) return Response.json({ error:"Paper ledger storage is unavailable" }, { status:503 });
 
-  let ledger: unknown;
-  try {
-    ledger = await request.json();
-  } catch {
-    return Response.json({ error:"The paper ledger must be JSON" }, { status:400 });
-  }
+  const ledger = envelope.ledger;
   if (!validLedger(ledger)) return Response.json({ error:"The paper ledger is invalid" }, { status:400 });
 
   const current = await DB.prepare("SELECT payload FROM forward_paper WHERE id = 1").first<{ payload:string }>();
