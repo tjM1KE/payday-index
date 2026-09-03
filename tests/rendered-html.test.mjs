@@ -3,11 +3,13 @@ import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-async function render(path = "/") {
+async function render(path = "/", init = {}, bindings = {}) {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
-  return worker.fetch(new Request(`http://localhost${path}`, { headers:{ accept:"text/html" } }), { ASSETS:{ fetch:async () => new Response("Not found", { status:404 }) } }, { waitUntil() {}, passThroughOnException() {} });
+  const headers = new Headers(init.headers);
+  if (!headers.has("accept")) headers.set("accept", "text/html");
+  return worker.fetch(new Request(`http://localhost${path}`, { ...init, headers }), { ASSETS:{ fetch:async () => new Response("Not found", { status:404 }) }, ...bindings }, { waitUntil() {}, passThroughOnException() {} });
 }
 
 test("server-renders the data-backed Payday Index app", async () => {
@@ -115,4 +117,36 @@ test("serves the committed forward ledger when durable storage is empty", async 
   const ledger = await response.json();
   assert.equal(ledger.status, "forward");
   assert.equal(ledger.current.signalMonth, "2026-08");
+});
+
+test("syncs the forward ledger without allowing old records to change", async () => {
+  const ledger = JSON.parse(await readFile(new URL("../app/data/forward-paper.json", import.meta.url), "utf8"));
+  let storedPayload = null;
+  const DB = {
+    prepare(statement) {
+      return {
+        async first() {
+          return statement.startsWith("SELECT") && storedPayload ? { payload:storedPayload } : null;
+        },
+        bind(payload) {
+          return { async run() { storedPayload = payload; return { success:true }; } };
+        },
+      };
+    },
+  };
+  const bindings = { DB, FORWARD_SYNC_TOKEN:"test-sync-token" };
+  const request = (body) => render("/api/forward-paper", {
+    method:"POST",
+    headers:{ "content-type":"application/json" },
+    body:JSON.stringify({ token:"test-sync-token", ledger:body }),
+  }, bindings);
+
+  const synced = await request(ledger);
+  assert.equal(synced.status, 200);
+  assert.equal(JSON.parse(storedPayload).historyHash, ledger.historyHash);
+
+  const rewritten = structuredClone(ledger);
+  rewritten.records[0].trades[0].allocationGbp += 1;
+  const rejected = await request(rewritten);
+  assert.equal(rejected.status, 409);
 });
