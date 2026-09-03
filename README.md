@@ -12,6 +12,8 @@ The experiment starts in April 2022. It compares the same monthly deposits with 
 
 The site keeps that historical backtest, then starts a separate forward paper account with the August 2026 signal. The forward account does not inherit the backtest balance.
 
+The page opens on that live account. The historical comparison, monthly tape, rule explanations and limitations share a compact tabbed workspace below it, so they stay available without turning the page into one long report.
+
 ## Why I made these rules
 
 I wanted something risky, but I did not want to choose funds on vibes alone.
