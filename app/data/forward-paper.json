@@ -1,0 +1,394 @@
+{
+  "version": 1,
+  "startedAt": "2026-09-03T07:23:11.221Z",
+  "updatedAt": "2026-09-03T07:23:11.221Z",
+  "monthlyContributionGbp": 491.25,
+  "status": "forward",
+  "methodology": {
+    "signal": "Freeze the ranking after a calendar month closes, using only prices dated on or before that month-end.",
+    "execution": "Buy the three selected ETFs on the first later market session for which all three have an adjusted closing price. SPY, QQQ and VT receive the same GBP contribution on that date.",
+    "history": "Every completed forward decision is appended to this ledger. Earlier records are never recalculated.",
+    "costs": "Fractional units are used. Fees, spreads, slippage and tax are not included."
+  },
+  "records": [
+    {
+      "signalMonth": "2026-08",
+      "signalLabel": "Aug 2026",
+      "signalDate": "2026-08-31",
+      "executionDate": "2026-09-01",
+      "recordedAt": "2026-09-03T07:23:11.221Z",
+      "contributionGbp": 491.25,
+      "contributedGbp": 491.25,
+      "strategyValueGbp": 491.25,
+      "strategyReturnPct": 0,
+      "benchmarkValueGbp": 491.25,
+      "benchmarkReturnPct": 0,
+      "alphaGbp": 0,
+      "weightedBeta": 2.93,
+      "universeCount": 5185,
+      "eligibleCount": 513,
+      "ranking": [
+        {
+          "rank": 1,
+          "ticker": "OSCX",
+          "name": "Defiance Daily Target 2x Long OSCR ETF",
+          "beta": 2.9,
+          "momentum": 50.24,
+          "leveraged": true
+        },
+        {
+          "rank": 2,
+          "ticker": "NETG",
+          "name": "Leverage Shares 2X Long NET Daily ETF",
+          "beta": 3,
+          "momentum": 43.36,
+          "leveraged": true
+        },
+        {
+          "rank": 3,
+          "ticker": "NUG",
+          "name": "Leverage Shares 2X Long NU Daily ETF",
+          "beta": 2.9,
+          "momentum": 13.14,
+          "leveraged": true
+        },
+        {
+          "rank": 4,
+          "ticker": "SPXL",
+          "name": "Direxion Daily S&P 500 Bull 3X ETF",
+          "beta": 3,
+          "momentum": 1.14,
+          "leveraged": true
+        },
+        {
+          "rank": 5,
+          "ticker": "UPRO",
+          "name": "ProShares UltraPro S&P 500",
+          "beta": 2.99,
+          "momentum": 0.95,
+          "leveraged": false
+        },
+        {
+          "rank": 6,
+          "ticker": "FNGG",
+          "name": "Direxion Daily NYSE FANG+ Bull 2X ETF",
+          "beta": 2.94,
+          "momentum": 0.57,
+          "leveraged": true
+        },
+        {
+          "rank": 7,
+          "ticker": "UMDD",
+          "name": "UltraPro MidCap400",
+          "beta": 2.91,
+          "momentum": -0.01,
+          "leveraged": false
+        },
+        {
+          "rank": 8,
+          "ticker": "EET",
+          "name": "ProShares Ultra MSCI Emerging Markets",
+          "beta": 2.95,
+          "momentum": -7.37,
+          "leveraged": true
+        },
+        {
+          "rank": 9,
+          "ticker": "MAGX",
+          "name": "Roundhill Daily 2X Long Magnificent Seven ETF",
+          "beta": 2.89,
+          "momentum": -7.65,
+          "leveraged": true
+        },
+        {
+          "rank": 10,
+          "ticker": "OWNB",
+          "name": "Bitwise Funds Trust Bitwise Bitcoin Standard Corporations ETF",
+          "beta": 2.96,
+          "momentum": -8.44,
+          "leveraged": false
+        }
+      ],
+      "trades": [
+        {
+          "ticker": "OSCX",
+          "name": "Defiance Daily Target 2x Long OSCR ETF",
+          "beta": 2.9,
+          "momentum": 50.24,
+          "allocationGbp": 163.75,
+          "executionPriceUsd": 99.595001,
+          "units": 2.22213657,
+          "leveraged": true
+        },
+        {
+          "ticker": "NETG",
+          "name": "Leverage Shares 2X Long NET Daily ETF",
+          "beta": 3,
+          "momentum": 43.36,
+          "allocationGbp": 163.75,
+          "executionPriceUsd": 16.844,
+          "units": 13.13902255,
+          "leveraged": true
+        },
+        {
+          "ticker": "NUG",
+          "name": "Leverage Shares 2X Long NU Daily ETF",
+          "beta": 2.9,
+          "momentum": 13.14,
+          "allocationGbp": 163.75,
+          "executionPriceUsd": 9.957,
+          "units": 22.22694576,
+          "leveraged": true
+        }
+      ],
+      "holdings": [
+        {
+          "ticker": "OSCX",
+          "name": "Defiance Daily Target 2x Long OSCR ETF",
+          "valueGbp": 163.75,
+          "weight": 33.33,
+          "beta": 2.9,
+          "leveraged": true
+        },
+        {
+          "ticker": "NETG",
+          "name": "Leverage Shares 2X Long NET Daily ETF",
+          "valueGbp": 163.75,
+          "weight": 33.33,
+          "beta": 3,
+          "leveraged": true
+        },
+        {
+          "ticker": "NUG",
+          "name": "Leverage Shares 2X Long NU Daily ETF",
+          "valueGbp": 163.75,
+          "weight": 33.33,
+          "beta": 2.9,
+          "leveraged": true
+        }
+      ],
+      "liquidations": [],
+      "benchmarks": {
+        "SPY": {
+          "valueGbp": 491.25,
+          "returnPct": 0
+        },
+        "QQQ": {
+          "valueGbp": 491.25,
+          "returnPct": 0
+        },
+        "VT": {
+          "valueGbp": 491.25,
+          "returnPct": 0
+        }
+      },
+      "locked": true
+    }
+  ],
+  "state": {
+    "contributedGbp": 491.25,
+    "cashGbp": 0,
+    "positions": [
+      {
+        "ticker": "OSCX",
+        "name": "Defiance Daily Target 2x Long OSCR ETF",
+        "units": 2.22213657,
+        "contributedGbp": 163.75,
+        "leveraged": true
+      },
+      {
+        "ticker": "NETG",
+        "name": "Leverage Shares 2X Long NET Daily ETF",
+        "units": 13.13902255,
+        "contributedGbp": 163.75,
+        "leveraged": true
+      },
+      {
+        "ticker": "NUG",
+        "name": "Leverage Shares 2X Long NU Daily ETF",
+        "units": 22.22694576,
+        "contributedGbp": 163.75,
+        "leveraged": true
+      }
+    ],
+    "benchmarkUnits": {
+      "SPY": 0.87156536,
+      "QQQ": 0.93824695,
+      "VT": 4.16760462
+    }
+  },
+  "historyHash": "a42df7cbaf28e7c907e7a9ba40628beef037c83691555c27139e5b72be3674d1",
+  "current": {
+    "signalMonth": "2026-08",
+    "signalLabel": "Aug 2026",
+    "signalDate": "2026-08-31",
+    "executionDate": "2026-09-01",
+    "recordedAt": "2026-09-03T07:23:11.221Z",
+    "contributionGbp": 491.25,
+    "contributedGbp": 491.25,
+    "strategyValueGbp": 491.25,
+    "strategyReturnPct": 0,
+    "benchmarkValueGbp": 491.25,
+    "benchmarkReturnPct": 0,
+    "alphaGbp": 0,
+    "weightedBeta": 2.93,
+    "universeCount": 5185,
+    "eligibleCount": 513,
+    "ranking": [
+      {
+        "rank": 1,
+        "ticker": "OSCX",
+        "name": "Defiance Daily Target 2x Long OSCR ETF",
+        "beta": 2.9,
+        "momentum": 50.24,
+        "leveraged": true
+      },
+      {
+        "rank": 2,
+        "ticker": "NETG",
+        "name": "Leverage Shares 2X Long NET Daily ETF",
+        "beta": 3,
+        "momentum": 43.36,
+        "leveraged": true
+      },
+      {
+        "rank": 3,
+        "ticker": "NUG",
+        "name": "Leverage Shares 2X Long NU Daily ETF",
+        "beta": 2.9,
+        "momentum": 13.14,
+        "leveraged": true
+      },
+      {
+        "rank": 4,
+        "ticker": "SPXL",
+        "name": "Direxion Daily S&P 500 Bull 3X ETF",
+        "beta": 3,
+        "momentum": 1.14,
+        "leveraged": true
+      },
+      {
+        "rank": 5,
+        "ticker": "UPRO",
+        "name": "ProShares UltraPro S&P 500",
+        "beta": 2.99,
+        "momentum": 0.95,
+        "leveraged": false
+      },
+      {
+        "rank": 6,
+        "ticker": "FNGG",
+        "name": "Direxion Daily NYSE FANG+ Bull 2X ETF",
+        "beta": 2.94,
+        "momentum": 0.57,
+        "leveraged": true
+      },
+      {
+        "rank": 7,
+        "ticker": "UMDD",
+        "name": "UltraPro MidCap400",
+        "beta": 2.91,
+        "momentum": -0.01,
+        "leveraged": false
+      },
+      {
+        "rank": 8,
+        "ticker": "EET",
+        "name": "ProShares Ultra MSCI Emerging Markets",
+        "beta": 2.95,
+        "momentum": -7.37,
+        "leveraged": true
+      },
+      {
+        "rank": 9,
+        "ticker": "MAGX",
+        "name": "Roundhill Daily 2X Long Magnificent Seven ETF",
+        "beta": 2.89,
+        "momentum": -7.65,
+        "leveraged": true
+      },
+      {
+        "rank": 10,
+        "ticker": "OWNB",
+        "name": "Bitwise Funds Trust Bitwise Bitcoin Standard Corporations ETF",
+        "beta": 2.96,
+        "momentum": -8.44,
+        "leveraged": false
+      }
+    ],
+    "trades": [
+      {
+        "ticker": "OSCX",
+        "name": "Defiance Daily Target 2x Long OSCR ETF",
+        "beta": 2.9,
+        "momentum": 50.24,
+        "allocationGbp": 163.75,
+        "executionPriceUsd": 99.595001,
+        "units": 2.22213657,
+        "leveraged": true
+      },
+      {
+        "ticker": "NETG",
+        "name": "Leverage Shares 2X Long NET Daily ETF",
+        "beta": 3,
+        "momentum": 43.36,
+        "allocationGbp": 163.75,
+        "executionPriceUsd": 16.844,
+        "units": 13.13902255,
+        "leveraged": true
+      },
+      {
+        "ticker": "NUG",
+        "name": "Leverage Shares 2X Long NU Daily ETF",
+        "beta": 2.9,
+        "momentum": 13.14,
+        "allocationGbp": 163.75,
+        "executionPriceUsd": 9.957,
+        "units": 22.22694576,
+        "leveraged": true
+      }
+    ],
+    "holdings": [
+      {
+        "ticker": "OSCX",
+        "name": "Defiance Daily Target 2x Long OSCR ETF",
+        "valueGbp": 163.75,
+        "weight": 33.33,
+        "beta": 2.9,
+        "leveraged": true
+      },
+      {
+        "ticker": "NETG",
+        "name": "Leverage Shares 2X Long NET Daily ETF",
+        "valueGbp": 163.75,
+        "weight": 33.33,
+        "beta": 3,
+        "leveraged": true
+      },
+      {
+        "ticker": "NUG",
+        "name": "Leverage Shares 2X Long NU Daily ETF",
+        "valueGbp": 163.75,
+        "weight": 33.33,
+        "beta": 2.9,
+        "leveraged": true
+      }
+    ],
+    "liquidations": [],
+    "benchmarks": {
+      "SPY": {
+        "valueGbp": 491.25,
+        "returnPct": 0
+      },
+      "QQQ": {
+        "valueGbp": 491.25,
+        "returnPct": 0
+      },
+      "VT": {
+        "valueGbp": 491.25,
+        "returnPct": 0
+      }
+    },
+    "locked": true
+  }
+}

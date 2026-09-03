@@ -1,0 +1,3302 @@
+{
+  "source": "https://www.etf.com/tools/etf-closures",
+  "capturedAt": "2026-09-02T15:59:24.268Z",
+  "scope": "US ETF and ETN closures from 2024 through 2026, used as a public-data seed. The monthly updater preserves future removals from the Nasdaq universe.",
+  "funds": [
+    {
+      "ticker": "DBJA",
+      "name": "INNOVATOR DBL STACK 9 BUFF-J",
+      "closedOn": "2024-01-02"
+    },
+    {
+      "ticker": "DSJA",
+      "name": "INNOVATOR DOUBLE STACKER-JAN",
+      "closedOn": "2024-01-02"
+    },
+    {
+      "ticker": "TSJA",
+      "name": "INNOVATOR TRIPLE STACKER-JAN",
+      "closedOn": "2024-01-02"
+    },
+    {
+      "ticker": "XWEB",
+      "name": "SPDR S&P INTERNET ETF",
+      "closedOn": "2024-01-02"
+    },
+    {
+      "ticker": "DEIF",
+      "name": "STERLING CAP DIV MULT MAN AT",
+      "closedOn": "2024-01-03"
+    },
+    {
+      "ticker": "VDNI",
+      "name": "V-SHARES US LEADER DIVERSITY",
+      "closedOn": "2024-01-09"
+    },
+    {
+      "ticker": "VMAT",
+      "name": "VSHARES MSCI WLD ESG MAT CAR",
+      "closedOn": "2024-01-09"
+    },
+    {
+      "ticker": "GPAL",
+      "name": "GS ACTIVEBETA PARIS AC US LC",
+      "closedOn": "2024-01-12"
+    },
+    {
+      "ticker": "RESD",
+      "name": "WISDOMTREE INTERNATIONAL ESG",
+      "closedOn": "2024-01-26"
+    },
+    {
+      "ticker": "RESE",
+      "name": "WISDOMTREE EM MKT ESG FUND",
+      "closedOn": "2024-01-26"
+    },
+    {
+      "ticker": "RESP",
+      "name": "WISDOMTREE US ESG FUND",
+      "closedOn": "2024-01-26"
+    },
+    {
+      "ticker": "XBTF",
+      "name": "VANECK BITCOIN STRATEGY ETF",
+      "closedOn": "2024-01-30"
+    },
+    {
+      "ticker": "TRPL",
+      "name": "PACER MET US LRG CAP DVD 300",
+      "closedOn": "2024-01-31"
+    },
+    {
+      "ticker": "AIDB",
+      "name": "QRAFT AI-PIL US LG CP DY IN",
+      "closedOn": "2024-02-14"
+    },
+    {
+      "ticker": "BKES",
+      "name": "BNY MELLON GLOBAL EMERG MARK",
+      "closedOn": "2024-02-14"
+    },
+    {
+      "ticker": "BKIS",
+      "name": "BNY MELLON SUST INTL EQTY",
+      "closedOn": "2024-02-14"
+    },
+    {
+      "ticker": "BKUS",
+      "name": "BNY MELLON SUSTAIN US EQUITY",
+      "closedOn": "2024-02-14"
+    },
+    {
+      "ticker": "NVQ",
+      "name": "QRAFT AI-ENH US NEXT VALUE",
+      "closedOn": "2024-02-14"
+    },
+    {
+      "ticker": "JIB",
+      "name": "JANUS HENDERSON SUST IMP C/B",
+      "closedOn": "2024-02-15"
+    },
+    {
+      "ticker": "NTRL",
+      "name": "GLBL X CARBON CRED STRATEGY",
+      "closedOn": "2024-02-15"
+    },
+    {
+      "ticker": "BFIT",
+      "name": "GLB X HEALTH & WELLNESS ETF",
+      "closedOn": "2024-02-16"
+    },
+    {
+      "ticker": "CHB",
+      "name": "GLOBAL X CHINA BIOTECH INNOV",
+      "closedOn": "2024-02-16"
+    },
+    {
+      "ticker": "CHIE",
+      "name": "GLOBAL X MSCI CHINA ENERGY E",
+      "closedOn": "2024-02-16"
+    },
+    {
+      "ticker": "CHIH",
+      "name": "GLOBAL X MSCI CHINA HEALTH",
+      "closedOn": "2024-02-16"
+    },
+    {
+      "ticker": "CHII",
+      "name": "GLOBAL X MSCI CHINA INDUSTRI",
+      "closedOn": "2024-02-16"
+    },
+    {
+      "ticker": "CHIK",
+      "name": "GLOBAL X MSCI CHINA INFO ETF",
+      "closedOn": "2024-02-16"
+    },
+    {
+      "ticker": "CHIM",
+      "name": "GLOBAL X MSCI CHINA MATERIAL",
+      "closedOn": "2024-02-16"
+    },
+    {
+      "ticker": "CHIS",
+      "name": "GBL X MSCI CHINA CONSUMER ST",
+      "closedOn": "2024-02-16"
+    },
+    {
+      "ticker": "CHIU",
+      "name": "GLOBAL X MSCI CHINA UTIL ETF",
+      "closedOn": "2024-02-16"
+    },
+    {
+      "ticker": "CHIX",
+      "name": "GLOBAL X MSCI CHINA FINANCIA",
+      "closedOn": "2024-02-16"
+    },
+    {
+      "ticker": "GRNR",
+      "name": "GLOBAL X GREEN BUILDING ETF",
+      "closedOn": "2024-02-16"
+    },
+    {
+      "ticker": "PAK",
+      "name": "GLOBAL X MSCI PAKISTAN ETF",
+      "closedOn": "2024-02-16"
+    },
+    {
+      "ticker": "PGAL",
+      "name": "GLOBAL X MSCI PORTUGAL ETF",
+      "closedOn": "2024-02-16"
+    },
+    {
+      "ticker": "POTX",
+      "name": "GLOBAL X CANNABIS ETF",
+      "closedOn": "2024-02-16"
+    },
+    {
+      "ticker": "VR",
+      "name": "GLOBAL X METAVERSE ETF",
+      "closedOn": "2024-02-16"
+    },
+    {
+      "ticker": "BYOB",
+      "name": "SOFI BE YOUR OWN BOSS ETF",
+      "closedOn": "2024-02-20"
+    },
+    {
+      "ticker": "TGIF",
+      "name": "SOFI WEEKLY INCOME ETF",
+      "closedOn": "2024-02-20"
+    },
+    {
+      "ticker": "TWEB",
+      "name": "SOFI WEB 3 ETF",
+      "closedOn": "2024-02-20"
+    },
+    {
+      "ticker": "WKLY",
+      "name": "SOFI WEEKLY DIVIDEND ETF",
+      "closedOn": "2024-02-20"
+    },
+    {
+      "ticker": "THCX",
+      "name": "AXS CANNABIS ETF",
+      "closedOn": "2024-02-21"
+    },
+    {
+      "ticker": "NDJI",
+      "name": "NATIONWIDE DOW JONES RISK MA",
+      "closedOn": "2024-02-22"
+    },
+    {
+      "ticker": "NSPI",
+      "name": "NATIONWIDE S&P 500 RISK-MAN",
+      "closedOn": "2024-02-22"
+    },
+    {
+      "ticker": "NTKI",
+      "name": "NATIONWIDE RUSSELL 2000 RISK",
+      "closedOn": "2024-02-22"
+    },
+    {
+      "ticker": "OAIE",
+      "name": "OPTIMIZE AI SMART SENTIMENT",
+      "closedOn": "2024-02-26"
+    },
+    {
+      "ticker": "YPS",
+      "name": "ARROW REVERSE CAP 500 ETF",
+      "closedOn": "2024-02-26"
+    },
+    {
+      "ticker": "FTLN",
+      "name": "RAREVIEW INFLAT/DEFLAT ETF",
+      "closedOn": "2024-02-29"
+    },
+    {
+      "ticker": "CYA",
+      "name": "SIMPLIFY TAIL RISK STRATEGY",
+      "closedOn": "2024-03-07"
+    },
+    {
+      "ticker": "ASHX",
+      "name": "XTRACKERS MSCI CHINA A INCLU",
+      "closedOn": "2024-03-13"
+    },
+    {
+      "ticker": "CN",
+      "name": "XTRACKERS MSCI ALL CHINA EQU",
+      "closedOn": "2024-03-13"
+    },
+    {
+      "ticker": "DBGR",
+      "name": "XTRACKERS MSCI GERMANY HEDGE",
+      "closedOn": "2024-03-13"
+    },
+    {
+      "ticker": "ESCR",
+      "name": "XTRACKERS BBG US IG CORP ESG",
+      "closedOn": "2024-03-13"
+    },
+    {
+      "ticker": "ESEB",
+      "name": "XTRACKERS J.P. MORGAN ESG EM",
+      "closedOn": "2024-03-13"
+    },
+    {
+      "ticker": "ESHY",
+      "name": "X-TRACKERS J.P. MORGAN ESG U",
+      "closedOn": "2024-03-13"
+    },
+    {
+      "ticker": "KBND",
+      "name": "KRANESHARES BLOOMBERG CHINA",
+      "closedOn": "2024-03-14"
+    },
+    {
+      "ticker": "KBUY",
+      "name": "KRANESHARES CICC CHINA CONS",
+      "closedOn": "2024-03-14"
+    },
+    {
+      "ticker": "KGRO",
+      "name": "KRANESHARES CHINA INNOVATION",
+      "closedOn": "2024-03-14"
+    },
+    {
+      "ticker": "KSET",
+      "name": "KRANESHARES GL CARBON OFF ST",
+      "closedOn": "2024-03-14"
+    },
+    {
+      "ticker": "JIB",
+      "name": "JANUS HENDERSON SUST IMP C/B",
+      "closedOn": "2024-03-15"
+    },
+    {
+      "ticker": "EGPT",
+      "name": "VANECK EGYPT INDEX ETF",
+      "closedOn": "2024-03-21"
+    },
+    {
+      "ticker": "NGE",
+      "name": "GLOBAL X MSCI NIGERIA ETF",
+      "closedOn": "2024-03-25"
+    },
+    {
+      "ticker": "DKRB",
+      "name": "SUBVERSIVE DECARBONIZATION",
+      "closedOn": "2024-03-27"
+    },
+    {
+      "ticker": "EVXX",
+      "name": "DEFIANCE PURE ELECTRIC VEHIC",
+      "closedOn": "2024-03-27"
+    },
+    {
+      "ticker": "KCAL",
+      "name": "SUBVERSIVE FOOD SECURITY ETF",
+      "closedOn": "2024-03-27"
+    },
+    {
+      "ticker": "SANE",
+      "name": "SUBVERSIVE MENTAL HEALTH ETF",
+      "closedOn": "2024-03-27"
+    },
+    {
+      "ticker": "LGLZ",
+      "name": "SUBVERSIVE CANNABIS ETF",
+      "closedOn": "2024-03-28"
+    },
+    {
+      "ticker": "YUMY",
+      "name": "VANECK FUTURE OF FOOD ETF",
+      "closedOn": "2024-04-02"
+    },
+    {
+      "ticker": "GLIF",
+      "name": "AGF GLOBAL INFRASTRUCTURE ET",
+      "closedOn": "2024-04-12"
+    },
+    {
+      "ticker": "IRBA",
+      "name": "RESPONSIBLE GLOBAL ALLOCATIO",
+      "closedOn": "2024-04-12"
+    },
+    {
+      "ticker": "DALT",
+      "name": "ANFIELD CAP DIVERSIFIED ALT",
+      "closedOn": "2024-04-19"
+    },
+    {
+      "ticker": "CSML",
+      "name": "INDEXIQ ETF TRUST IQ U.S. SM",
+      "closedOn": "2024-04-22"
+    },
+    {
+      "ticker": "SPXB",
+      "name": "PROSHARES S&P 500 BOND ETF",
+      "closedOn": "2024-04-22"
+    },
+    {
+      "ticker": "ULTR",
+      "name": "IQ ULTRA SHORT DURATION ETF",
+      "closedOn": "2024-04-22"
+    },
+    {
+      "ticker": "FEEM",
+      "name": "FLEXSHARES ESG & CLIMATE EM",
+      "closedOn": "2024-04-23"
+    },
+    {
+      "ticker": "KARB",
+      "name": "ETF SLTNS-CRBN STRATEGY ETF",
+      "closedOn": "2024-05-02"
+    },
+    {
+      "ticker": "WZRD",
+      "name": "OPPORTUNISTIC TRADER ETF",
+      "closedOn": "2024-05-08"
+    },
+    {
+      "ticker": "USVT",
+      "name": "US VALUE ETF",
+      "closedOn": "2024-05-15"
+    },
+    {
+      "ticker": "EMFM",
+      "name": "GLOBAL X MSCI NEXT EMERGING",
+      "closedOn": "2024-05-17"
+    },
+    {
+      "ticker": "JJMTF",
+      "name": "IPATH BLOOMBERG INDUSTRIAL M",
+      "closedOn": "2024-05-20"
+    },
+    {
+      "ticker": "AMJ",
+      "name": "JPMORGAN ALERIAN MLP INDEX",
+      "closedOn": "2024-05-21"
+    },
+    {
+      "ticker": "KOIN",
+      "name": "CAPITAL LINK GLOBAL FINTECH",
+      "closedOn": "2024-05-22"
+    },
+    {
+      "ticker": "CHAI",
+      "name": "DEFIANCE ISRAEL FIXED INCOME",
+      "closedOn": "2024-05-23"
+    },
+    {
+      "ticker": "JJATF",
+      "name": "IPATH BLOOMBERG AGRICULTURE",
+      "closedOn": "2024-05-23"
+    },
+    {
+      "ticker": "SMLE",
+      "name": "XTRACKERS S&P SMALLCAP 600",
+      "closedOn": "2024-05-24"
+    },
+    {
+      "ticker": "DIP",
+      "name": "BTD CAPITAL FUND",
+      "closedOn": "2024-05-29"
+    },
+    {
+      "ticker": "JJTFF",
+      "name": "IPATH BLOOMBERG TIN SUBINDEX",
+      "closedOn": "2024-06-03"
+    },
+    {
+      "ticker": "FBGX",
+      "name": "TEUCRIUM AILA L/S BASE ME ST",
+      "closedOn": "2024-06-05"
+    },
+    {
+      "ticker": "OAIB",
+      "name": "TEUCRIUM AILA L/S BASE ME ST",
+      "closedOn": "2024-06-05"
+    },
+    {
+      "ticker": "FBGX",
+      "name": "FI ENHANCED LARGE CAP GROWTH",
+      "closedOn": "2024-06-18"
+    },
+    {
+      "ticker": "JJNTF",
+      "name": "IPATH BLOOMBERG NICKEL SUBIN",
+      "closedOn": "2024-06-21"
+    },
+    {
+      "ticker": "GRNTF",
+      "name": "IPATH GLOBAL CARBON ETN",
+      "closedOn": "2024-06-24"
+    },
+    {
+      "ticker": "JJOFF",
+      "name": "IPATH BLOOMBERG COFFEE SUBIN",
+      "closedOn": "2024-06-25"
+    },
+    {
+      "ticker": "BALTF",
+      "name": "IPATH BLOOMBERG COTTON SUBIN",
+      "closedOn": "2024-06-27"
+    },
+    {
+      "ticker": "SGGFF",
+      "name": "IPATH BLOOMBERG SUGAR SUBIND",
+      "closedOn": "2024-06-27"
+    },
+    {
+      "ticker": "GDEF",
+      "name": "GS DEFENSIVE EQUITY ETF",
+      "closedOn": "2024-07-03"
+    },
+    {
+      "ticker": "ROYA",
+      "name": "TEMA GLOBAL ROYALTIES ETF",
+      "closedOn": "2024-07-03"
+    },
+    {
+      "ticker": "HJEN",
+      "name": "DIREXION HYDROGEN ETF",
+      "closedOn": "2024-07-19"
+    },
+    {
+      "ticker": "KLNE",
+      "name": "DIREXION DAILY GLOBAL CLEAN",
+      "closedOn": "2024-07-19"
+    },
+    {
+      "ticker": "CETF",
+      "name": "DRIVEWEALTH NYSE 100 INDEX E",
+      "closedOn": "2024-07-22"
+    },
+    {
+      "ticker": "HDAW",
+      "name": "XTRACKERS MSCI ALL WORLD EX",
+      "closedOn": "2024-07-22"
+    },
+    {
+      "ticker": "MOON",
+      "name": "DIREXION MOONSHOT INNOVATORS",
+      "closedOn": "2024-07-22"
+    },
+    {
+      "ticker": "BNKD",
+      "name": "MICROSECTORS US BIG BANK -3X",
+      "closedOn": "2024-07-24"
+    },
+    {
+      "ticker": "BNKU",
+      "name": "MICROSECTORS US BIG BANKS 3X",
+      "closedOn": "2024-07-24"
+    },
+    {
+      "ticker": "NRGD",
+      "name": "MICROSECTORS US BIG OIL -3X",
+      "closedOn": "2024-07-24"
+    },
+    {
+      "ticker": "NRGU",
+      "name": "MICROSECTORS US BIG OIL 3X",
+      "closedOn": "2024-07-24"
+    },
+    {
+      "ticker": "VNMC",
+      "name": "NATIXIS VAUGHAN NELSON MIDC",
+      "closedOn": "2024-07-25"
+    },
+    {
+      "ticker": "TRES",
+      "name": "DEFIANCE TRSRY ALT YIELD ETF",
+      "closedOn": "2024-07-26"
+    },
+    {
+      "ticker": "AYTEF",
+      "name": "IPATH GEMS ASIA 8 ETN",
+      "closedOn": "2024-07-27"
+    },
+    {
+      "ticker": "BTEC",
+      "name": "PRINCIPAL HEALTHCARE INNOVAT",
+      "closedOn": "2024-07-31"
+    },
+    {
+      "ticker": "BECO",
+      "name": "BLACKROCK FUTURE CLIMATE",
+      "closedOn": "2024-08-12"
+    },
+    {
+      "ticker": "BTEK",
+      "name": "BLACKROCK FUTURE TECH ETF",
+      "closedOn": "2024-08-12"
+    },
+    {
+      "ticker": "HEWG",
+      "name": "ISHA HEDGED MSCI GERMANY",
+      "closedOn": "2024-08-12"
+    },
+    {
+      "ticker": "IAUF",
+      "name": "ISHARES GOLD STRATEGY ETF",
+      "closedOn": "2024-08-12"
+    },
+    {
+      "ticker": "ISZE",
+      "name": "ISHARES MSCI INTERNATIONAL S",
+      "closedOn": "2024-08-12"
+    },
+    {
+      "ticker": "IWFH",
+      "name": "ISHARES VIRTUAL WORK & LIFE",
+      "closedOn": "2024-08-12"
+    },
+    {
+      "ticker": "USBF",
+      "name": "ISHARES TRUST ISHARES USD SY",
+      "closedOn": "2024-08-12"
+    },
+    {
+      "ticker": "WPS",
+      "name": "ISHARES INTERNATIONAL DEVELO",
+      "closedOn": "2024-08-12"
+    },
+    {
+      "ticker": "CLIA",
+      "name": "VERIDIEN CLIMATE ACTION ETF",
+      "closedOn": "2024-08-16"
+    },
+    {
+      "ticker": "EMFQ",
+      "name": "Amplify Emerging Markets FinTech ETF",
+      "closedOn": "2024-09-05"
+    },
+    {
+      "ticker": "GERM",
+      "name": "Amplify Treatments, Testing and Advancements ETF",
+      "closedOn": "2024-09-05"
+    },
+    {
+      "ticker": "IWIN",
+      "name": "Amplify Inflation Fighter ETF",
+      "closedOn": "2024-09-05"
+    },
+    {
+      "ticker": "OAIA",
+      "name": "Teucrium AiLA Long-Short Agriculture Strategy ETF",
+      "closedOn": "2024-09-13"
+    },
+    {
+      "ticker": "DBEH",
+      "name": "iMGP DBi Hedge Strategy ETF",
+      "closedOn": "2024-09-16"
+    },
+    {
+      "ticker": "EFUT",
+      "name": "Vaneck Ethereum Strategy ETF",
+      "closedOn": "2024-09-16"
+    },
+    {
+      "ticker": "KDIV",
+      "name": "KraneShares S&P Pan Asia Dividend Aristocrats Index ETF",
+      "closedOn": "2024-09-19"
+    },
+    {
+      "ticker": "KFVG",
+      "name": "KraneShares CICC China 5G & Semiconductor Index ETF",
+      "closedOn": "2024-09-19"
+    },
+    {
+      "ticker": "KMET",
+      "name": "KraneShares Electrification Metals Strategy ETF",
+      "closedOn": "2024-09-19"
+    },
+    {
+      "ticker": "LSST",
+      "name": "Natixis Loomis Sayles Short Duration Income ETF",
+      "closedOn": "2024-09-25"
+    },
+    {
+      "ticker": "AEMB",
+      "name": "American Century Emerging Markets Bond ETF",
+      "closedOn": "2024-09-26"
+    },
+    {
+      "ticker": "BNE",
+      "name": "Blue Horizon BNE ETF",
+      "closedOn": "2024-09-26"
+    },
+    {
+      "ticker": "GHEE",
+      "name": "Goose Hollow Enhanced Equity ETF",
+      "closedOn": "2024-09-27"
+    },
+    {
+      "ticker": "INAV",
+      "name": "Mohr Industry Nav ETF",
+      "closedOn": "2024-09-27"
+    },
+    {
+      "ticker": "MOHR",
+      "name": "Mohr Growth ETF",
+      "closedOn": "2024-09-27"
+    },
+    {
+      "ticker": "SMDY",
+      "name": "Syntax Stratified MidCap ETF",
+      "closedOn": "2024-09-27"
+    },
+    {
+      "ticker": "SSLY",
+      "name": "Syntax Stratified SmallCap ETF",
+      "closedOn": "2024-09-27"
+    },
+    {
+      "ticker": "SYII",
+      "name": "Syntax Stratified Total Market II ETF",
+      "closedOn": "2024-09-27"
+    },
+    {
+      "ticker": "SYUS",
+      "name": "Syntax Stratified U.S. Total Market ETF",
+      "closedOn": "2024-09-27"
+    },
+    {
+      "ticker": "TSLH",
+      "name": "INNOVATOR HEDGED TSLA",
+      "closedOn": "2024-10-01"
+    },
+    {
+      "ticker": "INC",
+      "name": "VANECK DYNAMIC HIGH INCOME",
+      "closedOn": "2024-10-08"
+    },
+    {
+      "ticker": "SXUS",
+      "name": "JANUS HENDERSON INT SUSTAIN",
+      "closedOn": "2024-10-09"
+    },
+    {
+      "ticker": "AFTY",
+      "name": "PACER CSOP FTSE CHINA A50 ET",
+      "closedOn": "2024-10-10"
+    },
+    {
+      "ticker": "ALUM",
+      "name": "USCF ALUMINUM STRATEGY FUND",
+      "closedOn": "2024-10-11"
+    },
+    {
+      "ticker": "NTZG",
+      "name": "NUVEEN GLOBAL NET ZERO TRANS",
+      "closedOn": "2024-10-14"
+    },
+    {
+      "ticker": "DMDV",
+      "name": "AAM S&P DEVELOPED MARKETS HI",
+      "closedOn": "2024-10-17"
+    },
+    {
+      "ticker": "FIXT",
+      "name": "PROCURE DISASTER RECOVERY",
+      "closedOn": "2024-10-17"
+    },
+    {
+      "ticker": "JRNY",
+      "name": "ALPS GLOBAL TRAVEL BENEF ETF",
+      "closedOn": "2024-10-17"
+    },
+    {
+      "ticker": "BBIP",
+      "name": "JPM BETA US TR 0-5 YR ETF",
+      "closedOn": "2024-10-18"
+    },
+    {
+      "ticker": "BBSA",
+      "name": "JPMORGAN BETABUILDERS 1-5 YR",
+      "closedOn": "2024-10-18"
+    },
+    {
+      "ticker": "CID",
+      "name": "VICTORYSHARES INTERNATIONAL",
+      "closedOn": "2024-10-23"
+    },
+    {
+      "ticker": "CIZ",
+      "name": "VICTORYSHARES DEVELOPED ENHA",
+      "closedOn": "2024-10-23"
+    },
+    {
+      "ticker": "QQQN",
+      "name": "VICTORYSHARES NASDAQ NEXT 50",
+      "closedOn": "2024-10-23"
+    },
+    {
+      "ticker": "MRAD",
+      "name": "SmartETFs Advertising & Marketing Technology ETF",
+      "closedOn": "2024-10-30"
+    },
+    {
+      "ticker": "CFCV",
+      "name": "ClearBridge Focus Value ESG ETF",
+      "closedOn": "2024-11-04"
+    },
+    {
+      "ticker": "ITDA",
+      "name": "iShares LifePath Target Date 2025 ETF USD",
+      "closedOn": "2024-11-15"
+    },
+    {
+      "ticker": "EQUL",
+      "name": "NYLI Engender Equality ETF",
+      "closedOn": "2024-11-20"
+    },
+    {
+      "ticker": "IQIN",
+      "name": "NYLI 500 International ETF",
+      "closedOn": "2024-11-20"
+    },
+    {
+      "ticker": "ROOF",
+      "name": "NYLI CBRE NextGen Real Estate ETF",
+      "closedOn": "2024-11-20"
+    },
+    {
+      "ticker": "VWI",
+      "name": "Arch Indices VOI Absolute Income Fund",
+      "closedOn": "2024-11-22"
+    },
+    {
+      "ticker": "KNGS",
+      "name": "Roundhill S&P Dividend Monarchs ETF",
+      "closedOn": "2024-11-29"
+    },
+    {
+      "ticker": "LNGG",
+      "name": "Roundhill Alerian LNG ETF",
+      "closedOn": "2024-11-29"
+    },
+    {
+      "ticker": "LUXX",
+      "name": "Roundhill S&P Global Luxury ETF",
+      "closedOn": "2024-11-29"
+    },
+    {
+      "ticker": "MAGQ",
+      "name": "Roundhill Daily Inverse Magnificent Seven ETF",
+      "closedOn": "2024-11-29"
+    },
+    {
+      "ticker": "IBMM",
+      "name": "iShares iBonds Dec 2024 Term Muni Bond ETF",
+      "closedOn": "2024-12-02"
+    },
+    {
+      "ticker": "RHCB",
+      "name": "BNY Mellon Responsible Horizons Corporate Bond ETF",
+      "closedOn": "2024-12-06"
+    },
+    {
+      "ticker": "AMNA",
+      "name": "ETRACS Alerian Midstream Energy Index ETN",
+      "closedOn": "2024-12-13"
+    },
+    {
+      "ticker": "AMND",
+      "name": "ETRACS Alerian Midstream Energy High Dividend Index ETN due July 19, 2050",
+      "closedOn": "2024-12-13"
+    },
+    {
+      "ticker": "AMTR",
+      "name": "ETRACS Alerian Midstream Energy Total Return Index ETN",
+      "closedOn": "2024-12-13"
+    },
+    {
+      "ticker": "DJCB",
+      "name": "ETRACS Bloomberg Commodity Index Total Return ETN Series B",
+      "closedOn": "2024-12-13"
+    },
+    {
+      "ticker": "ESUS",
+      "name": "ETRACS 2x Leveraged MSCI US ESG Focus TR ETN",
+      "closedOn": "2024-12-13"
+    },
+    {
+      "ticker": "FEDL",
+      "name": "ETRACS 2x Leveraged IFED Invest with the Fed TR Index ETN",
+      "closedOn": "2024-12-13"
+    },
+    {
+      "ticker": "GFOF",
+      "name": "Grayscale Future of Finance ETF",
+      "closedOn": "2024-12-13"
+    },
+    {
+      "ticker": "RENW",
+      "name": "HARBOR ENERGY TRANSITION ST",
+      "closedOn": "2024-12-13"
+    },
+    {
+      "ticker": "WUCT",
+      "name": "ETRACS Whitney U.S. Critical Technologies ETN",
+      "closedOn": "2024-12-13"
+    },
+    {
+      "ticker": "BSCO",
+      "name": "Invesco BulletShares 2024 Corporate Bond ETF",
+      "closedOn": "2024-12-16"
+    },
+    {
+      "ticker": "BSJO",
+      "name": "Invesco BulletShares 2024 High Yield Corporate Bond ETF",
+      "closedOn": "2024-12-16"
+    },
+    {
+      "ticker": "BSMO",
+      "name": "Invesco BulletShares 2024 Municipal Bond ETF",
+      "closedOn": "2024-12-16"
+    },
+    {
+      "ticker": "IBDP",
+      "name": "iShares iBonds Dec 2024 Term Corporate ETF",
+      "closedOn": "2024-12-16"
+    },
+    {
+      "ticker": "IBHD",
+      "name": "iShares iBonds 2024 Term High Yield & Income ETF",
+      "closedOn": "2024-12-16"
+    },
+    {
+      "ticker": "IBTE",
+      "name": "iShares iBonds Dec 2024 Term Treasury ETF",
+      "closedOn": "2024-12-16"
+    },
+    {
+      "ticker": "INNO",
+      "name": "Harbor Disruptive Innovation ETF",
+      "closedOn": "2024-12-19"
+    },
+    {
+      "ticker": "MSVX",
+      "name": "LHA Market State Alpha Seeker ETF",
+      "closedOn": "2024-12-20"
+    },
+    {
+      "ticker": "JFWD",
+      "name": "Jacob Forward ETF",
+      "closedOn": "2024-12-23"
+    },
+    {
+      "ticker": "SMCP",
+      "name": "AlphaMark Actively Managed Small Cap ETF",
+      "closedOn": "2024-12-27"
+    },
+    {
+      "ticker": "WEIX",
+      "name": "Dynamic Short Short-Term Volatility Futures ETF",
+      "closedOn": "2024-12-27"
+    },
+    {
+      "ticker": "AHOY",
+      "name": "Newday Ocean Health ETF",
+      "closedOn": "2024-12-31"
+    },
+    {
+      "ticker": "FM",
+      "name": "iShares Frontier and Select EM ETF",
+      "closedOn": "2025-01-06"
+    },
+    {
+      "ticker": "HJAN",
+      "name": "Innovator Premium Income 9 Buffer ETF - January",
+      "closedOn": "2025-01-07"
+    },
+    {
+      "ticker": "JAND",
+      "name": "Innovator Premium Income 10 Barrier ETF - January",
+      "closedOn": "2025-01-07"
+    },
+    {
+      "ticker": "JANQ",
+      "name": "Innovator Premium Income 40 Barrier ETF - January",
+      "closedOn": "2025-01-07"
+    },
+    {
+      "ticker": "XDJA",
+      "name": "Innovator U.S. Equity Accelerated ETF - January",
+      "closedOn": "2025-01-07"
+    },
+    {
+      "ticker": "NBGR",
+      "name": "NEUBERGER BERMAN GLB RE ETF",
+      "closedOn": "2025-01-10"
+    },
+    {
+      "ticker": "FAIL",
+      "name": "Cambria Global Tail Risk ETF",
+      "closedOn": "2025-01-15"
+    },
+    {
+      "ticker": "NBGR",
+      "name": "Neuberger Berman Global Real Estate ETF",
+      "closedOn": "2025-01-15"
+    },
+    {
+      "ticker": "GCLN",
+      "name": "Goldman Sachs Bloomberg Clean Energy Equity ETF",
+      "closedOn": "2025-01-17"
+    },
+    {
+      "ticker": "GPOW",
+      "name": "North Amern Pipelines & PWR Equity ETF",
+      "closedOn": "2025-01-17"
+    },
+    {
+      "ticker": "GREI",
+      "name": "Goldman Sachs Future Real Estate and Infrastructure Equity ETF",
+      "closedOn": "2025-01-17"
+    },
+    {
+      "ticker": "IQDE",
+      "name": "FlexShares International Quality Dividend Defensive Index Fund",
+      "closedOn": "2025-01-21"
+    },
+    {
+      "ticker": "MJUS",
+      "name": "Amplify U.S. Alternative Harvest ETF",
+      "closedOn": "2025-01-27"
+    },
+    {
+      "ticker": "TWIO",
+      "name": "Trajan Wealth Income Opportunities ETF",
+      "closedOn": "2025-01-27"
+    },
+    {
+      "ticker": "OCTA",
+      "name": "OCTANE ALL CAP VALUE ENERGY",
+      "closedOn": "2025-02-14"
+    },
+    {
+      "ticker": "OCTA",
+      "name": "Octane All-Cap Value Energy ETF",
+      "closedOn": "2025-02-19"
+    },
+    {
+      "ticker": "EMCC",
+      "name": "Global X MSCI Emerging Markets Covered Call ETF",
+      "closedOn": "2025-02-20"
+    },
+    {
+      "ticker": "FYLG",
+      "name": "Global X Financials Covered Call & Growth ETF",
+      "closedOn": "2025-02-20"
+    },
+    {
+      "ticker": "HYLG",
+      "name": "Global X Health Care Covered Call & Growth ETF",
+      "closedOn": "2025-02-20"
+    },
+    {
+      "ticker": "QYLE",
+      "name": "Global X Nasdaq 100 ESG Covered Call ETF",
+      "closedOn": "2025-02-20"
+    },
+    {
+      "ticker": "XYLE",
+      "name": "Global X S&P 500 ESG Covered Call ETF",
+      "closedOn": "2025-02-20"
+    },
+    {
+      "ticker": "NVDW",
+      "name": "TRADR 1.75X LNG NVDA WKY ETF",
+      "closedOn": "2025-02-21"
+    },
+    {
+      "ticker": "SPYM",
+      "name": "TRADR 2X LONG SPY MONTH ETF",
+      "closedOn": "2025-02-21"
+    },
+    {
+      "ticker": "TSLW",
+      "name": "TRADR 1.5X LNG TSLA WKLY ETF",
+      "closedOn": "2025-02-21"
+    },
+    {
+      "ticker": "AMPD",
+      "name": "CNIC ICE US Carbon Neutral Power Futures Index ETF",
+      "closedOn": "2025-02-25"
+    },
+    {
+      "ticker": "PP",
+      "name": "Meet Kevin Pricing Power ETF",
+      "closedOn": "2025-02-28"
+    },
+    {
+      "ticker": "QQQW",
+      "name": "Tradr 2X Long Triple Q Weekly ETF",
+      "closedOn": "2025-02-28"
+    },
+    {
+      "ticker": "SOXM",
+      "name": "Tradr 2X Long SOXX Monthly ETF",
+      "closedOn": "2025-02-28"
+    },
+    {
+      "ticker": "SOXW",
+      "name": "Tradr 2X Long SOXX Weekly ETF",
+      "closedOn": "2025-02-28"
+    },
+    {
+      "ticker": "SPYB",
+      "name": "Tradr 2X Long SPY Weekly ETF",
+      "closedOn": "2025-02-28"
+    },
+    {
+      "ticker": "TLTM",
+      "name": "Tradr 2X Long TLT Monthly ETF",
+      "closedOn": "2025-02-28"
+    },
+    {
+      "ticker": "TLTQ",
+      "name": "Tradr 1.75X Long TLT Quarterly ETF",
+      "closedOn": "2025-02-28"
+    },
+    {
+      "ticker": "MVPS",
+      "name": "Amplify Thematic All-Stars ETF",
+      "closedOn": "2025-03-05"
+    },
+    {
+      "ticker": "QSWN",
+      "name": "Amplify BlackSwan Tech & Treasury ETF",
+      "closedOn": "2025-03-05"
+    },
+    {
+      "ticker": "ESGX",
+      "name": "Tuttle Capital Shareholders First Index ETF",
+      "closedOn": "2025-03-11"
+    },
+    {
+      "ticker": "CRIT",
+      "name": "Optica Rare Earths & Critical Materials ETF",
+      "closedOn": "2025-03-20"
+    },
+    {
+      "ticker": "BLLD",
+      "name": "JPMorgan Sustainable Infrastructure Fund",
+      "closedOn": "2025-03-26"
+    },
+    {
+      "ticker": "UTRN",
+      "name": "Vesper U.S. Large Cap Short-Term Reversal Strategy ETF",
+      "closedOn": "2025-03-27"
+    },
+    {
+      "ticker": "ARKC",
+      "name": "ARK 21Shares Active On-Chain Bitcoin Strategy ETF",
+      "closedOn": "2025-03-28"
+    },
+    {
+      "ticker": "ARKY",
+      "name": "ARK 21Shares Active Bitcoin Ethereum Strategy ETF",
+      "closedOn": "2025-03-28"
+    },
+    {
+      "ticker": "PRMN",
+      "name": "PlanRock Market Neutral Income ETF",
+      "closedOn": "2025-03-28"
+    },
+    {
+      "ticker": "KPOP",
+      "name": "JAKOTA K-Pop and Korean Entertainment ETF",
+      "closedOn": "2025-04-03"
+    },
+    {
+      "ticker": "APRD",
+      "name": "Innovator Premium Income 10 Barrier ETF - April",
+      "closedOn": "2025-04-04"
+    },
+    {
+      "ticker": "APRQ",
+      "name": "Innovator Premium Income 40 Barrier ETF - April",
+      "closedOn": "2025-04-04"
+    },
+    {
+      "ticker": "HAPR",
+      "name": "Innovator Premium Income 9 Buffer ETF - April",
+      "closedOn": "2025-04-04"
+    },
+    {
+      "ticker": "XDAP",
+      "name": "Innovator US Equity Accelerated ETF",
+      "closedOn": "2025-04-04"
+    },
+    {
+      "ticker": "CLNR",
+      "name": "NYLI Cleaner Transport ETF",
+      "closedOn": "2025-04-09"
+    },
+    {
+      "ticker": "OCEN",
+      "name": "NYLI Clean Oceans ETF",
+      "closedOn": "2025-04-09"
+    },
+    {
+      "ticker": "SPAX",
+      "name": "Robinson Alternative Yield Pre-merger SPAC ETF",
+      "closedOn": "2025-04-11"
+    },
+    {
+      "ticker": "EFIX",
+      "name": "First Trust TCW Emerging Markets Debt ETF",
+      "closedOn": "2025-04-14"
+    },
+    {
+      "ticker": "URAX",
+      "name": "Defiance Daily Target 2x Long Uranium ETF",
+      "closedOn": "2025-04-21"
+    },
+    {
+      "ticker": "CSA",
+      "name": "VictoryShares US Small Cap Volatility Wtd ETF",
+      "closedOn": "2025-04-24"
+    },
+    {
+      "ticker": "CSF",
+      "name": "VictoryShares US Discovery Enhanced Volatility Wtd ETF",
+      "closedOn": "2025-04-24"
+    },
+    {
+      "ticker": "MDCP",
+      "name": "VictoryShares THB Mid Cap ETF",
+      "closedOn": "2025-04-24"
+    },
+    {
+      "ticker": "EV",
+      "name": "Mast Global Battery Recycling & Production ETF",
+      "closedOn": "2025-04-25"
+    },
+    {
+      "ticker": "MPAY",
+      "name": "Akros Monthly Payout ETF",
+      "closedOn": "2025-04-25"
+    },
+    {
+      "ticker": "CRUZ",
+      "name": "Defiance Hotel Airline and Cruise ETF",
+      "closedOn": "2025-04-29"
+    },
+    {
+      "ticker": "HDRO",
+      "name": "Defiance Next Gen H2 ETF",
+      "closedOn": "2025-04-29"
+    },
+    {
+      "ticker": "LVOL",
+      "name": "American Century Low Volatility ETF",
+      "closedOn": "2025-04-29"
+    },
+    {
+      "ticker": "EATV",
+      "name": "VegTech Food Innovation & Climate ETF",
+      "closedOn": "2025-05-07"
+    },
+    {
+      "ticker": "FNGA",
+      "name": "MicroSectors FANG+ Index 3X Leveraged ETN",
+      "closedOn": "2025-05-14"
+    },
+    {
+      "ticker": "LNGZ",
+      "name": "Range Global LNG Ecosystem Index ETF",
+      "closedOn": "2025-05-15"
+    },
+    {
+      "ticker": "EQLS",
+      "name": "Simplify Market Neutral Equity Long/Short ETF",
+      "closedOn": "2025-05-23"
+    },
+    {
+      "ticker": "FIG",
+      "name": "SIMPLIFY MACRO STRATEGY ETF",
+      "closedOn": "2025-05-23"
+    },
+    {
+      "ticker": "KALL",
+      "name": "KraneShares MSCI All China Index ETF",
+      "closedOn": "2025-05-23"
+    },
+    {
+      "ticker": "KEM",
+      "name": "KraneShares Dynamic Emerging Markets Strategy ETF",
+      "closedOn": "2025-05-23"
+    },
+    {
+      "ticker": "KSEA",
+      "name": "KraneShares Rockefeller Ocean Engagement ETF",
+      "closedOn": "2025-05-23"
+    },
+    {
+      "ticker": "NXTV",
+      "name": "Simplify Next Intangible Value Index ETF",
+      "closedOn": "2025-05-23"
+    },
+    {
+      "ticker": "SCY",
+      "name": "Simplify US Small Cap PLUS Income ETF",
+      "closedOn": "2025-05-23"
+    },
+    {
+      "ticker": "SPQ",
+      "name": "Simplify US Equity PLUS QIS ETF",
+      "closedOn": "2025-05-23"
+    },
+    {
+      "ticker": "WUSA",
+      "name": "Simplify Wolfe US Equity 150/50 ETF",
+      "closedOn": "2025-05-23"
+    },
+    {
+      "ticker": "CNCR",
+      "name": "Range Cancer Therapeutics ETF",
+      "closedOn": "2025-05-27"
+    },
+    {
+      "ticker": "GUNZ",
+      "name": "Tuttle Capital Self Defense Index ETF",
+      "closedOn": "2025-05-29"
+    },
+    {
+      "ticker": "COWTF",
+      "name": "IPATH BLOOMBERG LIVESTOCK ETF",
+      "closedOn": "2025-06-03"
+    },
+    {
+      "ticker": "JJCTF",
+      "name": "iPath Bloomberg Copper Subindex Total Return ETN",
+      "closedOn": "2025-06-17"
+    },
+    {
+      "ticker": "PGMFF",
+      "name": "iPath Bloomberg Platinum Subindex Total Return ETN",
+      "closedOn": "2025-06-17"
+    },
+    {
+      "ticker": "OFOS",
+      "name": "Range Global Offshore Oil Services Index ETF",
+      "closedOn": "2025-06-18"
+    },
+    {
+      "ticker": "DCAP",
+      "name": "Unity Wealth Partners Dynamic Capital Appreciation & Options ETF",
+      "closedOn": "2025-06-20"
+    },
+    {
+      "ticker": "FDCE",
+      "name": "Foundations Dynamic Core ETF",
+      "closedOn": "2025-06-20"
+    },
+    {
+      "ticker": "FDGR",
+      "name": "Foundations Dynamic Growth ETF",
+      "closedOn": "2025-06-20"
+    },
+    {
+      "ticker": "FDTB",
+      "name": "Foundations Dynamic Income ETF",
+      "closedOn": "2025-06-20"
+    },
+    {
+      "ticker": "FDVL",
+      "name": "Foundations Dynamic Value ETF",
+      "closedOn": "2025-06-20"
+    },
+    {
+      "ticker": "AMDS",
+      "name": "GraniteShares 1x Short AMD Daily ETF",
+      "closedOn": "2025-06-23"
+    },
+    {
+      "ticker": "DYNI",
+      "name": "IDX Dynamic Innovation ETF",
+      "closedOn": "2025-06-24"
+    },
+    {
+      "ticker": "NSCS",
+      "name": "Nuveen Small Cap Select ETF",
+      "closedOn": "2025-06-24"
+    },
+    {
+      "ticker": "JJGTF",
+      "name": "IPATH BLOOMBERG GRAINS",
+      "closedOn": "2025-06-25"
+    },
+    {
+      "ticker": "RNEW",
+      "name": "VanEck Green Infrastructure ETF",
+      "closedOn": "2025-06-25"
+    },
+    {
+      "ticker": "SMI",
+      "name": "VanEck HIP Sustainable Muni ETF",
+      "closedOn": "2025-06-25"
+    },
+    {
+      "ticker": "DWAT",
+      "name": "Arrow DWA Tactical: Macro ETF",
+      "closedOn": "2025-06-27"
+    },
+    {
+      "ticker": "HCOM",
+      "name": "Hartford Schroders Commodity Strategy ETF",
+      "closedOn": "2025-06-30"
+    },
+    {
+      "ticker": "HLGE",
+      "name": "Hartford Longevity Economy ETF",
+      "closedOn": "2025-06-30"
+    },
+    {
+      "ticker": "RODE",
+      "name": "Hartford Multifactor Diversified International ETF",
+      "closedOn": "2025-06-30"
+    },
+    {
+      "ticker": "ROIS",
+      "name": "Hartford Multifactor International Small Company ETF",
+      "closedOn": "2025-06-30"
+    },
+    {
+      "ticker": "WBAT",
+      "name": "WisdomTree Battery Value Chain and Innovation Fund",
+      "closedOn": "2025-06-30"
+    },
+    {
+      "ticker": "FLHK",
+      "name": "Franklin FTSE Hong Kong ETF",
+      "closedOn": "2025-07-07"
+    },
+    {
+      "ticker": "HJUL",
+      "name": "Innovator Premium Income 9 Buffer ETF - July",
+      "closedOn": "2025-07-07"
+    },
+    {
+      "ticker": "JULD",
+      "name": "Innovator Premium Income 10 Barrier ETF - July",
+      "closedOn": "2025-07-07"
+    },
+    {
+      "ticker": "JULQ",
+      "name": "Innovator Premium Income 40 Barrier ETF - July",
+      "closedOn": "2025-07-07"
+    },
+    {
+      "ticker": "XDJL",
+      "name": "Innovator U.S. Equity Accelerated ETF - July",
+      "closedOn": "2025-07-07"
+    },
+    {
+      "ticker": "FBZ",
+      "name": "First Trust Brazil AlphaDEX Fund",
+      "closedOn": "2025-07-17"
+    },
+    {
+      "ticker": "TPMN",
+      "name": "Timothy Plan Market Neutral ETF",
+      "closedOn": "2025-07-22"
+    },
+    {
+      "ticker": "CLDL",
+      "name": "Direxion Daily Cloud Computing Bull 2X Shares",
+      "closedOn": "2025-07-25"
+    },
+    {
+      "ticker": "GBUY",
+      "name": "Goldman Sachs Future Consumer Equity ETF",
+      "closedOn": "2025-07-25"
+    },
+    {
+      "ticker": "GSFP",
+      "name": "Goldman Sachs Future Planet Equity ETF",
+      "closedOn": "2025-07-25"
+    },
+    {
+      "ticker": "OOTO",
+      "name": "Direxion Daily Travel & Vacation Bull 2X Shares",
+      "closedOn": "2025-07-25"
+    },
+    {
+      "ticker": "DWCR",
+      "name": "Arrow DWA Tactical: International ETF",
+      "closedOn": "2025-07-30"
+    },
+    {
+      "ticker": "KOCG",
+      "name": "FIS Knights of Columbus Global Belief ETF",
+      "closedOn": "2025-08-01"
+    },
+    {
+      "ticker": "LUX",
+      "name": "Tema Luxury ETF",
+      "closedOn": "2025-08-08"
+    },
+    {
+      "ticker": "MNTL",
+      "name": "Tema Neuroscience and Mental Health ETF",
+      "closedOn": "2025-08-08"
+    },
+    {
+      "ticker": "AGIH",
+      "name": "iShares Inflation Hedged U.S. Aggregate Bond ETF",
+      "closedOn": "2025-08-18"
+    },
+    {
+      "ticker": "CCRV",
+      "name": "iShares Commodity Curve Carry Strategy ETF",
+      "closedOn": "2025-08-18"
+    },
+    {
+      "ticker": "ELQD",
+      "name": "iShares ESG Advanced Investment Grade Corporate Bond ETF",
+      "closedOn": "2025-08-18"
+    },
+    {
+      "ticker": "FOVL",
+      "name": "iShares Focused Value Factor ETF",
+      "closedOn": "2025-08-18"
+    },
+    {
+      "ticker": "HYGI",
+      "name": "iShares Inflation Hedged High Yield Bond ETF",
+      "closedOn": "2025-08-18"
+    },
+    {
+      "ticker": "IDAT",
+      "name": "iShares Future Cloud 5G and Tech ETF",
+      "closedOn": "2025-08-18"
+    },
+    {
+      "ticker": "IVEG",
+      "name": "iShares Emergent Food and AgTech Multisector ETF",
+      "closedOn": "2025-08-18"
+    },
+    {
+      "ticker": "IWTR",
+      "name": "iShares MSCI Water Management Multisector ETF",
+      "closedOn": "2025-08-18"
+    },
+    {
+      "ticker": "HART",
+      "name": "NYLI Healthy Hearts ETF",
+      "closedOn": "2025-08-19"
+    },
+    {
+      "ticker": "NBCC",
+      "name": "Neuberger Berman Next Generation Connected Consumer ETF",
+      "closedOn": "2025-08-20"
+    },
+    {
+      "ticker": "LDER",
+      "name": "LifeX 2040 Term Income ETF",
+      "closedOn": "2025-08-22"
+    },
+    {
+      "ticker": "LDRR",
+      "name": "LifeX 2045 Term Income ETF",
+      "closedOn": "2025-08-22"
+    },
+    {
+      "ticker": "IPDP",
+      "name": "Dividend Performers ETF",
+      "closedOn": "2025-08-26"
+    },
+    {
+      "ticker": "IPPP",
+      "name": "Preferred-Plus ETF",
+      "closedOn": "2025-08-26"
+    },
+    {
+      "ticker": "INDF",
+      "name": "Range India Financials ETF",
+      "closedOn": "2025-08-28"
+    },
+    {
+      "ticker": "PTEC",
+      "name": "Global X PropTech ETF",
+      "closedOn": "2025-08-28"
+    },
+    {
+      "ticker": "QDCC",
+      "name": "Global X S&P 500 Quality Dividend Covered Call ETF",
+      "closedOn": "2025-08-28"
+    },
+    {
+      "ticker": "RATE",
+      "name": "Global X Interest Rate Hedge ETF",
+      "closedOn": "2025-08-28"
+    },
+    {
+      "ticker": "RAYS",
+      "name": "Global X Solar ETF",
+      "closedOn": "2025-08-28"
+    },
+    {
+      "ticker": "WBND",
+      "name": "Western Asset Total Return ETF",
+      "closedOn": "2025-08-28"
+    },
+    {
+      "ticker": "WINC",
+      "name": "Western Asset Short Duration Income ETF",
+      "closedOn": "2025-08-28"
+    },
+    {
+      "ticker": "WNDY",
+      "name": "Global X Wind Energy ETF",
+      "closedOn": "2025-08-28"
+    },
+    {
+      "ticker": "LFAE",
+      "name": "LifeX 2048 Longevity Income ETF",
+      "closedOn": "2025-09-12"
+    },
+    {
+      "ticker": "LFAF",
+      "name": "LifeX 2049 Longevity Income ETF",
+      "closedOn": "2025-09-12"
+    },
+    {
+      "ticker": "LIAB",
+      "name": "LifeX 2048 Inflation-Protected Longevity Income ETF",
+      "closedOn": "2025-09-12"
+    },
+    {
+      "ticker": "LIAC",
+      "name": "LifeX 2049 Inflation-Protected Longevity Income ETF",
+      "closedOn": "2025-09-12"
+    },
+    {
+      "ticker": "LFAJ",
+      "name": "LifeX 2051 Longevity Income ETF",
+      "closedOn": "2025-09-15"
+    },
+    {
+      "ticker": "LFAK",
+      "name": "LifeX 2052 Longevity Income ETF",
+      "closedOn": "2025-09-15"
+    },
+    {
+      "ticker": "LFAL",
+      "name": "LifeX 2053 Longevity Income ETF",
+      "closedOn": "2025-09-15"
+    },
+    {
+      "ticker": "LFAN",
+      "name": "LifeX 2054 Longevity Income ETF",
+      "closedOn": "2025-09-15"
+    },
+    {
+      "ticker": "LIAF",
+      "name": "LifeX 2051 Inflation-Protected Longevity Income ETF",
+      "closedOn": "2025-09-15"
+    },
+    {
+      "ticker": "LIAG",
+      "name": "LifeX 2052 Inflation-Protected Longevity Income ETF",
+      "closedOn": "2025-09-15"
+    },
+    {
+      "ticker": "LIAJ",
+      "name": "LifeX 2053 Inflation-Protected Longevity Income ETF",
+      "closedOn": "2025-09-15"
+    },
+    {
+      "ticker": "LIAK",
+      "name": "LifeX 2054 Inflation-Protected Longevity Income ETF",
+      "closedOn": "2025-09-15"
+    },
+    {
+      "ticker": "QCON",
+      "name": "American Century Quality Convertible Securities ETF",
+      "closedOn": "2025-09-15"
+    },
+    {
+      "ticker": "QPFF",
+      "name": "American Century Quality Preferred ETF",
+      "closedOn": "2025-09-15"
+    },
+    {
+      "ticker": "LFAQ",
+      "name": "LifeX 2056 Longevity Income ETF",
+      "closedOn": "2025-09-16"
+    },
+    {
+      "ticker": "LFAR",
+      "name": "LifeX 2057 Longevity Income ETF",
+      "closedOn": "2025-09-16"
+    },
+    {
+      "ticker": "LFAU",
+      "name": "LifeX 2058 Longevity Income ETF",
+      "closedOn": "2025-09-16"
+    },
+    {
+      "ticker": "LFAV",
+      "name": "LifeX 2059 Longevity Income ETF",
+      "closedOn": "2025-09-16"
+    },
+    {
+      "ticker": "LIAO",
+      "name": "LifeX 2056 Inflation-Protected Longevity Income ETF",
+      "closedOn": "2025-09-16"
+    },
+    {
+      "ticker": "LIAP",
+      "name": "LifeX 2057 Inflation-Protected Longevity Income ETF",
+      "closedOn": "2025-09-16"
+    },
+    {
+      "ticker": "LIAQ",
+      "name": "LifeX 2058 Inflation-Protected Longevity Income ETF",
+      "closedOn": "2025-09-16"
+    },
+    {
+      "ticker": "LIAT",
+      "name": "LifeX 2059 Inflation-Protected Longevity Income ETF",
+      "closedOn": "2025-09-16"
+    },
+    {
+      "ticker": "LFAX",
+      "name": "LifeX 2061 Longevity Income ETF",
+      "closedOn": "2025-09-17"
+    },
+    {
+      "ticker": "LFAZ",
+      "name": "LifeX 2062 Longevity Income ETF",
+      "closedOn": "2025-09-17"
+    },
+    {
+      "ticker": "LFBB",
+      "name": "LifeX 2063 Longevity Income ETF",
+      "closedOn": "2025-09-17"
+    },
+    {
+      "ticker": "LFBD",
+      "name": "LifeX 2064 Longevity Income ETF",
+      "closedOn": "2025-09-17"
+    },
+    {
+      "ticker": "LIAV",
+      "name": "LifeX 2061 Inflation-Protected Longevity Income ETF",
+      "closedOn": "2025-09-17"
+    },
+    {
+      "ticker": "LIAW",
+      "name": "LifeX 2062 Inflation-Protected Longevity Income ETF",
+      "closedOn": "2025-09-17"
+    },
+    {
+      "ticker": "LIAX",
+      "name": "LifeX 2063 Inflation-Protected Longevity Income ETF",
+      "closedOn": "2025-09-17"
+    },
+    {
+      "ticker": "LIAY",
+      "name": "LifeX 2064 Inflation-Protected Longevity Income ETF",
+      "closedOn": "2025-09-17"
+    },
+    {
+      "ticker": "HAPY",
+      "name": "Harbor Human Capital Factor Unconstrained ETF",
+      "closedOn": "2025-09-18"
+    },
+    {
+      "ticker": "BKIV",
+      "name": "BNY Mellon Innovators ETF",
+      "closedOn": "2025-09-19"
+    },
+    {
+      "ticker": "BKWO",
+      "name": "BNY Mellon Women's Opportunities ETF",
+      "closedOn": "2025-09-19"
+    },
+    {
+      "ticker": "AIRL",
+      "name": "Themes Airlines ETF",
+      "closedOn": "2025-09-25"
+    },
+    {
+      "ticker": "FINE",
+      "name": "Themes European Luxury ETF",
+      "closedOn": "2025-09-25"
+    },
+    {
+      "ticker": "RINC",
+      "name": "AXS Real Estate Income ETF",
+      "closedOn": "2025-09-25"
+    },
+    {
+      "ticker": "ARKA",
+      "name": "ARK 21Shares Active Bitcoin Futures Strategy ETF",
+      "closedOn": "2025-09-26"
+    },
+    {
+      "ticker": "ARKD",
+      "name": "ARK DIET Q1 Buffer ETF",
+      "closedOn": "2025-09-26"
+    },
+    {
+      "ticker": "ARKZ",
+      "name": "ARK 21Shares Active Ethereum Futures Strategy ETF",
+      "closedOn": "2025-09-26"
+    },
+    {
+      "ticker": "MOTE",
+      "name": "VanEck Morningstar ESG Moat ETF",
+      "closedOn": "2025-09-26"
+    },
+    {
+      "ticker": "TPHE",
+      "name": "Timothy Plan High Dividend Stock Enhanced ETF",
+      "closedOn": "2025-10-02"
+    },
+    {
+      "ticker": "TPLE",
+      "name": "Timothy Plan Us Large/Mid Cap Core Enhanced ETF",
+      "closedOn": "2025-10-03"
+    },
+    {
+      "ticker": "HOCT",
+      "name": "Innovator Premium Income 9 Buffer ETF - October",
+      "closedOn": "2025-10-07"
+    },
+    {
+      "ticker": "OCTD",
+      "name": "Innovator Premium Income 10 Barrier ETF - October",
+      "closedOn": "2025-10-07"
+    },
+    {
+      "ticker": "OCTQ",
+      "name": "Innovator Premium Income 40 Barrier ETF - October",
+      "closedOn": "2025-10-07"
+    },
+    {
+      "ticker": "XDOC",
+      "name": "Innovator U.S. Equity Accelerated ETF - October",
+      "closedOn": "2025-10-07"
+    },
+    {
+      "ticker": "JCTR",
+      "name": "JPMorgan Carbon Transition U.S. Equity ETF",
+      "closedOn": "2025-10-09"
+    },
+    {
+      "ticker": "TEMP",
+      "name": "JPMorgan Climate Change Solutions ETF",
+      "closedOn": "2025-10-09"
+    },
+    {
+      "ticker": "ELON",
+      "name": "Battleshares TSLA vs F ETF",
+      "closedOn": "2025-10-10"
+    },
+    {
+      "ticker": "SOFL",
+      "name": "2x Daily Software Platform ETF",
+      "closedOn": "2025-10-10"
+    },
+    {
+      "ticker": "SSPX",
+      "name": "Janus Henderson U.S. Sustainable Equity ETF",
+      "closedOn": "2025-10-14"
+    },
+    {
+      "ticker": "IBIB",
+      "name": "iShares iBonds Oct 2025 Term TIPS ETF",
+      "closedOn": "2025-10-15"
+    },
+    {
+      "ticker": "PUTD",
+      "name": "Cboe(R) Validus S&P 500(R) Dynamic PutWrite Index ETF",
+      "closedOn": "2025-10-17"
+    },
+    {
+      "ticker": "CVSE",
+      "name": "Calvert US Select Equity ETF",
+      "closedOn": "2025-10-20"
+    },
+    {
+      "ticker": "ASET",
+      "name": "FlexShares Real Assets Allocation Index Fund",
+      "closedOn": "2025-10-21"
+    },
+    {
+      "ticker": "RORO",
+      "name": "ATAC US Rotation ETF",
+      "closedOn": "2025-10-24"
+    },
+    {
+      "ticker": "ACTV",
+      "name": "LeaderShares Activist Leaders ETF",
+      "closedOn": "2025-10-30"
+    },
+    {
+      "ticker": "EVAV",
+      "name": "Direxion Daily Electric and Autonomous Vehicles Bull 2X Shares",
+      "closedOn": "2025-10-30"
+    },
+    {
+      "ticker": "FIRI",
+      "name": "FIRE Funds Income Target ETF",
+      "closedOn": "2025-10-30"
+    },
+    {
+      "ticker": "FIRS",
+      "name": "FIRE Funds Wealth Builder ETF",
+      "closedOn": "2025-10-30"
+    },
+    {
+      "ticker": "OCFS",
+      "name": "Otter Creek Focus Strategy ETF",
+      "closedOn": "2025-10-30"
+    },
+    {
+      "ticker": "SQEW",
+      "name": "LeaderShares Equity Skew ETF",
+      "closedOn": "2025-10-30"
+    },
+    {
+      "ticker": "WFH",
+      "name": "Direxion Work From Home ETF",
+      "closedOn": "2025-10-30"
+    },
+    {
+      "ticker": "XXCH",
+      "name": "Direxion Daily MSCI Emerging Markets ex China Bull 2X Shares",
+      "closedOn": "2025-10-30"
+    },
+    {
+      "ticker": "AGATF",
+      "name": "DB Agriculture Double Short ETN",
+      "closedOn": "2025-11-12"
+    },
+    {
+      "ticker": "AGFXF",
+      "name": "DB Agriculture Long ETN",
+      "closedOn": "2025-11-12"
+    },
+    {
+      "ticker": "BDDXF",
+      "name": "DB Base Metals Double Long Exchange Traded Notes",
+      "closedOn": "2025-11-12"
+    },
+    {
+      "ticker": "BOMMF",
+      "name": "DB Base Metals Double Short ETN",
+      "closedOn": "2025-11-12"
+    },
+    {
+      "ticker": "BOSXF",
+      "name": "DB Base Metals Short Exchange Traded Notes",
+      "closedOn": "2025-11-12"
+    },
+    {
+      "ticker": "DYYXF",
+      "name": "DB Commodity Double Long Exchange Traded Notes",
+      "closedOn": "2025-11-12"
+    },
+    {
+      "ticker": "FDHT",
+      "name": "Fidelity Digital Health ETF",
+      "closedOn": "2025-11-12"
+    },
+    {
+      "ticker": "FDWM",
+      "name": "Fidelity Women's Leadership ETF",
+      "closedOn": "2025-11-12"
+    },
+    {
+      "ticker": "FSBD",
+      "name": "Fidelity Sustainable Core Plus Bond ETF",
+      "closedOn": "2025-11-12"
+    },
+    {
+      "ticker": "FSLD",
+      "name": "Fidelity Sustainable Low Duration Bond ETF",
+      "closedOn": "2025-11-12"
+    },
+    {
+      "ticker": "FSST",
+      "name": "Fidelity Sustainable U.S. Equity ETF",
+      "closedOn": "2025-11-12"
+    },
+    {
+      "ticker": "MGRO",
+      "name": "VanEck Morningstar Wide Moat Growth ETF",
+      "closedOn": "2025-11-12"
+    },
+    {
+      "ticker": "OLOXF",
+      "name": "DB Crude Oil Long Exchange Traded Notes",
+      "closedOn": "2025-11-12"
+    },
+    {
+      "ticker": "SYNB",
+      "name": "Putnam BioRevolution ETF",
+      "closedOn": "2025-11-12"
+    },
+    {
+      "ticker": "LCG",
+      "name": "Sterling Capital Focus Equity ETF",
+      "closedOn": "2025-11-17"
+    },
+    {
+      "ticker": "ALRG",
+      "name": "Allspring LT Large Core ETF",
+      "closedOn": "2025-11-24"
+    },
+    {
+      "ticker": "GHMS",
+      "name": "Goose Hollow Multi-Strategy Income ETF",
+      "closedOn": "2025-11-25"
+    },
+    {
+      "ticker": "HKND",
+      "name": "Humankind US Stock ETF",
+      "closedOn": "2025-11-28"
+    },
+    {
+      "ticker": "IBMN",
+      "name": "iShares iBonds Dec 2025 Term Muni Bond ETF",
+      "closedOn": "2025-11-28"
+    },
+    {
+      "ticker": "QUP",
+      "name": "DailyDelta Q100 Upside Option Strategy ETF",
+      "closedOn": "2025-11-28"
+    },
+    {
+      "ticker": "RAYC",
+      "name": "Rayliant Quuantamental China Equity ETF",
+      "closedOn": "2025-11-28"
+    },
+    {
+      "ticker": "BCIM",
+      "name": "abrdn Bloomberg Industrial Metals Strategy K-1 Free ETF",
+      "closedOn": "2025-12-02"
+    },
+    {
+      "ticker": "QDWN",
+      "name": "DailyDelta Q100 Downside Option Strategy ETF",
+      "closedOn": "2025-12-02"
+    },
+    {
+      "ticker": "DFND",
+      "name": "Siren DIVCON Dividend Defender ETF",
+      "closedOn": "2025-12-05"
+    },
+    {
+      "ticker": "SPXM",
+      "name": "Azoria 500 Meritocracy ETF",
+      "closedOn": "2025-12-05"
+    },
+    {
+      "ticker": "TSLV",
+      "name": "Azoria TSLA Convexity ETF",
+      "closedOn": "2025-12-05"
+    },
+    {
+      "ticker": "TGLR",
+      "name": "LAFFER TENGLER Equity Income ETF",
+      "closedOn": "2025-12-08"
+    },
+    {
+      "ticker": "BSCP",
+      "name": "Invesco Bulletshares 2025 Corporate Bond ETF",
+      "closedOn": "2025-12-12"
+    },
+    {
+      "ticker": "BSJP",
+      "name": "Invesco BulletShares 2025 High Yield Corporate Bond ETF",
+      "closedOn": "2025-12-12"
+    },
+    {
+      "ticker": "BSMP",
+      "name": "Invesco BulletShares 2025 Municipal Bond ETF",
+      "closedOn": "2025-12-12"
+    },
+    {
+      "ticker": "BTFX",
+      "name": "CoinShares Bitcoin Leverage ETF",
+      "closedOn": "2025-12-12"
+    },
+    {
+      "ticker": "IBDQ",
+      "name": "iShares iBonds Dec 2025 Term Corporate ETF",
+      "closedOn": "2025-12-12"
+    },
+    {
+      "ticker": "IBHE",
+      "name": "iShares iBonds 2025 Term High Yield & Income ETF",
+      "closedOn": "2025-12-12"
+    },
+    {
+      "ticker": "IBTF",
+      "name": "iShares iBonds Dec 2025 Term Treasury ETF",
+      "closedOn": "2025-12-12"
+    },
+    {
+      "ticker": "TXSS",
+      "name": "Texas Capital Texas Small Cap Equity Index ETF",
+      "closedOn": "2025-12-12"
+    },
+    {
+      "ticker": "HEAT",
+      "name": "Touchstone Climate Transition ETF",
+      "closedOn": "2025-12-19"
+    },
+    {
+      "ticker": "APED",
+      "name": "STKd 150% MSTR & 150% COIN ETF",
+      "closedOn": "2025-12-22"
+    },
+    {
+      "ticker": "SPCY",
+      "name": "STKd 150% SMCI & 150% NVDA ETF",
+      "closedOn": "2025-12-22"
+    },
+    {
+      "ticker": "VIXI",
+      "name": "Defiance Enhanced Long Vol ETF",
+      "closedOn": "2025-12-22"
+    },
+    {
+      "ticker": "ZIPP",
+      "name": "STKd 150% UBER & 150% TSLA ETF",
+      "closedOn": "2025-12-22"
+    },
+    {
+      "ticker": "AWEG",
+      "name": "Alger Weatherbie Enduring Growth ETF",
+      "closedOn": "2025-12-24"
+    },
+    {
+      "ticker": "XPM",
+      "name": "Defiance Daily Target 2x Long PM ETF",
+      "closedOn": "2025-12-24"
+    },
+    {
+      "ticker": "MCSE",
+      "name": "Franklin Sustainable International Equity ETF",
+      "closedOn": "2026-01-09"
+    },
+    {
+      "ticker": "RFEU",
+      "name": "First Trust Riverfront Dynamic Europe ETF",
+      "closedOn": "2026-01-09"
+    },
+    {
+      "ticker": "RJMG",
+      "name": "FT Raymond James Multicap Growth Equity ETF",
+      "closedOn": "2026-01-09"
+    },
+    {
+      "ticker": "WILD",
+      "name": "VistaShares Animal Spirits Daily 2X Strategy ETF",
+      "closedOn": "2026-01-13"
+    },
+    {
+      "ticker": "INFR",
+      "name": "ClearBridge Sustainable Infrastructure ETF",
+      "closedOn": "2026-01-22"
+    },
+    {
+      "ticker": "NWMX",
+      "name": "Tradr 2X Long NEM Daily ETF",
+      "closedOn": "2026-01-22"
+    },
+    {
+      "ticker": "OKTX",
+      "name": "Tradr 2X Long OKTA Daily ETF",
+      "closedOn": "2026-01-22"
+    },
+    {
+      "ticker": "QSX",
+      "name": "Tradr 2X Long QS Daily ETF",
+      "closedOn": "2026-01-22"
+    },
+    {
+      "ticker": "CORX",
+      "name": "2x Corn ETF",
+      "closedOn": "2026-01-23"
+    },
+    {
+      "ticker": "WHTX",
+      "name": "2X Wheat ETF",
+      "closedOn": "2026-01-23"
+    },
+    {
+      "ticker": "AMDU",
+      "name": "Defiance Leveraged Long + Income AMD ETF",
+      "closedOn": "2026-01-26"
+    },
+    {
+      "ticker": "ETHI",
+      "name": "Defiance Leveraged Long Income Ethereum ETF",
+      "closedOn": "2026-01-26"
+    },
+    {
+      "ticker": "HIMY",
+      "name": "Defiance Leveraged Long Income HIMS ETF",
+      "closedOn": "2026-01-26"
+    },
+    {
+      "ticker": "HOOI",
+      "name": "Defiance Leveraged Long Income HOOD ETF",
+      "closedOn": "2026-01-26"
+    },
+    {
+      "ticker": "LLYZ",
+      "name": "Defiance Daily Target 2X Short LLY ETF",
+      "closedOn": "2026-01-26"
+    },
+    {
+      "ticker": "PLT",
+      "name": "Defiance Leveraged Long Income PLTR ETF",
+      "closedOn": "2026-01-26"
+    },
+    {
+      "ticker": "SMCC",
+      "name": "Defiance Leveraged Long + Income SMCI ETF",
+      "closedOn": "2026-01-26"
+    },
+    {
+      "ticker": "TRIL",
+      "name": "Defiance Trillion Dollar Club Index ETF",
+      "closedOn": "2026-01-26"
+    },
+    {
+      "ticker": "BMDL",
+      "name": "VictoryShares WestEnd Economic Cycle Bond ETF",
+      "closedOn": "2026-01-28"
+    },
+    {
+      "ticker": "CIL",
+      "name": "VictoryShares International Volatility Wtd ETF",
+      "closedOn": "2026-01-28"
+    },
+    {
+      "ticker": "HEJD",
+      "name": "VictoryShares Hedged Equity Income ETF",
+      "closedOn": "2026-01-28"
+    },
+    {
+      "ticker": "GBXB",
+      "name": "Goldman Sachs U.S. Large Cap Buffer 2 ETF",
+      "closedOn": "2026-01-30"
+    },
+    {
+      "ticker": "DMCY",
+      "name": "Democracy International Fund ETF",
+      "closedOn": "2026-02-12"
+    },
+    {
+      "ticker": "AZNH",
+      "name": "AstraZeneca PLC ADRhedged",
+      "closedOn": "2026-02-13"
+    },
+    {
+      "ticker": "SFYX",
+      "name": "SoFi Next 500 ETF",
+      "closedOn": "2026-02-17"
+    },
+    {
+      "ticker": "AREA",
+      "name": "Harbor AlphaEdge Next Generation REITs ETF",
+      "closedOn": "2026-02-18"
+    },
+    {
+      "ticker": "AURU",
+      "name": "Tradr 2X Long AUR Daily ETF",
+      "closedOn": "2026-02-18"
+    },
+    {
+      "ticker": "GSX",
+      "name": "Tradr 2X Long GS Daily ETF",
+      "closedOn": "2026-02-18"
+    },
+    {
+      "ticker": "LYFX",
+      "name": "Tradr 2X Long LYFT Daily ETF",
+      "closedOn": "2026-02-18"
+    },
+    {
+      "ticker": "NETX",
+      "name": "Tradr 2X Long NET Daily ETF",
+      "closedOn": "2026-02-18"
+    },
+    {
+      "ticker": "BLKC",
+      "name": "Invesco Alerian Galaxy Blockchain Users and Decentralized Commerce ETF",
+      "closedOn": "2026-02-20"
+    },
+    {
+      "ticker": "GBLD",
+      "name": "Invesco MSCI Green Building ETF",
+      "closedOn": "2026-02-20"
+    },
+    {
+      "ticker": "QQJG",
+      "name": "Invesco ESG NASDAQ Next Gen 100 ETF",
+      "closedOn": "2026-02-20"
+    },
+    {
+      "ticker": "SPMV",
+      "name": "Invesco S&P 500 Minimum Variance ETF",
+      "closedOn": "2026-02-20"
+    },
+    {
+      "ticker": "XRLV",
+      "name": "Invesco S&P 500 ex-Rate Sensitive Low Volatility ETF",
+      "closedOn": "2026-02-20"
+    },
+    {
+      "ticker": "IVRA",
+      "name": "Invesco Real Assets ESG ETF",
+      "closedOn": "2026-02-23"
+    },
+    {
+      "ticker": "GBXC",
+      "name": "Goldman Sachs U.S. Large Cap Buffer 3 ETF",
+      "closedOn": "2026-02-26"
+    },
+    {
+      "ticker": "BFRE",
+      "name": "Westwood LBRTY Global Equity ETF",
+      "closedOn": "2026-02-27"
+    },
+    {
+      "ticker": "BLCV",
+      "name": "iShares Large Cap Value Active ETF",
+      "closedOn": "2026-02-27"
+    },
+    {
+      "ticker": "FUNL",
+      "name": "CornerCap Fundametrics Large-Cap ETF",
+      "closedOn": "2026-02-27"
+    },
+    {
+      "ticker": "BLSX",
+      "name": "Tradr 2X Long BLSH Daily ETF",
+      "closedOn": "2026-03-12"
+    },
+    {
+      "ticker": "CELT",
+      "name": "Tradr 2X Long CELH Daily ETF",
+      "closedOn": "2026-03-12"
+    },
+    {
+      "ticker": "DASX",
+      "name": "Tradr 2X Long DASH Daily ETF",
+      "closedOn": "2026-03-12"
+    },
+    {
+      "ticker": "KEUA",
+      "name": "KraneShares European Carbon Allowance Strategy ETF",
+      "closedOn": "2026-03-12"
+    },
+    {
+      "ticker": "KLXY",
+      "name": "KraneShares Global Luxury Index ETF",
+      "closedOn": "2026-03-12"
+    },
+    {
+      "ticker": "LCIZ",
+      "name": "Tradr 2X Short LCID Daily ETF",
+      "closedOn": "2026-03-12"
+    },
+    {
+      "ticker": "ARMU",
+      "name": "T-REX 2X Long ARM Daily Target ETF",
+      "closedOn": "2026-03-13"
+    },
+    {
+      "ticker": "AXUP",
+      "name": "T-REX 2X Long AXON Daily Target ETF",
+      "closedOn": "2026-03-13"
+    },
+    {
+      "ticker": "BKNU",
+      "name": "T-REX 2X Long BKNG Daily Target ETF",
+      "closedOn": "2026-03-13"
+    },
+    {
+      "ticker": "BULU",
+      "name": "T-REX 2X Long BULL Daily Target ETF",
+      "closedOn": "2026-03-13"
+    },
+    {
+      "ticker": "DKUP",
+      "name": "T-REX 2X Long DKNG Daily Target ETF",
+      "closedOn": "2026-03-13"
+    },
+    {
+      "ticker": "ETQ",
+      "name": "T-Rex 2X Inverse Ether Daily Target ETF",
+      "closedOn": "2026-03-13"
+    },
+    {
+      "ticker": "PCEM",
+      "name": "Polen Capital Emerging Markets ex China Growth ETF",
+      "closedOn": "2026-03-13"
+    },
+    {
+      "ticker": "PXIU",
+      "name": "T-REX 2X Long UPXI Daily Target ETF",
+      "closedOn": "2026-03-13"
+    },
+    {
+      "ticker": "LQPE",
+      "name": "PEO AlphaQuest Thematic PE ETF",
+      "closedOn": "2026-03-23"
+    },
+    {
+      "ticker": "ERNZ",
+      "name": "TrueShares Active Yield ETF",
+      "closedOn": "2026-03-24"
+    },
+    {
+      "ticker": "STXI",
+      "name": "Strive International Developed Markets ETF",
+      "closedOn": "2026-03-26"
+    },
+    {
+      "ticker": "STXM",
+      "name": "Strive Mid-Cap ETF",
+      "closedOn": "2026-03-26"
+    },
+    {
+      "ticker": "HYKE",
+      "name": "Vest 2 Year Interest Rate Hedge ETF",
+      "closedOn": "2026-03-27"
+    },
+    {
+      "ticker": "RYSE",
+      "name": "Vest 10 Year Interest Rate Hedge ETF",
+      "closedOn": "2026-03-27"
+    },
+    {
+      "ticker": "GBXA",
+      "name": "Goldman Sachs U.S. Large Cap Buffer 1 ETF",
+      "closedOn": "2026-03-30"
+    },
+    {
+      "ticker": "NDVG",
+      "name": "Nuveen Dividend Growth ETF",
+      "closedOn": "2026-04-02"
+    },
+    {
+      "ticker": "NSCR",
+      "name": "Nuveen Sustainable Core ETF",
+      "closedOn": "2026-04-02"
+    },
+    {
+      "ticker": "NWLG",
+      "name": "Nuveen Winslow Large-Cap Growth ESG ETF",
+      "closedOn": "2026-04-02"
+    },
+    {
+      "ticker": "DOGD",
+      "name": "Tradr 2X Long DDOG Daily ETF",
+      "closedOn": "2026-04-07"
+    },
+    {
+      "ticker": "VWID",
+      "name": "Virtus WMC International Dividend ETF",
+      "closedOn": "2026-04-07"
+    },
+    {
+      "ticker": "BOED",
+      "name": "Direxion Daily BA Bear 1X ETF",
+      "closedOn": "2026-04-09"
+    },
+    {
+      "ticker": "FRDD",
+      "name": "Direxion Daily F Bear 1X ETF",
+      "closedOn": "2026-04-09"
+    },
+    {
+      "ticker": "FRDU",
+      "name": "Direxion Daily F Bull 2X ETF",
+      "closedOn": "2026-04-09"
+    },
+    {
+      "ticker": "LMBO",
+      "name": "Direxion Daily Crypto Industry Bull 2X ETF",
+      "closedOn": "2026-04-09"
+    },
+    {
+      "ticker": "LMTS",
+      "name": "Direxion Daily LMT Bear 1X ETF",
+      "closedOn": "2026-04-09"
+    },
+    {
+      "ticker": "OOQB",
+      "name": "One One Nasdaq-100 and Bitcoin ETF 1Shs",
+      "closedOn": "2026-04-09"
+    },
+    {
+      "ticker": "OOSB",
+      "name": "One One S&P 500 and Bitcoin ETF",
+      "closedOn": "2026-04-09"
+    },
+    {
+      "ticker": "REKT",
+      "name": "Direxion Daily Crypto Industry Bear 1X ETF",
+      "closedOn": "2026-04-09"
+    },
+    {
+      "ticker": "SHPD",
+      "name": "Direxion Daily SHOP Bear 1X ETF",
+      "closedOn": "2026-04-09"
+    },
+    {
+      "ticker": "BRKD",
+      "name": "Direxion Daily BRKB Bear 1X ETF",
+      "closedOn": "2026-04-10"
+    },
+    {
+      "ticker": "ELIS",
+      "name": "Direxion Daily LLY Bear 1X ETF",
+      "closedOn": "2026-04-10"
+    },
+    {
+      "ticker": "XOMZ",
+      "name": "Direxion Daily XOM Bear 1X ETF",
+      "closedOn": "2026-04-10"
+    },
+    {
+      "ticker": "BMAX",
+      "name": "REX Bitcoin Corporate Treasury Convertible Bond ETF",
+      "closedOn": "2026-04-13"
+    },
+    {
+      "ticker": "MSTK",
+      "name": "Tuttle Capital MSTR 0DTE Covered Call ETF",
+      "closedOn": "2026-04-13"
+    },
+    {
+      "ticker": "XVOL",
+      "name": "Acruence Active Hedge U.S. Equity ETF",
+      "closedOn": "2026-04-15"
+    },
+    {
+      "ticker": "TOKE",
+      "name": "Cambria Cannabis ETF",
+      "closedOn": "2026-04-16"
+    },
+    {
+      "ticker": "ENPX",
+      "name": "Tradr 2X Long ENPH Daily ETF",
+      "closedOn": "2026-04-17"
+    },
+    {
+      "ticker": "VOYX",
+      "name": "Tradr 2X Long VOYG Daily ETF",
+      "closedOn": "2026-04-17"
+    },
+    {
+      "ticker": "MDBX",
+      "name": "Tradr 2X Long MDB Daily ETF",
+      "closedOn": "2026-04-20"
+    },
+    {
+      "ticker": "NNEX",
+      "name": "Tradr 2X Long NNE Daily ETF",
+      "closedOn": "2026-04-20"
+    },
+    {
+      "ticker": "SNPX",
+      "name": "Tradr 2X Long SNPS Daily ETF",
+      "closedOn": "2026-04-20"
+    },
+    {
+      "ticker": "DBSC",
+      "name": "Deepwater Beachfront Small Cap ETF",
+      "closedOn": "2026-04-22"
+    },
+    {
+      "ticker": "LAYS",
+      "name": "STKd 100% NVDA & 100% AMD ETF",
+      "closedOn": "2026-04-22"
+    },
+    {
+      "ticker": "QXAS",
+      "name": "Quantify 2X Daily Alt Season Crypto ETF",
+      "closedOn": "2026-04-22"
+    },
+    {
+      "ticker": "EATZ",
+      "name": "AdvisorShares Restaurant ETF",
+      "closedOn": "2026-04-29"
+    },
+    {
+      "ticker": "SOLX",
+      "name": "T-REX 2X Long SOL Daily Target ETF",
+      "closedOn": "2026-05-01"
+    },
+    {
+      "ticker": "XRPK",
+      "name": "T-REX 2X Long XRP Daily Target ETF",
+      "closedOn": "2026-05-01"
+    },
+    {
+      "ticker": "IRET",
+      "name": "iREIT MarketVector Quality REIT Index ETF",
+      "closedOn": "2026-05-04"
+    },
+    {
+      "ticker": "CA",
+      "name": "Xtrackers California Municipal Bond ETF",
+      "closedOn": "2026-05-06"
+    },
+    {
+      "ticker": "HYRM",
+      "name": "Xtrackers Risk Managed USD High Yield Strategy ETF",
+      "closedOn": "2026-05-06"
+    },
+    {
+      "ticker": "ESIX",
+      "name": "State Street SPDR S&P SmallCap 600 ESG ETF",
+      "closedOn": "2026-05-08"
+    },
+    {
+      "ticker": "LQIG",
+      "name": "State Street SPDR MarketAxess Investment Grade 400 Corporate Bond ETF",
+      "closedOn": "2026-05-08"
+    },
+    {
+      "ticker": "MBNE",
+      "name": "State Street Nuveen Municipal Bond ESG ETF",
+      "closedOn": "2026-05-08"
+    },
+    {
+      "ticker": "NZUS",
+      "name": "SPDR Series Trust State Street SPDR MSCI USA Climate Paris Aligned ETF",
+      "closedOn": "2026-05-08"
+    },
+    {
+      "ticker": "ITOL",
+      "name": "Tema International Durable Quality ETF",
+      "closedOn": "2026-05-13"
+    },
+    {
+      "ticker": "SZNE",
+      "name": "Pacer CFRA-Stovall Equal Weight Seasonal Rotation ETF",
+      "closedOn": "2026-05-13"
+    },
+    {
+      "ticker": "HYSA",
+      "name": "BondBloxx USD High Yield Bond Sector Rotation ETF",
+      "closedOn": "2026-05-14"
+    },
+    {
+      "ticker": "XHYC",
+      "name": "BondBloxx USD High Yield Bond Consumer Cyclicals Sector ETF",
+      "closedOn": "2026-05-14"
+    },
+    {
+      "ticker": "XHYD",
+      "name": "BondBloxx USD High Yield Bond Consumer Non-Cyclicals Sector ETF",
+      "closedOn": "2026-05-14"
+    },
+    {
+      "ticker": "XHYE",
+      "name": "BondBloxx USD High Yield Bond Energy Sector ETF",
+      "closedOn": "2026-05-14"
+    },
+    {
+      "ticker": "XHYF",
+      "name": "BondBloxx USD High Yield Bond Financial & REIT Sector ETF",
+      "closedOn": "2026-05-14"
+    },
+    {
+      "ticker": "XHYH",
+      "name": "BondBloxx USD High Yield Bond Healthcare Sector ETF",
+      "closedOn": "2026-05-14"
+    },
+    {
+      "ticker": "XHYI",
+      "name": "BondBloxx USD High Yield Bond Industrial Sector ETF",
+      "closedOn": "2026-05-14"
+    },
+    {
+      "ticker": "XHYT",
+      "name": "BondBloxx USD High Yield Bond Telecom, Media & Technology Sector ETF",
+      "closedOn": "2026-05-14"
+    },
+    {
+      "ticker": "BTOP",
+      "name": "Bitwise Trendwise BTC/ETH and Treasuries Rotation Strategy ETF",
+      "closedOn": "2026-05-20"
+    },
+    {
+      "ticker": "BWEB",
+      "name": "Bitwise Web 3 ETF",
+      "closedOn": "2026-05-20"
+    },
+    {
+      "ticker": "RSX",
+      "name": "VanEck Russia ETF",
+      "closedOn": "2026-05-21"
+    },
+    {
+      "ticker": "RSXJ",
+      "name": "VanEck Russia Small-Cap ETF",
+      "closedOn": "2026-05-21"
+    },
+    {
+      "ticker": "GMUN",
+      "name": "Goldman Sachs Access Municipal Bond ETF",
+      "closedOn": "2026-06-03"
+    },
+    {
+      "ticker": "GSIG",
+      "name": "Goldman Sachs Access Investment Grade Corporate 1-5 Year Bond ETF",
+      "closedOn": "2026-06-03"
+    },
+    {
+      "ticker": "SMAP",
+      "name": "Amplify Small-Mid Cap Equity ETF",
+      "closedOn": "2026-06-03"
+    },
+    {
+      "ticker": "BU",
+      "name": "Defiance Daily Target 2X Long BU ETF",
+      "closedOn": "2026-06-08"
+    },
+    {
+      "ticker": "CVNX",
+      "name": "Defiance Daily Target 2X Long CVNA ETF",
+      "closedOn": "2026-06-08"
+    },
+    {
+      "ticker": "PCRB",
+      "name": "Putnam ESG Core Bond ETF",
+      "closedOn": "2026-06-08"
+    },
+    {
+      "ticker": "PFUT",
+      "name": "Putnam Sustainable Future ETF",
+      "closedOn": "2026-06-08"
+    },
+    {
+      "ticker": "PHYD",
+      "name": "Putnam ESG High Yield ETF",
+      "closedOn": "2026-06-08"
+    },
+    {
+      "ticker": "PLDR",
+      "name": "Putnam Sustainable Leaders ETF",
+      "closedOn": "2026-06-08"
+    },
+    {
+      "ticker": "PPEM",
+      "name": "Putnam PanAgora ESG Emerging Markets Equity ETF",
+      "closedOn": "2026-06-08"
+    },
+    {
+      "ticker": "PPIE",
+      "name": "Putnam PanAgora ESG International Equity ETF",
+      "closedOn": "2026-06-08"
+    },
+    {
+      "ticker": "PULT",
+      "name": "Putnam ESG Ultra Short ETF",
+      "closedOn": "2026-06-08"
+    },
+    {
+      "ticker": "CWII",
+      "name": "REX CRWV Growth & Income ETF",
+      "closedOn": "2026-06-10"
+    },
+    {
+      "ticker": "GIF",
+      "name": "REX Growth & Income Universe ETF",
+      "closedOn": "2026-06-10"
+    },
+    {
+      "ticker": "HOII",
+      "name": "REX HOOD Growth & Income ETF",
+      "closedOn": "2026-06-10"
+    },
+    {
+      "ticker": "LLII",
+      "name": "REX LLY Growth & Income ETF 3Shs",
+      "closedOn": "2026-06-10"
+    },
+    {
+      "ticker": "MSII",
+      "name": "REX MSTR Growth & Income ETF",
+      "closedOn": "2026-06-10"
+    },
+    {
+      "ticker": "PLTI",
+      "name": "REX PLTR Growth & Income ETF",
+      "closedOn": "2026-06-10"
+    },
+    {
+      "ticker": "CLSZ",
+      "name": "Tradr 2X Short CLSK Daily ETF",
+      "closedOn": "2026-06-11"
+    },
+    {
+      "ticker": "COII",
+      "name": "REX COIN Growth & Income ETF",
+      "closedOn": "2026-06-11"
+    },
+    {
+      "ticker": "HLXX",
+      "name": "Tradr 2X Long HL Daily ETF",
+      "closedOn": "2026-06-11"
+    },
+    {
+      "ticker": "SMQ",
+      "name": "Tradr 1X Short Innovation 100 Monthly ETF",
+      "closedOn": "2026-06-11"
+    },
+    {
+      "ticker": "SRPU",
+      "name": "Tradr 2X Long SRPT Daily ETF",
+      "closedOn": "2026-06-11"
+    },
+    {
+      "ticker": "ABNY",
+      "name": "YieldMax ABNB Option Income Strategy ETF",
+      "closedOn": "2026-06-12"
+    },
+    {
+      "ticker": "ESK",
+      "name": "REX-Osprey ETH + Staking ETF",
+      "closedOn": "2026-06-12"
+    },
+    {
+      "ticker": "COIO",
+      "name": "Leverage Shares 2x Capped Accelerated COIN Monthly ETF",
+      "closedOn": "2026-06-15"
+    },
+    {
+      "ticker": "DISO",
+      "name": "YieldMax DIS Option Income Strategy ETF",
+      "closedOn": "2026-06-15"
+    },
+    {
+      "ticker": "FEAT",
+      "name": "YieldMax Dorsey Wright Featured 5 Income ETF",
+      "closedOn": "2026-06-15"
+    },
+    {
+      "ticker": "FIVY",
+      "name": "YieldMax Dorsey Wright Hybrid 5 Income ETF",
+      "closedOn": "2026-06-15"
+    },
+    {
+      "ticker": "MSOO",
+      "name": "Leverage Shares 2x Capped Accelerated MSTR Monthly ETF",
+      "closedOn": "2026-06-15"
+    },
+    {
+      "ticker": "NVDO",
+      "name": "Leverage Shares 2x Capped Accelerated NVDA Monthly ETF",
+      "closedOn": "2026-06-15"
+    },
+    {
+      "ticker": "PLOO",
+      "name": "Leverage Shares 2x Capped Accelerated PLTR Monthly ETF",
+      "closedOn": "2026-06-15"
+    },
+    {
+      "ticker": "SCLS",
+      "name": "Stoneport Advisors Commodity Long Short ETF",
+      "closedOn": "2026-06-15"
+    },
+    {
+      "ticker": "TSLO",
+      "name": "Leverage Shares 2x Capped Accelerated TSLA Monthly ETF",
+      "closedOn": "2026-06-15"
+    },
+    {
+      "ticker": "BULX",
+      "name": "GraniteShares 2x Long BULL Daily ETF",
+      "closedOn": "2026-06-18"
+    },
+    {
+      "ticker": "ETRL",
+      "name": "GraniteShares 2x Long ETOR Daily ETF",
+      "closedOn": "2026-06-18"
+    },
+    {
+      "ticker": "MSDD",
+      "name": "GraniteShares 2x Short MSTR Daily ETF",
+      "closedOn": "2026-06-18"
+    },
+    {
+      "ticker": "MAGA",
+      "name": "Point Bridge America First ETF",
+      "closedOn": "2026-06-22"
+    },
+    {
+      "ticker": "GAID",
+      "name": "Guinness Atkinson International Dividend Builder ETF",
+      "closedOn": "2026-06-26"
+    },
+    {
+      "ticker": "GAUD",
+      "name": "Guinness Atkinson US Dividend Builder ETF",
+      "closedOn": "2026-06-26"
+    },
+    {
+      "ticker": "SOLR",
+      "name": "Guinness Atkinson Sustainable Energy ETF",
+      "closedOn": "2026-06-26"
+    },
+    {
+      "ticker": "BTYB",
+      "name": "VistaShares BitBonds 5 Yr Enhanced Weekly Distribution ETF",
+      "closedOn": "2026-06-29"
+    },
+    {
+      "ticker": "CUSD",
+      "name": "CrossingBridge Ultra-Short Duration ETF",
+      "closedOn": "2026-07-08"
+    },
+    {
+      "ticker": "AEMS",
+      "name": "Anfield Enhanced Market ETF",
+      "closedOn": "2026-07-09"
+    },
+    {
+      "ticker": "BITK",
+      "name": "Tuttle Capital Bitcoin 0DTE Covered Call ETF",
+      "closedOn": "2026-07-09"
+    },
+    {
+      "ticker": "IGTR",
+      "name": "Innovator Gradient Tactical Rotation Strategy ETF",
+      "closedOn": "2026-07-09"
+    },
+    {
+      "ticker": "MAGO",
+      "name": "Tuttle Capital Magnificent 7 Income Blast ETF",
+      "closedOn": "2026-07-09"
+    },
+    {
+      "ticker": "PAAU",
+      "name": "T-REX 2X Long PAAS Daily Target ETF",
+      "closedOn": "2026-07-09"
+    },
+    {
+      "ticker": "QHDG",
+      "name": "Innovator Hedged Nasdaq-100 ETF",
+      "closedOn": "2026-07-09"
+    },
+    {
+      "ticker": "RPHS",
+      "name": "Regents Park Hedged Market Strategy ETF",
+      "closedOn": "2026-07-09"
+    },
+    {
+      "ticker": "PJBF",
+      "name": "PGIM Jennison Better Future ETF",
+      "closedOn": "2026-07-10"
+    },
+    {
+      "ticker": "BLCN",
+      "name": "Siren NexGen Economy ETF",
+      "closedOn": "2026-07-14"
+    },
+    {
+      "ticker": "LCDL",
+      "name": "GraniteShares 2x Long LCID Daily ETF",
+      "closedOn": "2026-07-14"
+    },
+    {
+      "ticker": "LEAD",
+      "name": "Siren DIVCON Leaders Dividend ETF",
+      "closedOn": "2026-07-14"
+    },
+    {
+      "ticker": "SAEF",
+      "name": "Schwab Ariel Opportunities ETF",
+      "closedOn": "2026-07-16"
+    },
+    {
+      "ticker": "EMTL",
+      "name": "State Street DoubleLine Emerging Markets Fixed Income ETF",
+      "closedOn": "2026-07-20"
+    },
+    {
+      "ticker": "QRFT",
+      "name": "QRAFT AI-Enhanced U.S. Large Cap ETF",
+      "closedOn": "2026-07-20"
+    },
+    {
+      "ticker": "ADFI",
+      "name": "Anfield Dynamic Fixed Income ETF",
+      "closedOn": "2026-07-24"
+    },
+    {
+      "ticker": "CRED",
+      "name": "Columbia Research Enhanced Real Estate ETF",
+      "closedOn": "2026-07-24"
+    },
+    {
+      "ticker": "RMIF",
+      "name": "LHA Risk-Managed Income ETF",
+      "closedOn": "2026-07-24"
+    },
+    {
+      "ticker": "ABNG",
+      "name": "Leverage Shares 2x Long ABNB Daily ETF",
+      "closedOn": "2026-07-27"
+    },
+    {
+      "ticker": "AXPG",
+      "name": "Leverage Shares 2x Long AXP Daily ETF",
+      "closedOn": "2026-07-27"
+    },
+    {
+      "ticker": "CMGG",
+      "name": "Leverage Shares 2X Long CMG Daily ETF",
+      "closedOn": "2026-07-27"
+    },
+    {
+      "ticker": "CNCG",
+      "name": "Leverage Shares 2X Long CNC Daily ETF",
+      "closedOn": "2026-07-27"
+    },
+    {
+      "ticker": "CZAR",
+      "name": "Themes Natural Monopoly ETF",
+      "closedOn": "2026-07-27"
+    },
+    {
+      "ticker": "DNNG",
+      "name": "Leverage Shares 2x Long DNN Daily ETF",
+      "closedOn": "2026-07-27"
+    },
+    {
+      "ticker": "HWAY",
+      "name": "Themes US Infrastructure ETF",
+      "closedOn": "2026-07-27"
+    },
+    {
+      "ticker": "LACG",
+      "name": "Leverage Shares 2X Long LAC Daily ETF",
+      "closedOn": "2026-07-27"
+    },
+    {
+      "ticker": "ORLG",
+      "name": "Leverage Shares 2X Long ORLY Daily ETF",
+      "closedOn": "2026-07-27"
+    },
+    {
+      "ticker": "OSCG",
+      "name": "Leverage Shares 2X Long OSCR Daily ETF",
+      "closedOn": "2026-07-27"
+    },
+    {
+      "ticker": "RAYJ",
+      "name": "Rayliant SMDAM Japan Equity ETF",
+      "closedOn": "2026-07-27"
+    },
+    {
+      "ticker": "SBU",
+      "name": "Leverage Shares 2X Long SBUX Daily ETF",
+      "closedOn": "2026-07-27"
+    },
+    {
+      "ticker": "UPSG",
+      "name": "Leverage Shares 2X Long UPS Daily ETF",
+      "closedOn": "2026-07-27"
+    },
+    {
+      "ticker": "USRD",
+      "name": "Themes US R&D Champions ETF",
+      "closedOn": "2026-07-27"
+    },
+    {
+      "ticker": "ICOI",
+      "name": "Bitwise COIN Option Income Strategy ETF",
+      "closedOn": "2026-07-30"
+    },
+    {
+      "ticker": "ICRC",
+      "name": "Bitwise CRCL Option Income Strategy ETF",
+      "closedOn": "2026-07-30"
+    },
+    {
+      "ticker": "IETH",
+      "name": "Bitwise Ethereum Option Income Strategy ETF",
+      "closedOn": "2026-07-30"
+    },
+    {
+      "ticker": "IGME",
+      "name": "Bitwise GME Option Income Strategy ETF",
+      "closedOn": "2026-07-30"
+    },
+    {
+      "ticker": "IMRA",
+      "name": "Bitwise MARA Option Income Strategy ETF",
+      "closedOn": "2026-07-30"
+    },
+    {
+      "ticker": "IMST",
+      "name": "Bitwise MSTR Option Income Strategy ETF",
+      "closedOn": "2026-07-30"
+    },
+    {
+      "ticker": "JRE",
+      "name": "Janus Henderson U.S. Real Estate ETF",
+      "closedOn": "2026-08-05"
+    },
+    {
+      "ticker": "AGRH",
+      "name": "iShares Interest Rate Hedged U.S. Aggregate Bond ETF",
+      "closedOn": "2026-08-11"
+    },
+    {
+      "ticker": "BELT",
+      "name": "iShares U.S. Select Equity Active ETF",
+      "closedOn": "2026-08-11"
+    },
+    {
+      "ticker": "EAOA",
+      "name": "iShares ESG Aware 80/20 Aggressive Allocation ETF",
+      "closedOn": "2026-08-11"
+    },
+    {
+      "ticker": "EAOK",
+      "name": "iShares ESG Aware 30/70 Conservative Allocation ETF",
+      "closedOn": "2026-08-11"
+    },
+    {
+      "ticker": "EAOM",
+      "name": "iShares ESG Aware 40/60 Moderate Allocation ETF",
+      "closedOn": "2026-08-11"
+    },
+    {
+      "ticker": "EAOR",
+      "name": "iShares ESG Aware 60/40 Balanced Allocation ETF",
+      "closedOn": "2026-08-11"
+    },
+    {
+      "ticker": "IEDI",
+      "name": "iShares U.S. Consumer Focused ETF",
+      "closedOn": "2026-08-11"
+    },
+    {
+      "ticker": "IVRS",
+      "name": "iShares Future Metaverse Tech and Communications ETF",
+      "closedOn": "2026-08-11"
+    },
+    {
+      "ticker": "BCHI",
+      "name": "GMO Beyond China ETF",
+      "closedOn": "2026-08-14"
+    },
+    {
+      "ticker": "PCCE",
+      "name": "Polen Capital China Growth ETF",
+      "closedOn": "2026-08-14"
+    },
+    {
+      "ticker": "PCGG",
+      "name": "Polen Capital Global Growth ETF",
+      "closedOn": "2026-08-14"
+    },
+    {
+      "ticker": "PCIG",
+      "name": "Polen Capital International Growth ETF",
+      "closedOn": "2026-08-14"
+    },
+    {
+      "ticker": "AOTS",
+      "name": "AOT Software Platform ETF",
+      "closedOn": "2026-08-17"
+    },
+    {
+      "ticker": "DEFI",
+      "name": "Hashdex Commodities Trust",
+      "closedOn": "2026-08-17"
+    },
+    {
+      "ticker": "IWDL",
+      "name": "ETRACS 2x Leveraged US Value Factor TR ETN",
+      "closedOn": "2026-08-19"
+    },
+    {
+      "ticker": "IWFL",
+      "name": "ETRACS 2x Leveraged US Growth Factor TR ETN",
+      "closedOn": "2026-08-19"
+    },
+    {
+      "ticker": "IWML",
+      "name": "ETRACS 2x Leveraged US Size Factor TR ETN",
+      "closedOn": "2026-08-19"
+    },
+    {
+      "ticker": "MTUL",
+      "name": "ETRACS 2x Leveraged MSCI US Momentum Factor TR ETN",
+      "closedOn": "2026-08-19"
+    },
+    {
+      "ticker": "QULL",
+      "name": "ETRACS 2x Leveraged MSCI US Quality Factor TR ETN",
+      "closedOn": "2026-08-19"
+    },
+    {
+      "ticker": "SCDL",
+      "name": "ETRACS 2x Leveraged US Dividend Factor TR ETN",
+      "closedOn": "2026-08-19"
+    },
+    {
+      "ticker": "USML",
+      "name": "ETRACS 2x Leveraged MSCI US Minimum Volatility Factor TR ETN",
+      "closedOn": "2026-08-19"
+    },
+    {
+      "ticker": "YBMN",
+      "name": "Defiance BMNR Option Income ETF",
+      "closedOn": "2026-08-19"
+    },
+    {
+      "ticker": "BEDZ",
+      "name": "AdvisorShares Hotel ETF",
+      "closedOn": "2026-08-20"
+    },
+    {
+      "ticker": "VICE",
+      "name": "AdvisorShares Vice ETF",
+      "closedOn": "2026-08-20"
+    },
+    {
+      "ticker": "DVIN",
+      "name": "WEBs Industrials XLI Defined Volatility ETF",
+      "closedOn": "2026-08-25"
+    },
+    {
+      "ticker": "DVRE",
+      "name": "WEBs Real Estate XLRE Defined Volatility ETF",
+      "closedOn": "2026-08-25"
+    },
+    {
+      "ticker": "DVUT",
+      "name": "WEBs Utilities XLU Defined Volatility ETF",
+      "closedOn": "2026-08-25"
+    },
+    {
+      "ticker": "DVXB",
+      "name": "WEBs Materials XLB Defined Volatility ETF",
+      "closedOn": "2026-08-25"
+    },
+    {
+      "ticker": "DVXC",
+      "name": "WEBs Communication Services XLC Defined Volatility ETF",
+      "closedOn": "2026-08-25"
+    },
+    {
+      "ticker": "DVXE",
+      "name": "WEBs Energy XLE Defined Volatility ETF",
+      "closedOn": "2026-08-25"
+    },
+    {
+      "ticker": "DVXF",
+      "name": "WEBs Financial XLF Defined Volatility ETF",
+      "closedOn": "2026-08-25"
+    },
+    {
+      "ticker": "DVXK",
+      "name": "WEBs Technology XLK Defined Volatility ETF",
+      "closedOn": "2026-08-25"
+    },
+    {
+      "ticker": "DVXP",
+      "name": "WEBs Consumer Staples XLP Defined Volatility ETF",
+      "closedOn": "2026-08-25"
+    },
+    {
+      "ticker": "DVXV",
+      "name": "WEBs Health Care XLV Defined Volatility ETF",
+      "closedOn": "2026-08-25"
+    },
+    {
+      "ticker": "DVXY",
+      "name": "WEBs Consumer Discretionary XLY Defined Volatility ETF",
+      "closedOn": "2026-08-25"
+    },
+    {
+      "ticker": "DKNX",
+      "name": "Defiance Daily Target 2X Long DKNG ETF",
+      "closedOn": "2026-08-27"
+    },
+    {
+      "ticker": "DRNL",
+      "name": "Defiance 2X Daily Long Pure Drone & Aerial Automation ETF",
+      "closedOn": "2026-08-27"
+    },
+    {
+      "ticker": "HOOZ",
+      "name": "Defiance Daily Target 2X Short HOOD ETF",
+      "closedOn": "2026-08-27"
+    },
+    {
+      "ticker": "LMNX",
+      "name": "Defiance Daily Target 2x Long LMND ETF",
+      "closedOn": "2026-08-27"
+    },
+    {
+      "ticker": "MPL",
+      "name": "Defiance Daily Target 2X Long MP ETF",
+      "closedOn": "2026-08-27"
+    },
+    {
+      "ticker": "OKLS",
+      "name": "Defiance Daily Target 2X Short OKLO ETF",
+      "closedOn": "2026-08-27"
+    },
+    {
+      "ticker": "RKTL",
+      "name": "Defiance Daily Target 2X Long RKT ETF",
+      "closedOn": "2026-08-27"
+    },
+    {
+      "ticker": "ZETX",
+      "name": "Defiance Daily Target 2x Long ZETA ETF",
+      "closedOn": "2026-08-27"
+    }
+  ]
+}

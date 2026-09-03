@@ -1,0 +1,43 @@
+name: Update monthly paper backtest
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 2 * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run data:update
+      - run: npm test
+      - name: Commit the new monthly records
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "payday-index-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add app/data/backtest.json app/data/forward-paper.json scripts/data/universe.json
+          git commit -m "data: update monthly paper backtest"
+          git push
+      - name: Sync the live forward panel
+        env:
+          FORWARD_SYNC_TOKEN: ${{ secrets.FORWARD_SYNC_TOKEN }}
+          SITES_BYPASS_TOKEN: ${{ secrets.SITES_BYPASS_TOKEN }}
+        run: |
+          jq --arg token "${FORWARD_SYNC_TOKEN}" --slurpfile ledger app/data/forward-paper.json \
+            '{token: $token, ledger: $ledger[0]}' > "${RUNNER_TEMP}/forward-sync.json"
+          curl --fail --retry 3 \
+            --request POST \
+            --header "OAI-Sites-Authorization: Bearer ${SITES_BYPASS_TOKEN}" \
+            --header "Content-Type: application/json" \
+            --data-binary "@${RUNNER_TEMP}/forward-sync.json" \
+            https://payday-index.poissk.chatgpt.site/api/forward-paper
