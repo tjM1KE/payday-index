@@ -35,7 +35,7 @@ jobs:
         run: |
           curl --fail --retry 3 \
             --request POST \
-            --header "Authorization: Bearer ${FORWARD_SYNC_TOKEN}" \
+            --header "X-Forward-Sync-Token: ${FORWARD_SYNC_TOKEN}" \
             --header "OAI-Sites-Authorization: Bearer ${SITES_BYPASS_TOKEN}" \
             --header "Content-Type: application/json" \
             --data-binary @app/data/forward-paper.json \

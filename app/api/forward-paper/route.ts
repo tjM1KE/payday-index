@@ -42,8 +42,8 @@ export async function GET() {
 
 export async function POST(request: Request) {
   const { DB, FORWARD_SYNC_TOKEN } = runtimeEnv();
-  const authorization = request.headers.get("authorization");
-  if (!FORWARD_SYNC_TOKEN || authorization !== `Bearer ${FORWARD_SYNC_TOKEN}`) {
+  const syncToken = request.headers.get("x-forward-sync-token");
+  if (!FORWARD_SYNC_TOKEN || syncToken !== FORWARD_SYNC_TOKEN) {
     return Response.json({ error:"Not allowed" }, { status:401 });
   }
   if (!DB) return Response.json({ error:"Paper ledger storage is unavailable" }, { status:503 });
