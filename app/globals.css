@@ -25,6 +25,42 @@ h3 { margin:0; }
 .ledger span,.month-summary span { color:var(--muted); text-transform:uppercase; font:10px var(--font-geist-mono),monospace; letter-spacing:.08em; }
 .ledger strong { margin:auto 0 5px; font-size:30px; letter-spacing:-.045em; }
 .ledger small { color:var(--muted); font-size:11px; }
+.forward-panel { margin-top:42px; padding:82px 64px 58px; border-radius:10px; background:var(--ink); color:var(--paper); }
+.forward-heading { display:grid; grid-template-columns:1.2fr .8fr; gap:8vw; align-items:end; }
+.forward-panel .eyebrow { color:#a6a79f; }
+.forward-copy>p { margin:0 0 28px; color:#c9cac3; font-size:16px; line-height:1.6; }
+.forward-copy>span { display:flex; align-items:center; gap:9px; color:#b8b9b2; font:10px var(--font-geist-mono),monospace; text-transform:uppercase; }
+.forward-copy .status-dot { display:inline-block; flex:0 0 auto; }
+.forward-ledger { display:grid; grid-template-columns:repeat(4,1fr); margin-top:58px; border:1px solid #ffffff2b; }
+.forward-ledger>div { min-height:142px; padding:21px; display:flex; flex-direction:column; border-right:1px solid #ffffff2b; }
+.forward-ledger>div:last-child { border:0; }
+.forward-ledger span { color:#9fa099; font:9px var(--font-geist-mono),monospace; letter-spacing:.08em; text-transform:uppercase; }
+.forward-ledger strong { margin:auto 0 5px; color:#fff; font-size:27px; letter-spacing:-.045em; }
+.forward-ledger small { color:#9fa099; font-size:9px; }
+.forward-timing { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; align-items:center; gap:22px; margin:30px 0 92px; padding:20px 0; border-top:1px solid #ffffff21; border-bottom:1px solid #ffffff21; text-align:center; font:12px var(--font-geist-mono),monospace; }
+.forward-timing span { display:flex; flex-direction:column; gap:6px; }
+.forward-timing small { color:#8d8e87; font-size:8px; letter-spacing:.1em; text-transform:uppercase; }
+.forward-timing i { color:var(--clay); font-style:normal; }
+.forward-picks-title { display:grid; grid-template-columns:1.1fr .9fr; align-items:end; gap:7vw; margin-bottom:30px; }
+.forward-picks-title h3 { font-size:34px; letter-spacing:-.045em; }
+.forward-picks-title>p { margin:0; color:#b8b9b2; font-size:13px; line-height:1.6; }
+.forward-trades { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.forward-trades article { min-height:275px; padding:23px; display:flex; flex-direction:column; border:1px solid #ffffff2b; background:#ffffff08; }
+.forward-trades article>div:first-child { display:flex; justify-content:space-between; color:#8d8e87; font:9px var(--font-geist-mono),monospace; }
+.forward-trades em { padding:4px 6px; border:1px solid #bd7c5977; border-radius:99px; color:#daa185; font-size:8px; font-style:normal; text-transform:uppercase; }
+.forward-trades h3 { margin:38px 0 5px; color:#fff; font:500 38px var(--font-geist-mono),monospace; letter-spacing:-.055em; }
+.forward-trades article>p { margin:0; color:#9fa099; font-size:11px; }
+.forward-trades dl { margin:auto 0 0; padding-top:17px; display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid #ffffff21; }
+.forward-trades dl div { display:flex; flex-direction:column; gap:5px; }
+.forward-trades dt { color:#8d8e87; font:8px var(--font-geist-mono),monospace; text-transform:uppercase; }
+.forward-trades dd { margin:0; color:#fff; font:11px var(--font-geist-mono),monospace; }
+.forward-holdings { margin-top:58px; border-top:1px solid #ffffff55; }
+.forward-holdings-head,.forward-holding { display:grid; grid-template-columns:1fr .8fr .6fr; align-items:center; gap:16px; min-height:45px; padding:10px 8px; border-bottom:1px solid #ffffff21; }
+.forward-holdings-head { min-height:35px; color:#8d8e87; font:8px var(--font-geist-mono),monospace; text-transform:uppercase; }
+.forward-holding { font-size:12px; }
+.forward-holding b,.forward-holding strong { color:#fff; font-family:var(--font-geist-mono),monospace; }
+.forward-holding strong { text-align:right; }
+.forward-footnote { margin:20px 0 0; color:#8d8e87; font:9px/1.6 var(--font-geist-mono),monospace; }
 .income-source,.performance,.month-lab,.portfolio,.rules { padding:120px 0; border-bottom:1px solid var(--line); }
 .income-source { display:grid; grid-template-columns:.7fr 1.3fr; gap:8vw; align-items:start; }
 .income-copy>p { margin:0 0 28px; color:#4d4e49; font-size:16px; line-height:1.65; }
@@ -155,12 +191,23 @@ footer { min-height:140px; display:flex; justify-content:space-between; align-it
   .header-meta { font-size:8px; }
   .hero { grid-template-columns:1fr; min-height:auto; padding:75px 0 55px; }
   .hero-copy { max-width:520px; }
-  .ledger,.month-summary { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .ledger>div,.month-summary>div { min-width:0; }
+  .ledger,.month-summary,.forward-ledger { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .ledger>div,.month-summary>div,.forward-ledger>div { min-width:0; }
   .ledger>div { padding:18px; }
   .ledger strong { font-size:clamp(20px,6vw,26px); }
-  .ledger>div:nth-child(2),.month-summary>div:nth-child(2) { border-right:0; }
+  .ledger>div:nth-child(2),.month-summary>div:nth-child(2),.forward-ledger>div:nth-child(2) { border-right:0; }
   .ledger>div:nth-child(-n+2),.month-summary>div:nth-child(-n+2) { border-bottom:1px solid var(--line); }
+  .forward-panel { margin-top:24px; padding:64px 22px 42px; }
+  .forward-heading,.forward-picks-title { grid-template-columns:1fr; gap:30px; }
+  .forward-ledger { margin-top:42px; }
+  .forward-ledger>div { min-height:116px; padding:15px; }
+  .forward-ledger>div:nth-child(-n+2) { border-bottom:1px solid #ffffff2b; }
+  .forward-ledger strong { font-size:clamp(19px,5.8vw,25px); }
+  .forward-timing { grid-template-columns:1fr; gap:10px; margin-bottom:66px; text-align:left; }
+  .forward-timing span { flex-direction:row; justify-content:space-between; }
+  .forward-timing i { transform:rotate(90deg); text-align:center; }
+  .forward-trades { grid-template-columns:1fr; }
+  .forward-trades article { min-height:245px; }
   .income-source,.performance,.month-lab,.portfolio,.rules { padding:82px 0; }
   .income-source { grid-template-columns:1fr; gap:36px; }
   .income-sum { grid-template-columns:1fr; align-items:start; }

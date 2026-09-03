@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T19:00:02.718Z",
+  "generatedAt": "2026-09-03T07:23:10.800Z",
   "throughMonth": "2026-08",
   "monthlyContributionGbp": 491.25,
   "startMonth": "2022-04",
@@ -221,7 +221,7 @@
           "beta": 2.75,
           "momentum": -4.29,
           "allocationGbp": 163.75,
-          "units": 11.440449,
+          "units": 11.44045,
           "leveraged": false
         },
         {
@@ -375,12 +375,12 @@
         "QQQ": {
           "valueGbp": 969.14,
           "returnPct": -1.36,
-          "monthlyReturnPct": -2.7187
+          "monthlyReturnPct": -2.7188
         },
         "VT": {
           "valueGbp": 979.25,
           "returnPct": -0.33,
-          "monthlyReturnPct": -0.662
+          "monthlyReturnPct": -0.6619
         }
       },
       "weightedBeta": 2.83,
@@ -403,7 +403,7 @@
           "beta": 2.98,
           "momentum": -19.65,
           "allocationGbp": 163.75,
-          "units": 4.613181,
+          "units": 4.613182,
           "leveraged": false
         },
         {
@@ -412,7 +412,7 @@
           "beta": 2.59,
           "momentum": -24,
           "allocationGbp": 163.75,
-          "units": 8.250943,
+          "units": 8.250944,
           "leveraged": true
         }
       ],
@@ -509,15 +509,6 @@
           "leveraged": true
         },
         {
-          "ticker": "QLD",
-          "name": "ProShares Ultra QQQ",
-          "valueGbp": 163.75,
-          "contributedGbp": 163.75,
-          "weight": 18.91,
-          "beta": 2.59,
-          "leveraged": true
-        },
-        {
           "ticker": "UPRO",
           "name": "ProShares UltraPro S&P 500",
           "valueGbp": 163.75,
@@ -525,6 +516,15 @@
           "weight": 18.91,
           "beta": 2.98,
           "leveraged": false
+        },
+        {
+          "ticker": "QLD",
+          "name": "ProShares Ultra QQQ",
+          "valueGbp": 163.75,
+          "contributedGbp": 163.75,
+          "weight": 18.91,
+          "beta": 2.59,
+          "leveraged": true
         },
         {
           "ticker": "TPOR",
@@ -560,10 +560,10 @@
       "label": "Jun 2022",
       "contributionGbp": 491.25,
       "contributedGbp": 1473.75,
-      "strategyValueGbp": 1145.25,
+      "strategyValueGbp": 1145.26,
       "strategyMonthlyReturnPct": -24.4766,
       "benchmarkValueGbp": 1421.61,
-      "alphaGbp": -276.36,
+      "alphaGbp": -276.35,
       "strategyReturnPct": -22.29,
       "benchmarkReturnPct": -3.54,
       "benchmarks": {
@@ -575,12 +575,12 @@
         "QQQ": {
           "valueGbp": 1406.59,
           "returnPct": -4.56,
-          "monthlyReturnPct": -5.5518
+          "monthlyReturnPct": -5.5517
         },
         "VT": {
           "valueGbp": 1424.11,
           "returnPct": -3.37,
-          "monthlyReturnPct": -4.7366
+          "monthlyReturnPct": -4.7367
         }
       },
       "weightedBeta": 2.84,
@@ -594,7 +594,7 @@
           "beta": 2.79,
           "momentum": 17.37,
           "allocationGbp": 163.75,
-          "units": 3.058606,
+          "units": 3.058607,
           "leveraged": true
         },
         {
@@ -603,7 +603,7 @@
           "beta": 2.75,
           "momentum": -42.85,
           "allocationGbp": 163.75,
-          "units": 7.003143,
+          "units": 7.003142,
           "leveraged": true
         },
         {
@@ -821,7 +821,7 @@
           "beta": 2.73,
           "momentum": -7.7,
           "allocationGbp": 163.75,
-          "units": 4.138621,
+          "units": 4.13862,
           "leveraged": true
         },
         {
@@ -839,7 +839,7 @@
           "beta": 2.62,
           "momentum": -14.75,
           "allocationGbp": 163.75,
-          "units": 13.243599,
+          "units": 13.243598,
           "leveraged": false
         }
       ],
@@ -1066,7 +1066,7 @@
           "beta": 2.97,
           "momentum": -5.81,
           "allocationGbp": 163.75,
-          "units": 6.899433,
+          "units": 6.899434,
           "leveraged": true
         },
         {
@@ -1075,7 +1075,7 @@
           "beta": 2.98,
           "momentum": -7.15,
           "allocationGbp": 163.75,
-          "units": 18.49644,
+          "units": 18.496439,
           "leveraged": false
         },
         {
@@ -1320,7 +1320,7 @@
           "beta": 2.71,
           "momentum": 20.53,
           "allocationGbp": 163.75,
-          "units": 34.232362,
+          "units": 34.232359,
           "leveraged": false
         },
         {
@@ -1329,7 +1329,7 @@
           "beta": 2.61,
           "momentum": 16.24,
           "allocationGbp": 163.75,
-          "units": 8.727944,
+          "units": 8.727945,
           "leveraged": false
         },
         {
@@ -1882,7 +1882,7 @@
           "beta": 2.56,
           "momentum": 26.09,
           "allocationGbp": 163.75,
-          "units": 11.77741,
+          "units": 11.777413,
           "leveraged": true
         },
         {
@@ -1891,7 +1891,7 @@
           "beta": 2.99,
           "momentum": 11.02,
           "allocationGbp": 163.75,
-          "units": 9.413275,
+          "units": 9.413276,
           "leveraged": false
         },
         {
@@ -1900,7 +1900,7 @@
           "beta": 2.98,
           "momentum": 3.24,
           "allocationGbp": 163.75,
-          "units": 2.682675,
+          "units": 2.682676,
           "leveraged": true
         }
       ],
@@ -2181,7 +2181,7 @@
           "beta": 2.57,
           "momentum": 63.96,
           "allocationGbp": 163.75,
-          "units": 12.750234,
+          "units": 12.750236,
           "leveraged": true
         },
         {
@@ -2190,7 +2190,7 @@
           "beta": 2.51,
           "momentum": 30.4,
           "allocationGbp": 163.75,
-          "units": 4.327198,
+          "units": 4.327197,
           "leveraged": true
         },
         {
@@ -2199,7 +2199,7 @@
           "beta": 2.99,
           "momentum": 24.89,
           "allocationGbp": 163.75,
-          "units": 11.484569,
+          "units": 11.484571,
           "leveraged": false
         }
       ],
@@ -2461,7 +2461,7 @@
         "QQQ": {
           "valueGbp": 4852.04,
           "returnPct": -1.23,
-          "monthlyReturnPct": 7.9803
+          "monthlyReturnPct": 7.9804
         },
         "VT": {
           "valueGbp": 5070.74,
@@ -2480,7 +2480,7 @@
           "beta": 2.59,
           "momentum": 71.21,
           "allocationGbp": 163.75,
-          "units": 10.089162,
+          "units": 10.089161,
           "leveraged": true
         },
         {
@@ -2489,7 +2489,7 @@
           "beta": 2.56,
           "momentum": 39.72,
           "allocationGbp": 163.75,
-          "units": 13.120464,
+          "units": 13.120465,
           "leveraged": false
         },
         {
@@ -2498,7 +2498,7 @@
           "beta": 2.53,
           "momentum": 29.29,
           "allocationGbp": 163.75,
-          "units": 17.399106,
+          "units": 17.399107,
           "leveraged": true
         }
       ],
@@ -2806,7 +2806,7 @@
           "beta": 2.54,
           "momentum": 13.19,
           "allocationGbp": 163.75,
-          "units": 44.356099,
+          "units": 44.356094,
           "leveraged": false
         }
       ],
@@ -3276,7 +3276,7 @@
         {
           "ticker": "UMDD",
           "name": "UltraPro MidCap400",
-          "valueGbp": 306.42,
+          "valueGbp": 306.43,
           "contributedGbp": 327.5,
           "weight": 5.88,
           "beta": 3.01,
@@ -3422,7 +3422,7 @@
           "beta": 2.7,
           "momentum": 23.56,
           "allocationGbp": 163.75,
-          "units": 6.010231,
+          "units": 6.01023,
           "leveraged": true
         },
         {
@@ -3757,7 +3757,7 @@
           "beta": 2.49,
           "momentum": 15.95,
           "allocationGbp": 163.75,
-          "units": 47.631138,
+          "units": 47.631133,
           "leveraged": true
         }
       ],
@@ -4058,7 +4058,7 @@
           "monthlyReturnPct": 4.8907
         },
         "VT": {
-          "valueGbp": 7781.24,
+          "valueGbp": 7781.25,
           "returnPct": 5.6,
           "monthlyReturnPct": 4.4014
         }
@@ -4092,7 +4092,7 @@
           "beta": 2.39,
           "momentum": 36.29,
           "allocationGbp": 163.75,
-          "units": 13.740205,
+          "units": 13.740204,
           "leveraged": true
         }
       ],
@@ -4394,7 +4394,7 @@
       "contributionGbp": 491.25,
       "contributedGbp": 7860,
       "strategyValueGbp": 9060.67,
-      "strategyMonthlyReturnPct": 12.2768,
+      "strategyMonthlyReturnPct": 12.2769,
       "benchmarkValueGbp": 8524.46,
       "alphaGbp": 536.21,
       "strategyReturnPct": 15.28,
@@ -4436,7 +4436,7 @@
           "beta": 2.73,
           "momentum": 49.7,
           "allocationGbp": 163.75,
-          "units": 22.162085,
+          "units": 22.162088,
           "leveraged": true
         },
         {
@@ -5118,7 +5118,7 @@
         "SPY": {
           "valueGbp": 9377.1,
           "returnPct": 6.05,
-          "monthlyReturnPct": -1.0906
+          "monthlyReturnPct": -1.0905
         },
         "QQQ": {
           "valueGbp": 10183.48,
@@ -5151,7 +5151,7 @@
           "beta": 2.76,
           "momentum": -3.78,
           "allocationGbp": 163.75,
-          "units": 24.427959,
+          "units": 24.427962,
           "leveraged": true
         },
         {
@@ -5480,7 +5480,7 @@
         "SPY": {
           "valueGbp": 9694.23,
           "returnPct": 3.86,
-          "monthlyReturnPct": -1.8569
+          "monthlyReturnPct": -1.8568
         },
         "QQQ": {
           "valueGbp": 10496.4,
@@ -5522,7 +5522,7 @@
           "beta": 2.58,
           "momentum": -18.04,
           "allocationGbp": 163.75,
-          "units": 7.108894,
+          "units": 7.108895,
           "leveraged": true
         }
       ],
@@ -6255,7 +6255,7 @@
           "beta": 2.57,
           "momentum": 53.76,
           "allocationGbp": 163.75,
-          "units": 6.367546,
+          "units": 6.367547,
           "leveraged": true
         }
       ],
@@ -6950,7 +6950,7 @@
         {
           "ticker": "KORU",
           "name": "Direxion Daily MSCI South Korea Bull 3X ETF",
-          "valueGbp": 123.47,
+          "valueGbp": 123.46,
           "contributedGbp": 163.75,
           "weight": 1,
           "beta": 3.09,
@@ -7010,7 +7010,7 @@
         "VT": {
           "valueGbp": 12961.97,
           "returnPct": 14.72,
-          "monthlyReturnPct": 4.7586
+          "monthlyReturnPct": 4.7587
         }
       },
       "weightedBeta": 2.68,
@@ -7820,7 +7820,7 @@
           "beta": 2.94,
           "momentum": 47.53,
           "allocationGbp": 163.75,
-          "units": 9.567025,
+          "units": 9.567026,
           "leveraged": true
         },
         {
@@ -7829,7 +7829,7 @@
           "beta": 2.56,
           "momentum": 36.42,
           "allocationGbp": 163.75,
-          "units": 6.666098,
+          "units": 6.666097,
           "leveraged": true
         },
         {
@@ -7838,7 +7838,7 @@
           "beta": 2.7,
           "momentum": 20.93,
           "allocationGbp": 163.75,
-          "units": 4.857392,
+          "units": 4.857393,
           "leveraged": true
         }
       ],
@@ -8193,10 +8193,10 @@
       "label": "May 2024",
       "contributionGbp": 491.25,
       "contributedGbp": 12772.5,
-      "strategyValueGbp": 16879.81,
+      "strategyValueGbp": 16879.82,
       "strategyMonthlyReturnPct": 10.294,
       "benchmarkValueGbp": 15418.28,
-      "alphaGbp": 1461.53,
+      "alphaGbp": 1461.54,
       "strategyReturnPct": 32.16,
       "benchmarkReturnPct": 20.71,
       "benchmarks": {
@@ -8213,7 +8213,7 @@
         "VT": {
           "valueGbp": 14904.92,
           "returnPct": 16.7,
-          "monthlyReturnPct": 2.6251
+          "monthlyReturnPct": 2.6252
         }
       },
       "weightedBeta": 2.7,
@@ -9065,7 +9065,7 @@
           "beta": 2.68,
           "momentum": 44.9,
           "allocationGbp": 163.75,
-          "units": 20.699206,
+          "units": 20.699204,
           "leveraged": true
         },
         {
@@ -9083,7 +9083,7 @@
           "beta": 2.88,
           "momentum": 29.26,
           "allocationGbp": 163.75,
-          "units": 4.46974,
+          "units": 4.469739,
           "leveraged": false
         }
       ],
@@ -9200,7 +9200,7 @@
         {
           "ticker": "ROM",
           "name": "ProShares Ultra Technology",
-          "valueGbp": 1349.32,
+          "valueGbp": 1349.33,
           "contributedGbp": 818.75,
           "weight": 7.18,
           "beta": 2.91,
@@ -9890,7 +9890,7 @@
           "monthlyReturnPct": 1.011
         },
         "VT": {
-          "valueGbp": 17343.44,
+          "valueGbp": 17343.43,
           "returnPct": 17.68,
           "monthlyReturnPct": 0.5926
         }
@@ -10331,7 +10331,7 @@
           "beta": 2.62,
           "momentum": 19.65,
           "allocationGbp": 163.75,
-          "units": 4.209979,
+          "units": 4.20998,
           "leveraged": true
         },
         {
@@ -10349,7 +10349,7 @@
           "beta": 2.89,
           "momentum": 9.85,
           "allocationGbp": 163.75,
-          "units": 6.601829,
+          "units": 6.60183,
           "leveraged": true
         }
       ],
@@ -10783,7 +10783,7 @@
           "beta": 2.72,
           "momentum": 67.26,
           "allocationGbp": 163.75,
-          "units": 10.685513,
+          "units": 10.685514,
           "leveraged": false
         }
       ],
@@ -11176,15 +11176,15 @@
       "contributedGbp": 16211.25,
       "strategyValueGbp": 25263.88,
       "strategyMonthlyReturnPct": -9.698,
-      "benchmarkValueGbp": 21203.21,
-      "alphaGbp": 4060.67,
+      "benchmarkValueGbp": 21203.22,
+      "alphaGbp": 4060.66,
       "strategyReturnPct": 55.84,
       "benchmarkReturnPct": 30.79,
       "benchmarks": {
         "SPY": {
-          "valueGbp": 21203.21,
+          "valueGbp": 21203.22,
           "returnPct": 30.79,
-          "monthlyReturnPct": -1.2574
+          "monthlyReturnPct": -1.2573
         },
         "QQQ": {
           "valueGbp": 22871.72,
@@ -11669,7 +11669,7 @@
           "beta": 2.91,
           "momentum": 54.9,
           "allocationGbp": 163.75,
-          "units": 4.499497,
+          "units": 4.499498,
           "leveraged": true
         },
         {
@@ -12089,13 +12089,13 @@
       "contributedGbp": 17193.75,
       "strategyValueGbp": 25664.99,
       "strategyMonthlyReturnPct": -11.7604,
-      "benchmarkValueGbp": 22380.81,
-      "alphaGbp": 3284.18,
+      "benchmarkValueGbp": 22380.82,
+      "alphaGbp": 3284.17,
       "strategyReturnPct": 49.27,
       "benchmarkReturnPct": 30.17,
       "benchmarks": {
         "SPY": {
-          "valueGbp": 22380.81,
+          "valueGbp": 22380.82,
           "returnPct": 30.17,
           "monthlyReturnPct": -2.6408
         },
@@ -12130,7 +12130,7 @@
           "beta": 2.93,
           "momentum": -0.42,
           "allocationGbp": 163.75,
-          "units": 5.810555,
+          "units": 5.810554,
           "leveraged": true
         },
         {
@@ -12561,7 +12561,7 @@
           "monthlyReturnPct": -7.9251
         },
         "QQQ": {
-          "valueGbp": 21764.18,
+          "valueGbp": 21764.19,
           "returnPct": 23.07,
           "monthlyReturnPct": -9.8892
         },
@@ -13052,7 +13052,7 @@
           "beta": 2.78,
           "momentum": -21.57,
           "allocationGbp": 163.75,
-          "units": 4.119323,
+          "units": 4.119322,
           "leveraged": true
         },
         {
@@ -14464,7 +14464,7 @@
           "monthlyReturnPct": 6.4613
         },
         "VT": {
-          "valueGbp": 24577.99,
+          "valueGbp": 24578,
           "returnPct": 25.08,
           "monthlyReturnPct": 5.0824
         }
@@ -15893,7 +15893,7 @@
           "valueGbp": 228.96,
           "contributedGbp": 327.5,
           "weight": 0.62,
-          "beta": 1.67,
+          "beta": 1.66,
           "leveraged": true
         },
         {
@@ -16478,7 +16478,7 @@
         "QQQ": {
           "valueGbp": 32495.49,
           "returnPct": 50.34,
-          "monthlyReturnPct": -2.1712
+          "monthlyReturnPct": -2.1711
         },
         "VT": {
           "valueGbp": 28700.71,
@@ -16969,10 +16969,10 @@
       "label": "Dec 2025",
       "contributionGbp": 491.25,
       "contributedGbp": 22106.25,
-      "strategyValueGbp": 35988.88,
+      "strategyValueGbp": 35988.89,
       "strategyMonthlyReturnPct": -3.6391,
       "benchmarkValueGbp": 29630.86,
-      "alphaGbp": 6358.02,
+      "alphaGbp": 6358.03,
       "strategyReturnPct": 62.8,
       "benchmarkReturnPct": 34.04,
       "benchmarks": {
@@ -17485,7 +17485,7 @@
       "contributionGbp": 491.25,
       "contributedGbp": 22597.5,
       "strategyValueGbp": 37841.97,
-      "strategyMonthlyReturnPct": 3.784,
+      "strategyMonthlyReturnPct": 3.7841,
       "benchmarkValueGbp": 29820.02,
       "alphaGbp": 8021.95,
       "strategyReturnPct": 67.46,
@@ -19090,7 +19090,7 @@
           "beta": 2.9,
           "momentum": 121.6,
           "allocationGbp": 163.75,
-          "units": 6.44524,
+          "units": 6.445242,
           "leveraged": false
         },
         {
@@ -19099,7 +19099,7 @@
           "beta": 2.97,
           "momentum": 58.24,
           "allocationGbp": 163.75,
-          "units": 3.872467,
+          "units": 3.872468,
           "leveraged": false
         },
         {
@@ -21384,7 +21384,7 @@
         {
           "ticker": "ROM",
           "name": "ProShares Ultra Technology",
-          "valueGbp": 3546.05,
+          "valueGbp": 3546.04,
           "contributedGbp": 1146.25,
           "weight": 7.5,
           "beta": 3.51,
@@ -21963,7 +21963,7 @@
       {
         "ticker": "ROM",
         "name": "ProShares Ultra Technology",
-        "valueGbp": 3546.05,
+        "valueGbp": 3546.04,
         "contributedGbp": 1146.25,
         "weight": 7.5,
         "beta": 3.51,

@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
@@ -32,6 +33,10 @@ test("server-renders the data-backed Payday Index app", async () => {
   assert.match(html, /Nasdaq-100/);
   assert.match(html, /World stocks/);
   assert.match(html, /This window contains/);
+  assert.match(html, /No rewrites/);
+  assert.match(html, /live now \/ forward paper account/i);
+  assert.match(html, /signal frozen/i);
+  assert.match(html, /bought later/i);
   assert.match(html, /53<!-- --> paydays/);
   assert.match(html, /£26,036\.25/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
@@ -86,4 +91,28 @@ test("full-range comparison reconciles with the headline pots", async () => {
   assert.ok(Math.abs(strategy - backtest.current.strategyValueGbp) < 0.005);
   assert.ok(Math.abs(spy - backtest.current.benchmarks.SPY.valueGbp) < 0.005);
   assert.ok(Math.abs(strategy - spy - backtest.current.alphaGbp) < 0.005);
+});
+
+test("keeps an append-only forward paper ledger", async () => {
+  const ledger = JSON.parse(await readFile(new URL("../app/data/forward-paper.json", import.meta.url), "utf8"));
+  assert.equal(ledger.version, 1);
+  assert.equal(ledger.status, "forward");
+  assert.ok(ledger.records.length >= 1);
+  assert.equal(ledger.records[0].signalMonth, "2026-08");
+  assert.deepEqual(ledger.current, ledger.records.at(-1));
+  assert.equal(new Set(ledger.records.map((record) => record.signalMonth)).size, ledger.records.length);
+  assert.ok(ledger.records.every((record) => record.locked && record.executionDate > record.signalDate));
+  assert.ok(ledger.records.every((record) => record.trades.length === 3));
+  assert.ok(ledger.records.every((record) => Math.abs(record.trades.reduce((sum, trade) => sum + trade.allocationGbp, 0) - 491.25) < 0.01));
+  assert.deepEqual(Object.keys(ledger.current.benchmarks), ["SPY", "QQQ", "VT"]);
+  const historyHash = createHash("sha256").update(JSON.stringify(ledger.records)).digest("hex");
+  assert.equal(ledger.historyHash, historyHash);
+});
+
+test("serves the committed forward ledger when durable storage is empty", async () => {
+  const response = await render("/api/forward-paper");
+  assert.equal(response.status, 200);
+  const ledger = await response.json();
+  assert.equal(ledger.status, "forward");
+  assert.equal(ledger.current.signalMonth, "2026-08");
 });

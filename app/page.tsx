@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useSyncExternalStore, type CSSProperties } from "react";
+import { useEffect, useState, useSyncExternalStore, type CSSProperties } from "react";
 import backtestJson from "./data/backtest.json";
+import forwardPaperJson from "./data/forward-paper.json";
 
 type BenchmarkKey = "SPY"|"QQQ"|"VT";
 type BenchmarkDefinition = { ticker:BenchmarkKey; label:string; description:string };
@@ -15,13 +16,24 @@ type MonthRecord = { month:string; label:string; contributionGbp:number; contrib
 type UniverseCoverage = { activeListed:number; seededClosures:number; observedClosures:number; tickerCollisionsExcluded:number; reconstructedFunds:number; pricedFunds:number; pricedClosures:number; missingHistories:number };
 type Backtest = { generatedAt:string; throughMonth:string; monthlyContributionGbp:number; startMonth:string; benchmark:string; benchmarks:BenchmarkDefinition[]; betaRange:number[]; universeSize:number; universeCoverage:UniverseCoverage; methodology:Record<string,string>; months:MonthRecord[]; current:MonthRecord };
 type CashFlowPoint = { label:string; strategy:number; benchmark:number; contributed:number };
+type ForwardTrade = Trade & { executionPriceUsd:number };
+type ForwardHolding = { ticker:string; name:string; valueGbp:number; weight:number; beta:number|null; leveraged:boolean };
+type ForwardRecord = { signalMonth:string; signalLabel:string; signalDate:string; executionDate:string; recordedAt:string; contributionGbp:number; contributedGbp:number; strategyValueGbp:number; strategyReturnPct:number; benchmarkValueGbp:number; benchmarkReturnPct:number; alphaGbp:number; weightedBeta:number; universeCount:number; eligibleCount:number; ranking:RankedFund[]; trades:ForwardTrade[]; holdings:ForwardHolding[]; liquidations:Liquidation[]; benchmarks:Record<BenchmarkKey,{ valueGbp:number; returnPct:number }>; locked:boolean };
+type ForwardPaper = { version:number; startedAt:string|null; updatedAt:string|null; monthlyContributionGbp:number; status:string; methodology:Record<string,string>; records:ForwardRecord[]; historyHash:string|null; current:ForwardRecord|null };
 
 const backtest = backtestJson as Backtest;
+const forwardSeed = forwardPaperJson as unknown as ForwardPaper;
 const money = new Intl.NumberFormat("en-GB", { style:"currency", currency:"GBP" });
 const subscribeToLocation = () => () => {};
 const signedMoney = (value:number) => `${value >= 0 ? "+" : ""}${money.format(value)}`;
 const signedPercent = (value:number) => `${value >= 0 ? "+" : ""}${value.toFixed(1)}%`;
 const compactMoney = new Intl.NumberFormat("en-GB", { style:"currency", currency:"GBP", notation:"compact", maximumFractionDigits:1 });
+const calendarDate = new Intl.DateTimeFormat("en-GB", { day:"numeric", month:"short", year:"numeric", timeZone:"UTC" });
+
+function nextForwardRun(signalMonth:string) {
+  const [year, month] = signalMonth.split("-").map(Number);
+  return calendarDate.format(new Date(Date.UTC(year, month + 1, 2)));
+}
 
 function cashFlowPerformance(months:MonthRecord[], start:number, end:number, ticker:BenchmarkKey, contribution:number) {
   let strategy = 0;
@@ -81,39 +93,83 @@ export default function Home() {
   const [rangeStart, setRangeStart] = useState(0);
   const [rangeEnd, setRangeEnd] = useState(backtest.months.length - 1);
   const [comparisonIndex, setComparisonIndex] = useState(0);
+  const [forward, setForward] = useState(forwardSeed);
   const selected = backtest.months[monthIndex];
   const current = backtest.current;
-  const recent = backtest.months.slice(-12);
-  const recentMax = Math.max(...recent.map((month) => month.strategyValueGbp));
   const period = `${backtest.months[rangeStart].label} to ${backtest.months[rangeEnd].label}`;
   const rangeStartPercent = rangeStart / (backtest.months.length - 1) * 100;
   const rangeEndPercent = rangeEnd / (backtest.months.length - 1) * 100;
   const rangeStyle = { "--range-start":`${rangeStartPercent}%`, "--range-end":`${rangeEndPercent}%` } as CSSProperties;
   const embed = useSyncExternalStore(subscribeToLocation, () => new URLSearchParams(window.location.search).get("embed") === "1", () => false);
+  const live = forward.current;
+  const liveRecords = forward.records.slice(-12);
+  const liveMax = Math.max(1, ...liveRecords.map((record) => record.strategyValueGbp));
+
+  useEffect(() => {
+    let active = true;
+    fetch("/api/forward-paper", { cache:"no-store" })
+      .then((response) => response.ok ? response.json() : null)
+      .then((payload) => { if (active && payload?.status === "forward" && payload.current) setForward(payload as ForwardPaper); })
+      .catch(() => {});
+    return () => { active = false; };
+  }, []);
 
   if (embed) return <main className="embed-shell">
-    <div className="embed-top"><span>MY PAYDAY INDEX</span><span className="paper-pill">PAPER ONLY</span></div>
-    <p className="embed-kicker">My risky little experiment since Apr 2022</p>
-    <div className="embed-value">{money.format(current.strategyValueGbp)}</div>
-    <div className="mini-chart" aria-label="My portfolio value over the latest twelve months">{recent.map((month) => <i key={month.month} style={{height:`${Math.max(12, month.strategyValueGbp / recentMax * 100)}%`}} title={`${month.label}: ${money.format(month.strategyValueGbp)}`} />)}</div>
-    <div className="embed-stats"><span><small>AHEAD OF SPY BY</small>{signedMoney(current.alphaGbp)}</span><span><small>I ADD</small>{money.format(backtest.monthlyContributionGbp)} / month</span></div>
-    <Link className="embed-link" href="/" target="_top">See what I bought this month <span>&nearr;</span></Link>
+    <div className="embed-top"><span>MY PAYDAY INDEX</span><span className="paper-pill">LIVE / PAPER</span></div>
+    <p className="embed-kicker">Forward account, no historical rewrites</p>
+    <div className="embed-value">{money.format(live?.strategyValueGbp ?? 0)}</div>
+    <div className="mini-chart" aria-label="My live forward paper account by monthly decision">{liveRecords.map((record) => <i key={record.signalMonth} style={{height:`${Math.max(12, record.strategyValueGbp / liveMax * 100)}%`}} title={`${record.signalLabel}: ${money.format(record.strategyValueGbp)}`} />)}</div>
+    <div className="embed-stats"><span><small>VERSUS SPY</small>{signedMoney(live?.alphaGbp ?? 0)}</span><span><small>I ADD</small>{money.format(forward.monthlyContributionGbp)} / month</span></div>
+    <Link className="embed-link" href="/#forward" target="_top">See the locked monthly picks <span>&nearr;</span></Link>
   </main>;
 
   return <main>
-    <header className="site-header"><a href="#top" className="wordmark">MK / MY PAYDAY INDEX</a><div className="header-meta"><span className="status-dot" /> caught up to {current.label}</div></header>
+    <header className="site-header"><a href="#top" className="wordmark">MK / MY PAYDAY INDEX</a><div className="header-meta"><span className="status-dot" /> live since {live?.executionDate ? calendarDate.format(new Date(`${live.executionDate}T00:00:00Z`)) : "the next payday"}</div></header>
 
     <section className="hero" id="top">
       <div><p className="eyebrow">My paper-money experiment</p><h1>What if I<br />went for it?</h1></div>
       <div className="hero-copy"><p>I&apos;m careful with real money, so I built somewhere safe to test the opposite. Every payday, I pretend to put 15% of my take-home into three fast-moving ETFs and see if my rules can beat the usual index options. The pretend horizon is 20 to 30 years.</p><div className="paper-note">Fake money. Real market data. No suits involved.</div></div>
     </section>
 
-    <section className="ledger" aria-label="Where my paper portfolio stands now">
-      <div><span>my pretend pot</span><strong>{money.format(current.strategyValueGbp)}</strong><small>{signedPercent(current.strategyReturnPct)} on what I put in</small></div>
-      <div><span>the sensible SPY pot</span><strong>{money.format(current.benchmarkValueGbp)}</strong><small>{signedPercent(current.benchmarkReturnPct)} with the same cash</small></div>
-      <div><span>extra vs SPY</span><strong>{signedMoney(current.alphaGbp)}</strong><small>same deposits, different picks</small></div>
-      <div><span>portfolio beta</span><strong>{current.weightedBeta.toFixed(2)}</strong><small>high on purpose</small></div>
+    <section className="ledger" aria-label="Where the historical backtest finishes">
+      <div><span>backtest pot</span><strong>{money.format(current.strategyValueGbp)}</strong><small>{signedPercent(current.strategyReturnPct)} on what I put in</small></div>
+      <div><span>backtest SPY pot</span><strong>{money.format(current.benchmarkValueGbp)}</strong><small>{signedPercent(current.benchmarkReturnPct)} with the same cash</small></div>
+      <div><span>backtest lead</span><strong>{signedMoney(current.alphaGbp)}</strong><small>April 2022 to {current.label}</small></div>
+      <div><span>portfolio beta</span><strong>{current.weightedBeta.toFixed(2)}</strong><small>historical result</small></div>
     </section>
+
+    {live && <section className="forward-panel" id="forward" aria-label="Live forward paper account">
+      <div className="forward-heading">
+        <div><p className="eyebrow">live now / forward paper account</p><h2>No rewrites<br />from here.</h2></div>
+        <div className="forward-copy"><p>The backtest stays above as the old experiment. This account started fresh with real decisions made after each month closes. Once a pick lands here, it stays here.</p><span><i className="status-dot" /> {forward.records.length} locked monthly {forward.records.length === 1 ? "entry" : "entries"}</span></div>
+      </div>
+
+      <div className="forward-ledger">
+        <div><span>live paper pot</span><strong>{money.format(live.strategyValueGbp)}</strong><small>{signedPercent(live.strategyReturnPct)} on {money.format(live.contributedGbp)} added</small></div>
+        <div><span>SPY with the same cash</span><strong>{money.format(live.benchmarkValueGbp)}</strong><small>{signedPercent(live.benchmarkReturnPct)} on the same dates</small></div>
+        <div><span>{live.alphaGbp >= 0 ? "ahead by" : "behind by"}</span><strong>{live.alphaGbp >= 0 ? signedMoney(live.alphaGbp) : money.format(Math.abs(live.alphaGbp))}</strong><small>forward result only</small></div>
+        <div><span>next lock</span><strong>{nextForwardRun(live.signalMonth)}</strong><small>after the next month closes</small></div>
+      </div>
+
+      <div className="forward-timing">
+        <span><small>signal frozen</small>{calendarDate.format(new Date(`${live.signalDate}T00:00:00Z`))}</span>
+        <i>&rarr;</i>
+        <span><small>bought later</small>{calendarDate.format(new Date(`${live.executionDate}T00:00:00Z`))}</span>
+        <i>&rarr;</i>
+        <span><small>history</small>locked</span>
+      </div>
+
+      <div className="forward-picks">
+        <div className="forward-picks-title"><div><p className="eyebrow">latest three</p><h3>{live.signalLabel}&apos;s picks</h3></div><p>I waited for the month to finish, then used the first later market session shared by all three. That removes the same-close shortcut from the backtest.</p></div>
+        <div className="forward-trades">{live.trades.map((trade, index) => <article key={trade.ticker}><div><span>0{index + 1}</span>{trade.leveraged && <em>daily leveraged</em>}</div><h3>{trade.ticker}</h3><p>{trade.name}</p><dl><div><dt>Signal beta</dt><dd>{trade.beta.toFixed(2)}</dd></div><div><dt>3-month</dt><dd>{signedPercent(trade.momentum)}</dd></div><div><dt>Paper buy</dt><dd>{money.format(trade.allocationGbp)}</dd></div></dl></article>)}</div>
+      </div>
+
+      <div className="forward-holdings">
+        <div className="forward-holdings-head"><span>Live holding</span><span>Paper value</span><span>Weight</span></div>
+        {live.holdings.map((holding) => <div className="forward-holding" key={holding.ticker}><b>{holding.ticker}{holding.leveraged && <sup>L</sup>}</b><span>{money.format(holding.valueGbp)}</span><strong>{holding.weight.toFixed(1)}%</strong></div>)}
+      </div>
+      <p className="forward-footnote">Monthly snapshots, not streaming prices. Fees, spreads, slippage and tax are still left out. The locked record is {forward.historyHash?.slice(0, 10)}.</p>
+    </section>}
 
     <section className="income-source">
       <div><p className="eyebrow">where the monthly number came from</p><h2>Why £491.25?</h2></div>

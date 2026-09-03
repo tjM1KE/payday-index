@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import closedEtfsJson from "./data/closed-etfs.json" with { type: "json" };
@@ -16,6 +17,8 @@ const BETA_MAX = 3;
 const HISTORY_START = "2021-01-01";
 const UNIVERSE_STATE_PATH = resolve("scripts/data/universe.json");
 const OUTPUT_PATH = resolve("app/data/backtest.json");
+const FORWARD_OUTPUT_PATH = resolve("app/data/forward-paper.json");
+const FORWARD_START_SIGNAL_MONTH = "2026-08";
 const NASDAQ_ETF_URL = "https://api.nasdaq.com/api/screener/etf?download=true";
 
 const period1 = Math.floor(new Date(`${HISTORY_START}T00:00:00Z`).getTime() / 1000);
@@ -218,6 +221,14 @@ function priceAt(series, cutoff) {
   return pointAt(series, cutoff)?.price ?? null;
 }
 
+function pointAfter(series, cutoff) {
+  return series?.find((point) => point.date > cutoff) ?? null;
+}
+
+function priceOn(series, date) {
+  return series?.find((point) => point.date === date)?.price ?? null;
+}
+
 function hasFreshPrice(series, cutoff, maxAgeDays = 10) {
   const point = pointAt(series, cutoff);
   if (!point) return false;
@@ -266,6 +277,233 @@ function round(value, digits = 2) {
 
 function labelFor(month) {
   return new Intl.DateTimeFormat("en-GB", { month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(`${month}-01T00:00:00Z`));
+}
+
+async function loadForwardPaper() {
+  try {
+    return JSON.parse(await readFile(FORWARD_OUTPUT_PATH, "utf8"));
+  } catch {
+    return {
+      version: 1,
+      startedAt: null,
+      updatedAt: null,
+      monthlyContributionGbp: MONTHLY_CONTRIBUTION_GBP,
+      status: "forward",
+      methodology: {
+        signal: "Freeze the ranking after a calendar month closes, using only prices dated on or before that month-end.",
+        execution: "Buy the three selected ETFs on the first later market session for which all three have an adjusted closing price. SPY, QQQ and VT receive the same GBP contribution on that date.",
+        history: "Every completed forward decision is appended to this ledger. Earlier records are never recalculated.",
+        costs: "Fractional units are used. Fees, spreads, slippage and tax are not included.",
+      },
+      records: [],
+      state: {
+        contributedGbp: 0,
+        cashGbp: 0,
+        positions: [],
+        benchmarkUnits: Object.fromEntries(COMPARISON_BENCHMARKS.map((benchmark) => [benchmark.ticker, 0])),
+      },
+      historyHash: null,
+      current: null,
+    };
+  }
+}
+
+function forwardHistoryHash(records) {
+  return createHash("sha256").update(JSON.stringify(records)).digest("hex");
+}
+
+function forwardCandidates(universe, series, cutoff) {
+  return universe.funds.map((fund) => {
+    const fundSeries = series[fund.ticker];
+    if (!isAliveAt(fund, fundSeries, cutoff)) return null;
+    const signalPrice = priceAt(fundSeries, cutoff);
+    const threeMonthsAgo = priceAt(fundSeries, monthEnd(previousMonth(cutoff.slice(0, 7), 3)));
+    const beta = betaAt(fundSeries, series[MARKET], cutoff);
+    const momentum = signalPrice && threeMonthsAgo ? signalPrice / threeMonthsAgo - 1 : null;
+    return { ...fund, signalPrice, beta, momentum };
+  }).filter((fund) => fund && fund.beta >= BETA_MIN && fund.beta <= BETA_MAX && Number.isFinite(fund.momentum));
+}
+
+function valuePositions(positions, series, date, fx) {
+  return positions.reduce((sum, position) => {
+    const price = priceAt(series[position.ticker], date);
+    return sum + (price ? position.units * price / fx : 0);
+  }, 0);
+}
+
+function closeForwardPositions(state, universe, series, executionDate) {
+  const closuresByTicker = new Map(
+    universe.funds.filter((fund) => fund.closedOn && fund.closedOn <= executionDate).map((fund) => [fund.ticker, fund]),
+  );
+  const kept = [];
+  const liquidations = [];
+  for (const position of state.positions) {
+    const closure = closuresByTicker.get(position.ticker);
+    if (!closure) {
+      kept.push(position);
+      continue;
+    }
+    const terminalPrice = priceAt(series[position.ticker], closure.closedOn);
+    const terminalFx = priceAt(series[FX], closure.closedOn);
+    if (!terminalPrice || !terminalFx) {
+      kept.push(position);
+      continue;
+    }
+    const valueGbp = position.units * terminalPrice / terminalFx;
+    state.cashGbp += valueGbp;
+    liquidations.push({ ticker:position.ticker, closedOn:closure.closedOn, valueGbp:round(valueGbp) });
+  }
+  state.positions = kept;
+  return liquidations;
+}
+
+function appendForwardRecord(ledger, signalMonth, universe, series) {
+  const signalDate = monthEnd(signalMonth);
+  if (!pointAfter(series[MARKET], signalDate)) return false;
+
+  const candidates = forwardCandidates(universe, series, signalDate);
+  const betaLeaders = candidates.sort((a, b) => b.beta - a.beta).slice(0, 15);
+  const momentumLeaders = betaLeaders.sort((a, b) => b.momentum - a.momentum).slice(0, 10);
+  const possibleDates = [...new Set(series[MARKET].filter((point) => point.date > signalDate).map((point) => point.date))];
+  const executionDate = possibleDates.find((date) => {
+    if (!priceOn(series[FX], date)) return false;
+    return momentumLeaders.filter((fund) => priceOn(series[fund.ticker], date)).length >= 3;
+  });
+  if (!executionDate) return false;
+
+  const state = structuredClone(ledger.state);
+  const liquidations = closeForwardPositions(state, universe, series, executionDate);
+  const signalFx = priceAt(series[FX], signalDate);
+  const executionFx = priceOn(series[FX], executionDate);
+  if (!signalFx || !executionFx) return false;
+
+  const valueBeforeSignal = state.cashGbp + valuePositions(state.positions, series, signalDate, signalFx);
+  const executable = momentumLeaders.filter((fund) => priceOn(series[fund.ticker], executionDate));
+  const underCap = executable.filter((fund) => {
+    if (!valueBeforeSignal) return true;
+    const position = state.positions.find((item) => item.ticker === fund.ticker);
+    const value = position ? position.units * fund.signalPrice / signalFx : 0;
+    return value / valueBeforeSignal < 0.10;
+  });
+  const selected = [...underCap, ...executable.filter((fund) => !underCap.includes(fund))].slice(0, 3);
+  if (selected.length < 3) return false;
+
+  const allocationGbp = MONTHLY_CONTRIBUTION_GBP / selected.length;
+  const trades = selected.map((fund) => {
+    const executionPriceUsd = priceOn(series[fund.ticker], executionDate);
+    const units = allocationGbp * executionFx / executionPriceUsd;
+    const position = state.positions.find((item) => item.ticker === fund.ticker);
+    if (position) {
+      position.units = round(position.units + units, 8);
+      position.contributedGbp = round(position.contributedGbp + allocationGbp);
+    } else {
+      state.positions.push({
+        ticker: fund.ticker,
+        name: fund.name,
+        units: round(units, 8),
+        contributedGbp: round(allocationGbp),
+        leveraged: fund.leveraged,
+      });
+    }
+    return {
+      ticker: fund.ticker,
+      name: fund.name,
+      beta: round(fund.beta),
+      momentum: round(fund.momentum * 100),
+      allocationGbp: round(allocationGbp),
+      executionPriceUsd: round(executionPriceUsd, 6),
+      units: round(units, 8),
+      leveraged: fund.leveraged,
+    };
+  });
+
+  state.contributedGbp = round(state.contributedGbp + MONTHLY_CONTRIBUTION_GBP);
+  const benchmarkValues = {};
+  for (const benchmark of COMPARISON_BENCHMARKS) {
+    const price = priceOn(series[benchmark.ticker], executionDate);
+    if (!price) return false;
+    const previousUnits = state.benchmarkUnits[benchmark.ticker] ?? 0;
+    state.benchmarkUnits[benchmark.ticker] = round(previousUnits + MONTHLY_CONTRIBUTION_GBP * executionFx / price, 8);
+    const valueGbp = state.benchmarkUnits[benchmark.ticker] * price / executionFx;
+    benchmarkValues[benchmark.ticker] = {
+      valueGbp: round(valueGbp),
+      returnPct: round((valueGbp / state.contributedGbp - 1) * 100),
+    };
+  }
+
+  const betaByTicker = new Map(candidates.map((fund) => [fund.ticker, fund.beta]));
+  const holdingValues = state.positions.map((position) => {
+    const price = priceAt(series[position.ticker], executionDate);
+    const valueGbp = price ? position.units * price / executionFx : 0;
+    return { ...position, valueGbp, beta:betaByTicker.get(position.ticker) ?? null };
+  }).filter((holding) => holding.valueGbp > 0);
+  if (state.cashGbp > 0) holdingValues.push({ ticker:"CASH", name:"Cash from closed ETFs", units:0, contributedGbp:0, leveraged:false, valueGbp:state.cashGbp, beta:0 });
+  const strategyValueGbp = holdingValues.reduce((sum, holding) => sum + holding.valueGbp, 0);
+  const holdings = holdingValues.sort((a, b) => b.valueGbp - a.valueGbp).map((holding) => ({
+    ticker: holding.ticker,
+    name: holding.name,
+    valueGbp: round(holding.valueGbp),
+    weight: round(holding.valueGbp / strategyValueGbp * 100),
+    beta: holding.beta === null ? null : round(holding.beta),
+    leveraged: holding.leveraged,
+  }));
+  const weightedBeta = holdingValues.reduce((sum, holding) => sum + (holding.beta ?? 0) * holding.valueGbp / strategyValueGbp, 0);
+  const spyValueGbp = benchmarkValues.SPY.valueGbp;
+  const record = {
+    signalMonth,
+    signalLabel: labelFor(signalMonth),
+    signalDate,
+    executionDate,
+    recordedAt: new Date().toISOString(),
+    contributionGbp: MONTHLY_CONTRIBUTION_GBP,
+    contributedGbp: state.contributedGbp,
+    strategyValueGbp: round(strategyValueGbp),
+    strategyReturnPct: round((strategyValueGbp / state.contributedGbp - 1) * 100),
+    benchmarkValueGbp: spyValueGbp,
+    benchmarkReturnPct: benchmarkValues.SPY.returnPct,
+    alphaGbp: round(strategyValueGbp - spyValueGbp),
+    weightedBeta: round(weightedBeta),
+    universeCount: universe.funds.filter((fund) => isAliveAt(fund, series[fund.ticker], signalDate)).length,
+    eligibleCount: candidates.length,
+    ranking: momentumLeaders.map((fund, index) => ({ rank:index + 1, ticker:fund.ticker, name:fund.name, beta:round(fund.beta), momentum:round(fund.momentum * 100), leveraged:fund.leveraged })),
+    trades,
+    holdings,
+    liquidations,
+    benchmarks: benchmarkValues,
+    locked: true,
+  };
+
+  ledger.records.push(record);
+  ledger.state = state;
+  ledger.startedAt ??= record.recordedAt;
+  ledger.updatedAt = record.recordedAt;
+  ledger.current = record;
+  ledger.historyHash = forwardHistoryHash(ledger.records);
+  return true;
+}
+
+async function updateForwardPaper(universe, series) {
+  const ledger = await loadForwardPaper();
+  if (ledger.records.length > 0 && ledger.historyHash !== forwardHistoryHash(ledger.records)) {
+    throw new Error("Forward ledger history hash does not match its locked records");
+  }
+  const originalRecords = JSON.stringify(ledger.records);
+  const recordedMonths = new Set(ledger.records.map((record) => record.signalMonth));
+  let appended = 0;
+  for (const signalMonth of completedMonths().filter((month) => month >= FORWARD_START_SIGNAL_MONTH)) {
+    if (recordedMonths.has(signalMonth)) continue;
+    if (!appendForwardRecord(ledger, signalMonth, universe, series)) break;
+    recordedMonths.add(signalMonth);
+    appended += 1;
+  }
+  if (JSON.stringify(ledger.records.slice(0, ledger.records.length - appended)) !== originalRecords) {
+    throw new Error("Forward ledger history changed instead of being appended");
+  }
+  if (appended > 0) {
+    await mkdir(dirname(FORWARD_OUTPUT_PATH), { recursive: true });
+    await writeFile(FORWARD_OUTPUT_PATH, `${JSON.stringify(ledger, null, 2)}\n`, "utf8");
+  }
+  return { ledger, appended };
 }
 
 function buildBacktest(universe, series, failures) {
@@ -437,7 +675,9 @@ const universe = await buildUniverse();
 console.log(`Universe: ${universe.counts.activeListed} active, ${universe.counts.seededClosures} recorded closures, ${universe.counts.tickerCollisionsExcluded} ticker collisions excluded`);
 const { result, failures } = await fetchAll(universe.funds);
 const backtest = buildBacktest(universe, result, failures);
+const forward = await updateForwardPaper(universe, result);
 await mkdir(dirname(OUTPUT_PATH), { recursive: true });
 await writeFile(OUTPUT_PATH, `${JSON.stringify(backtest, null, 2)}\n`, "utf8");
 console.log(`Wrote ${backtest.months.length} months through ${backtest.throughMonth} to ${OUTPUT_PATH}`);
 console.log(`Coverage: ${backtest.universeCoverage.pricedFunds} priced funds, ${backtest.universeCoverage.pricedClosures} closed histories, ${backtest.universeCoverage.missingHistories} missing histories`);
+console.log(forward.appended ? `Locked ${forward.appended} new forward paper decision${forward.appended === 1 ? "" : "s"}` : "Forward paper ledger is already current");

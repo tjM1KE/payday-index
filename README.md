@@ -10,6 +10,8 @@ I use the median rather than the GBP 70,275 mean because London's very high earn
 
 The experiment starts in April 2022. It compares the same monthly deposits with SPY for the S&P 500, QQQ for the Nasdaq-100 and VT for global stocks.
 
+The site keeps that historical backtest, then starts a separate forward paper account with the August 2026 signal. The forward account does not inherit the backtest balance.
+
 ## Why I made these rules
 
 I wanted something risky, but I did not want to choose funds on vibes alone.
@@ -51,7 +53,19 @@ Run a refresh with:
 npm run data:update
 ```
 
-The GitHub Actions workflow runs on the second day of each month. It refreshes the Nasdaq universe, remembers funds that disappear, adds the latest completed month, runs the checks and commits the new backtest if anything changed.
+The GitHub Actions workflow runs on the second day of each month. It refreshes the Nasdaq universe, remembers funds that disappear, updates the historical backtest and appends one new forward decision after the latest completed month.
+
+## Forward paper account
+
+The forward account fixes the timing shortcut in the historical backtest:
+
+- A signal uses only data dated on or before the completed month-end.
+- The ranking is frozen before any execution price is used.
+- The three paper purchases happen on the first later market session shared by all three funds.
+- Earlier monthly decisions are append-only. The updater checks that it has not rewritten them.
+- The same GBP 491.25 reaches SPY, QQQ and VT on the same execution date.
+
+The monthly workflow commits the ledger to `app/data/forward-paper.json`, then sends it to the site's private data store. The page reads that stored copy, so the live panel can update without rebuilding the whole site. Fees, spreads, slippage and tax remain outside the calculation.
 
 ## Run it locally
 
