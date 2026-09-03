@@ -35,9 +35,10 @@ h3 { font-size:19px; }
 .intro { max-width:760px; padding:62px 0 58px; }
 .intro-lede { max-width:750px; margin:28px 0 18px; font-size:25px; line-height:1.58; letter-spacing:-.025em; }
 .intro-copy { max-width:620px; margin:0; color:#555750; font-size:14px; line-height:1.7; }
-.annotated { display:inline-flex; flex-direction:column; vertical-align:middle; margin:0 4px; }
-.annotated>span { line-height:1.1; border-bottom:1px dotted var(--ink); }
-.annotated small { margin-top:5px; color:var(--clay); font:8px/1.2 var(--font-geist-mono),monospace; letter-spacing:.02em; white-space:nowrap; }
+.keyword { position:relative; color:var(--ink); font-weight:520; border-bottom:1px dotted var(--muted); cursor:help; }
+.keyword::after { content:attr(data-tip); position:absolute; z-index:5; left:50%; bottom:calc(100% + 8px); width:max-content; max-width:min(250px,80vw); padding:7px 9px; border-radius:7px; background:var(--ink); color:var(--paper); font:450 11px/1.35 var(--font-geist-sans),Arial,sans-serif; letter-spacing:0; opacity:0; pointer-events:none; transform:translate(-50%,5px); transition:opacity .17s ease,transform .17s ease; }
+.keyword:hover::after,.keyword:focus-visible::after { opacity:1; transform:translate(-50%,0); }
+.keyword:focus-visible { outline:2px solid var(--clay); outline-offset:3px; border-color:transparent; }
 
 .live-section { padding:36px 0 42px; border-top:1px solid var(--ink); border-bottom:1px solid var(--line); }
 .section-title-row,.panel-intro,.subsection-heading { display:grid; grid-template-columns:1fr 1fr; align-items:end; gap:60px; }
@@ -201,7 +202,6 @@ footer { min-height:110px; display:flex; justify-content:space-between; align-it
   .site-header nav a { font-size:8px; }
   .intro { padding:46px 0; }
   .intro-lede { font-size:21px; line-height:1.62; }
-  .annotated small { white-space:normal; }
   .section-title-row,.panel-intro,.subsection-heading { grid-template-columns:1fr; gap:14px; align-items:start; }
   .metric-strip { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .metric-strip>div { border-bottom:1px solid var(--line); }

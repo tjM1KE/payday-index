@@ -140,7 +140,7 @@ export default function Home() {
     <section className="intro" aria-labelledby="page-title">
       <p className="eyebrow">Personal finance / paper investing</p>
       <h1 id="page-title">Payday Index</h1>
-      <p className="intro-lede">I think building a <span className="annotated"><span>long-term portfolio</span><small>20 to 30 years</small></span> is an essential part of being <span className="annotated"><span>responsible</span><small>funnily, this one is risk-seeking</small></span> with money.</p>
+      <p className="intro-lede">I think building a <span className="keyword" tabIndex={0} aria-label="long-term portfolio, 20 to 30 years" data-tip="20 to 30 years">long-term portfolio</span> is an essential part of being <span className="keyword" tabIndex={0} aria-label="responsible, funnily this is a risk-seeking strategy" data-tip="funnily this is a risk-seeking strategy">responsible</span> with money.</p>
       <p className="intro-copy">I am careful with real money. This page lets me test the opposite with fake cash, fixed rules and a monthly record I cannot quietly rewrite later.</p>
     </section>
 

@@ -20,7 +20,8 @@ test("server-renders the data-backed Payday Index app", async () => {
   assert.match(html, /<title>Payday Index \| My risky paper experiment<\/title>/i);
   assert.match(html, /Michail Khasaev/);
   assert.match(html, /long-term portfolio/);
-  assert.match(html, /funnily, this one is risk-seeking/);
+  assert.match(html, /data-tip="20 to 30 years"/);
+  assert.match(html, /data-tip="funnily this is a risk-seeking strategy"/);
   assert.match(html, /Live forward paper account/i);
   assert.match(html, /Strategy sections/);
   assert.match(html, /20 to 30 years/);
